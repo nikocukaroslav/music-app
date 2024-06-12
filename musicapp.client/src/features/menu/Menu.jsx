@@ -8,13 +8,13 @@ import SettingsSvg from "@/svg/SettingsSvg.jsx";
 function Menu() {
     return (
         <nav
-            className="h-full w-72 bg-blue-100 border-r-2 px-1 py-2
-            border-r-slate-300 flex flex-col"
+            className="h-full w-1/6 main-color border-r-4 px-1 py-2
+            border-r-gray-700 flex flex-col"
         >
             <ul className=" flex flex-col gap-2 h-full">
                 <li>
                     <NavLink
-                        className="p-3 bg-blue-300 text-xl rounded-xl hover:bg-blue-200 transition flex gap-3 items-center"
+                        className="p-3 second-color text-xl rounded-xl hover:hover-color transition flex gap-3 items-center"
                         to="/"
                     >
                         <HomeSvg/>
@@ -23,7 +23,7 @@ function Menu() {
                 </li>
                 <li>
                     <NavLink
-                        className="p-3 bg-blue-300 text-xl rounded-xl hover:bg-blue-200 transition flex gap-3 items-center"
+                        className="p-3 second-color text-xl rounded-xl hover:hover-color transition flex gap-3 items-center"
                         to="/Music"
                     >
                         <MusicSvg/>
@@ -32,7 +32,7 @@ function Menu() {
                 </li>
                 <li>
                     <NavLink
-                        className="p-3 bg-blue-300 text-xl rounded-xl hover:bg-blue-200 transition flex gap-3 items-center"
+                        className="p-3 second-color text-xl rounded-xl hover:hover-color transition flex gap-3 items-center"
                         to="/Albums"
                     >
                         <AlbumSvg/>
@@ -41,7 +41,7 @@ function Menu() {
                 </li>
                 <li className="mt-auto ">
                     <NavLink
-                        className="p-3 bg-blue-300 text-xl rounded-xl hover:bg-blue-200 transition flex gap-3 items-center"
+                        className="p-3 second-color text-xl rounded-xl hover:hover-color transition flex gap-3 items-center"
                         to="/Settings"
                     >
                         <SettingsSvg/>

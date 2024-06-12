@@ -1,6 +1,6 @@
 function Home() {
     return (
-        <p className="text-5xl">Welcome</p>
+        <p className="text-5xl ">Welcome</p>
     );
 }
 

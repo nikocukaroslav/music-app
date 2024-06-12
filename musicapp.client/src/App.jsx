@@ -2,9 +2,9 @@ import "./index.css";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import AppLayout from "@/ui/AppLayout.jsx";
 import Home from "@/features/home/Home.jsx";
-import Music from "@/features/music/Music.jsx";
 import Albums from "@/features/album/Albums.jsx";
 import Settings from "@/ui/Settings.jsx";
+import MusicPage from "@/features/music/MusicPage.jsx";
 
 const router = createBrowserRouter([{
     element: <AppLayout/>,
@@ -15,7 +15,7 @@ const router = createBrowserRouter([{
         },
         {
             path: "/Music",
-            element: <Music/>
+            element: <MusicPage/>
         },
         {
             path: "Albums",

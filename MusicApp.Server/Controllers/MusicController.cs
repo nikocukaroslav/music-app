@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MusicApp.Server.Models;
+using MusicApp.Server.Repository.Interfaces;
 using Save__plan_your_trips.Data;
 
 namespace MusicApp.Server.Controllers
@@ -9,10 +10,12 @@ namespace MusicApp.Server.Controllers
     public class MusicController : ControllerBase
     {
         private readonly MusicAppDbContext _context;
+        private readonly IMusicRepository _musicRepository;
 
-        public MusicController(MusicAppDbContext musicAppDbContext)
+        public MusicController(MusicAppDbContext musicAppDbContext, IMusicRepository musicRepository)
         {
             _context = musicAppDbContext;
+            _musicRepository = musicRepository;
         }
 
         [HttpGet(Name = "GetMusics")]
@@ -41,6 +44,14 @@ namespace MusicApp.Server.Controllers
         {
             _context.Remove(id);
             _context.SaveChanges();
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> UploadMusic(IFormFile file)
+        {
+            var musicUrl = await _musicRepository.UploadMusic(file);
+
+            return new JsonResult(new { link = musicUrl });
         }
     }
 }

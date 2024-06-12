@@ -1,3 +1,54 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    color: #f3f4f6;
+}
+
+@layer components {
+    .main-color {
+        @apply bg-gray-500
+    }
+
+    .second-color {
+        @apply bg-gray-700
+    }
+
+    .child-color {
+        @apply fill-orange-600
+    }
+
+    .background-color {
+        @apply bg-gray-500
+    }
+
+    .hover-color {
+        @apply bg-gray-600
+    }
+
+    .border-color {
+        @apply bg-gray-700
+    }
+}
+
+.rhap_container {
+    color: #f3f4f6 !important;
+    background-color: #374151 !important;
+}
+
+.rhap_main-controls-button {
+    color: #ea580c !important;
+}
+
+.rhap_time {
+    color: #f3f4f6 !important;
+}
+
+.rhap_controls-section {
+    justify-content: unset !important;
+}
+
+.rhap_additional-controls {
+    display: none;
+}

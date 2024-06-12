@@ -9,6 +9,7 @@ builder.Services.AddDbContext<MusicAppDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("MusicAppDbConnectionString")));
 
 builder.Services.AddTransient<MusicAppDbContext>();
+builder.Services.AddTransient<MusicAppDbContext>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
