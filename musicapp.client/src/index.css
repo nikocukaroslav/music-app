@@ -50,5 +50,5 @@ body {
 }
 
 .rhap_additional-controls {
-    display: none;
+    display: none !important;
 }

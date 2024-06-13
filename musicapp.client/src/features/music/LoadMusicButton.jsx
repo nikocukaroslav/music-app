@@ -12,7 +12,7 @@ function LoadMusicButton() {
     return (
         <div
             onClick={handleClick}
-            className="p-3 second-color w-full text-xl rounded-xl hover:hover-color transition flex gap-3 items-center">
+            className="p-2 w-64 second-color text-xl hover:hover-color transition flex gap-3 items-center">
             <input
                 ref={fileInputRef}
                 type="file"

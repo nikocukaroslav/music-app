@@ -1,7 +1,7 @@
 import PlaySvg from "@/svg/PlaySvg.jsx";
 import DotsSvg from "@/svg/DotsSvg.jsx";
 import {useDispatch, useSelector} from "react-redux";
-import {setActiveMusic} from "@/features/music/musicSlice.js";
+import {setActiveMusic, setActiveMusicId, setActiveMusicName} from "@/features/music/musicSlice.js";
 import PauseSvg from "@/svg/PauseSvg.jsx";
 
 function Song({song}) {
@@ -12,13 +12,20 @@ function Song({song}) {
     const isPlaying = currentPlaying === musicUrl;
 
     function handleActive() {
-        dispatch(setActiveMusic(musicUrl))
+        if (!isPlaying) {
+            dispatch(setActiveMusic(musicUrl))
+            dispatch(setActiveMusicName(song.name))
+            dispatch(setActiveMusicId(song.id))
+        } else {
+            dispatch(setActiveMusic(""))
+            dispatch(setActiveMusicName(""))
+            dispatch(setActiveMusicId(""))
+        }
     }
-
 
     return (
         <li onClick={handleActive}
-            className={`flex justify-between ${isPlaying ? "hover-color" : "second-color"} rounded mx-2 my-1
+            className={`flex justify-between ${isPlaying ? "hover-color" : "second-color"}  mx-4 
                 p-2 content-center items-center hover:hover-color transition`}>
             {isPlaying ? < PauseSvg/> : <PlaySvg/>}
             <span>{song.name}</span>

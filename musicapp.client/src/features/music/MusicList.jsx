@@ -4,9 +4,9 @@ import Song from "@/features/music/Song.jsx";
 
 function MusicList() {
     const musicList = useLoaderData();
-    console.log(musicList)
+
     return (
-        <ul className="flex flex-col gap-1 mt-1 ">
+        <ul className="flex flex-col mt-3 divide-y-2 divide-gray-800 ">
             {musicList.map(song => {
                 return <Song song={song} key={song.id}/>
             })}

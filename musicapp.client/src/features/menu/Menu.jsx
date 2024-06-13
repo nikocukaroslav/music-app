@@ -4,7 +4,6 @@ import HomeSvg from "@/svg/HomeSvg.jsx";
 import MusicSvg from "@/svg/MusicSvg.jsx";
 import AlbumSvg from "@/svg/AlbumSvg.jsx";
 import SettingsSvg from "@/svg/SettingsSvg.jsx";
-import LoadMusicButton from "@/features/music/LoadMusicButton.jsx";
 
 function Menu() {
     return (
@@ -39,9 +38,6 @@ function Menu() {
                         <AlbumSvg/>
                         <span>Albums</span>
                     </NavLink>
-                </li>
-                <li>
-                    <LoadMusicButton/>
                 </li>
                 <li className="mt-auto ">
                     <NavLink
