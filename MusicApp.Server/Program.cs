@@ -1,4 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using MusicApp.Server.Repository;
+using MusicApp.Server.Repository.Interfaces;
 using Save__plan_your_trips.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,8 +11,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<MusicAppDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("MusicAppDbConnectionString")));
 
+builder.Services.AddTransient<IMusicRepository, MusicRepository>();
 builder.Services.AddTransient<MusicAppDbContext>();
-builder.Services.AddTransient<MusicAppDbContext>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+    });
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -31,6 +42,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors();
 
 app.MapControllers();
 

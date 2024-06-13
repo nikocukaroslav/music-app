@@ -5,16 +5,16 @@ import {useSelector} from "react-redux";
 import Player from "@/features/music/Player.jsx";
 
 function AppLayout() {
-    const isActive = useSelector((state) => state.menu.menuIsActive)
-
+    const isMenuActive = useSelector((state) => state.menu.menuIsActive)
+    const isMusicPlaying = useSelector((state) => state.music.musicUrl)
     return (
         <div className="h-screen flex flex-col">
             <ToolBar/>
             <main className="background-color flex flex-grow w-full">
-                {isActive && <Menu/>}
+                {isMenuActive && <Menu/>}
                 <div className="w-full relative">
                     <Outlet/>
-                    <Player/>
+                    {isMusicPlaying && <Player/>}
                 </div>
             </main>
         </div>

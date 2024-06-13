@@ -18,7 +18,7 @@ namespace MusicApp.Server.Controllers
             _musicRepository = musicRepository;
         }
 
-        [HttpGet(Name = "GetMusics")]
+        [HttpGet("GetAllMusic", Name = "GetAllMusic")]
         public List<Music> GetAll()
         {
             return _context.Musics.ToList();
@@ -30,7 +30,7 @@ namespace MusicApp.Server.Controllers
             return _context.Musics.Find(id);
         }
 
-        [HttpPost(Name = "AddMusic")]
+        [HttpPost("Add", Name = "AddMusic")]
         public Music Add(Music music)
         {
             _context.Add(music);
@@ -46,7 +46,7 @@ namespace MusicApp.Server.Controllers
             _context.SaveChanges();
         }
 
-        [HttpPost]
+        [HttpPost("Upload", Name = "UploadMusic")]
         public async Task<JsonResult> UploadMusic(IFormFile file)
         {
             var musicUrl = await _musicRepository.UploadMusic(file);

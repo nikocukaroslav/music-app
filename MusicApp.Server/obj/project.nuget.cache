@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "xZIi+FOR18ffa5yw5nDhBtbeCyUwAMwnyuvwPQZDZClwdkWdI6IWhF6w++BSZjcrLaqgUNuK1dOsw7/uQJyp/g==",
+  "dgSpecHash": "lISdoPlznpdE7Ryju0fE4jZY4NHqpiB8D2tjceSJOl2575H9zdzdLBM3XA9e8ZUngkMX/bE45beu8bUpp6eEMg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ярик\\Desktop\\React\\music-app\\MusicApp.Server\\MusicApp.Server.csproj",
   "expectedPackageFiles": [
@@ -24,6 +24,7 @@
     "C:\\Users\\Ярик\\.nuget\\packages\\microsoft.entityframeworkcore.design\\8.0.6\\microsoft.entityframeworkcore.design.8.0.6.nupkg.sha512",
     "C:\\Users\\Ярик\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\8.0.6\\microsoft.entityframeworkcore.relational.8.0.6.nupkg.sha512",
     "C:\\Users\\Ярик\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\8.0.6\\microsoft.entityframeworkcore.sqlserver.8.0.6.nupkg.sha512",
+    "C:\\Users\\Ярик\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\8.0.6\\microsoft.entityframeworkcore.tools.8.0.6.nupkg.sha512",
     "C:\\Users\\Ярик\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\Ярик\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\8.0.0\\microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\Ярик\\.nuget\\packages\\microsoft.extensions.caching.memory\\8.0.0\\microsoft.extensions.caching.memory.8.0.0.nupkg.sha512",

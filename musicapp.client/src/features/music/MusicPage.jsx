@@ -1,8 +1,11 @@
-import Song from "@/features/music/Song.jsx";
+import MusicList from "@/features/music/MusicList.jsx";
 
 function MusicPage() {
     return (
-        <div className=""><Song/></div>
+        <div>
+            <MusicList/>
+
+        </div>
     );
 }
 
