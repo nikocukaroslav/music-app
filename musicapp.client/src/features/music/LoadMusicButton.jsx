@@ -1,12 +1,19 @@
 import PlusSvg from "@/svg/PlusSvg.jsx";
 import {useRef} from "react";
-import {uploadMusic} from "@/services/apiMusicApp.js";
+import {useDispatch} from "react-redux";
+import {loadMusic} from "@/features/music/musicSlice.js";
 
 function LoadMusicButton() {
     const fileInputRef = useRef();
+    const dispatch = useDispatch();
 
     function handleClick() {
         fileInputRef.current.click();
+    }
+
+    function uploadFiles(e) {
+        dispatch(loadMusic(e));
+        e.target.value = null;
     }
 
     return (
@@ -17,7 +24,8 @@ function LoadMusicButton() {
                 ref={fileInputRef}
                 type="file"
                 className="hidden"
-                onChange={uploadMusic}
+                multiple
+                onChange={uploadFiles}
             >
             </input>
             <PlusSvg/>
@@ -25,5 +33,6 @@ function LoadMusicButton() {
         </div>
     );
 }
+
 
 export default LoadMusicButton;

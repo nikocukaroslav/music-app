@@ -1,5 +1,6 @@
 ﻿using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
+using Microsoft.AspNetCore.Http.HttpResults;
 using MusicApp.Server.Models;
 using MusicApp.Server.Repository.Interfaces;
 using Save__plan_your_trips.Data;
@@ -21,7 +22,6 @@ public class MusicRepository : IMusicRepository
 
     public async Task<string> UploadMusic(IFormFile file)
     {
-
         var client = new Cloudinary(account);
 
         var uploadParams = new VideoUploadParams
@@ -44,7 +44,42 @@ public class MusicRepository : IMusicRepository
         await _context.SaveChangesAsync();
 
         return musicUrl;
+    }
 
+    public async Task DeleteMusic(Guid id)
+    {
+        var client = new Cloudinary(account);
+        var music = await _context.Musics.FindAsync(id);
+
+        if (music == null)
+        {
+            throw new Exception("Music not found");
+        }
+
+        var musicUrl = music.Url;
+        var urlSlice = musicUrl.Split("/");
+        var fileName = urlSlice[urlSlice.Length - 1];
+        var musicToDelete = fileName.Split(".")[0];
+
+
+        Console.Write(musicToDelete);
+
+        var destroyParams = new DeletionParams(musicToDelete)
+        {
+            ResourceType = ResourceType.Video,
+        };
+
+        var result = await client.DestroyAsync(destroyParams);
+
+        if (result.Result == "ok")
+        {
+            _context.Musics.Remove(music);
+            await _context.SaveChangesAsync();
+        }
+        else
+        {
+            throw new Exception("Can't delete music from cloudinary");
+        }
     }
 
 }

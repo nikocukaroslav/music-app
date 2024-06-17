@@ -14,7 +14,9 @@ function Menu() {
             <ul className=" flex flex-col gap-2 h-full">
                 <li>
                     <NavLink
-                        className="p-3 second-color text-xl rounded-xl hover:hover-color transition flex gap-3 items-center"
+                        className={({isActive}) =>
+                            !isActive ? "p-3 second-color text-xl rounded-xl hover:hover-color transition flex gap-3 items-center"
+                                : " p-3 text-xl rounded-xl hover:hover-color transition flex gap-3 items-center hover-color"}
                         to="/"
                     >
                         <HomeSvg/>
@@ -23,7 +25,9 @@ function Menu() {
                 </li>
                 <li>
                     <NavLink
-                        className="p-3 second-color text-xl rounded-xl hover:hover-color transition flex gap-3 items-center"
+                        className={({isActive}) =>
+                            !isActive ? "p-3 second-color text-xl rounded-xl hover:hover-color transition flex gap-3 items-center"
+                                : " p-3 text-xl rounded-xl hover:hover-color transition flex gap-3 items-center hover-color"}
                         to="/Music"
                     >
                         <MusicSvg/>
@@ -32,7 +36,9 @@ function Menu() {
                 </li>
                 <li>
                     <NavLink
-                        className="p-3 second-color text-xl rounded-xl hover:hover-color transition flex gap-3 items-center"
+                        className={({isActive}) =>
+                            !isActive ? "p-3 second-color text-xl rounded-xl hover:hover-color transition flex gap-3 items-center"
+                                : " p-3 text-xl rounded-xl hover:hover-color transition flex gap-3 items-center hover-color"}
                         to="/Albums"
                     >
                         <AlbumSvg/>
@@ -41,7 +47,9 @@ function Menu() {
                 </li>
                 <li className="mt-auto ">
                     <NavLink
-                        className="p-3 second-color text-xl rounded-xl hover:hover-color transition flex gap-3 items-center"
+                        className={({isActive}) =>
+                            !isActive ? "p-3 second-color text-xl rounded-xl hover:hover-color transition flex gap-3 items-center"
+                                : " p-3 text-xl rounded-xl hover:hover-color transition flex gap-3 items-center hover-color"}
                         to="/Settings"
                     >
                         <SettingsSvg/>

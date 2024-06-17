@@ -1,12 +1,11 @@
-import {useLoaderData} from "react-router-dom";
-import {getMusic} from "@/services/apiMusicApp.js";
 import Song from "@/features/music/Song.jsx";
+import {useSelector} from "react-redux";
 
 function MusicList() {
-    const musicList = useLoaderData();
+    const musicList = useSelector(state => state.music.music);
 
     return (
-        <ul className="flex flex-col mt-3 divide-y-2 divide-gray-800 ">
+        <ul className="flex flex-col mt-4 divide-y-2 divide-gray-800 mx-2 mb-24">
             {musicList.map(song => {
                 return <Song song={song} key={song.id}/>
             })}
@@ -14,9 +13,5 @@ function MusicList() {
     );
 }
 
-export async function musicLoader() {
-    const music = await getMusic();
-    return music;
-}
 
 export default MusicList;

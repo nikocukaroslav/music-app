@@ -19,6 +19,13 @@ body {
         @apply fill-orange-600
     }
 
+    .child-color-2 {
+        @apply fill-gray-700
+    }
+    .child-color-3 {
+        @apply fill-orange-600
+    }
+
     .background-color {
         @apply bg-gray-500
     }
@@ -29,6 +36,30 @@ body {
 
     .border-color {
         @apply bg-gray-700
+    }
+
+    .loader {
+        width: 45px;
+        aspect-ratio: 0.75;
+        --c: no-repeat linear-gradient(theme(colors.stone.800) 0 0);
+        background: var(--c) 0% 50%, var(--c) 50% 50%, var(--c) 100% 50%;
+        background-size: 20% 50%;
+        animation: loading 1s infinite linear;
+    }
+
+    @keyframes loading {
+        20% {
+            background-position: 0% 0%, 50% 50%, 100% 50%;
+        }
+        40% {
+            background-position: 0% 100%, 50% 0%, 100% 50%;
+        }
+        60% {
+            background-position: 0% 50%, 50% 100%, 100% 0%;
+        }
+        80% {
+            background-position: 0% 50%, 50% 50%, 100% 100%;
+        }
     }
 }
 
@@ -46,9 +77,14 @@ body {
 }
 
 .rhap_controls-section {
-    justify-content: unset !important;
+    position: relative !important;
+    justify-content: flex-start !important;
 }
 
 .rhap_additional-controls {
-    display: none !important;
+    position: absolute !important;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    justify-content: flex-end !important;
 }

@@ -3,7 +3,7 @@ import MusicToolbar from "@/features/music/MusicToolbar.jsx";
 
 function MusicPage() {
     return (
-        <div>
+        <div className="overflow-hidden">
             <MusicToolbar/>
             <MusicList/>
         </div>

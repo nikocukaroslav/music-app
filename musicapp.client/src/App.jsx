@@ -5,7 +5,8 @@ import Home from "@/features/home/Home.jsx";
 import Albums from "@/features/album/Albums.jsx";
 import Settings from "@/ui/Settings.jsx";
 import MusicPage from "@/features/music/MusicPage.jsx";
-import {musicLoader} from "@/features/music/MusicList.jsx";
+import {musicLoader} from "@/services/loaders.js";
+
 
 const router = createBrowserRouter([{
     element: <AppLayout/>,
