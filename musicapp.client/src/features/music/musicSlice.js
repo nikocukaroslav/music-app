@@ -43,6 +43,9 @@ const musicSlice = createSlice({
         addToSelected(state, action) {
             state.selectedMusic.push(action.payload);
         },
+        removeFromSelected(state, action) {
+            state.selectedMusic = state.selectedMusic.filter(id => id !== action.payload)
+        },
         copyToClipboard(state) {
             state.copied = !state.copied
         },
@@ -128,6 +131,7 @@ export const {
     copyToClipboard,
     setSelectMode,
     addToSelected,
+    removeFromSelected,
 } = musicSlice.actions;
 
 export default musicSlice.reducer;

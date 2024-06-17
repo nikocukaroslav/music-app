@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {
     addToSelected,
     copyToClipboard,
+    removeFromSelected,
     removeMusic,
     setActiveMusic,
     setActiveMusicId,
@@ -45,9 +46,13 @@ function Song({song}) {
     }
 
     function handleSelected(e) {
-        e.stopPropagation();
-        dispatch(addToSelected(song.id))
+        if (e.target.checked) {
+            dispatch(addToSelected(song.id))
+        } else {
+            dispatch(removeFromSelected(song.id))
+        }
     }
+
 
     return (
         <li onClick={handleActive}
@@ -58,9 +63,11 @@ function Song({song}) {
             {
                 isSelectModeActive ?
                     <input type="checkbox"
-                           onClick={handleSelected}
+                           onClick={e => e.stopPropagation()}
+                           onChange={handleSelected}
                            className="appearance-none h-5 w-5 border-2 border-gray-500
-                        rounded checked: checked:bg-gray-500 focus:outline-none hover:bg-gray-500 "/> :
+                        rounded checked: checked:bg-gray-500 focus:outline-none hover:bg-gray-500 "
+                    /> :
                     <OptionsButton onDelete={handleDelete} onShare={handleShare}/>
             }
         </li>
