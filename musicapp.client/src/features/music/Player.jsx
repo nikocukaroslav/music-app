@@ -1,11 +1,12 @@
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import {useDispatch, useSelector} from "react-redux";
-import {fetchMusic, playNextSong, playPreviousSong, shuffleMusic} from "@/features/music/musicSlice.js";
+import {playNextSong, playPreviousSong, replaySong, shuffleMusic} from "@/features/music/musicSlice.js";
+import {useEffect} from "react";
 
 
 function Player() {
-    const audioLink = useSelector(state => state.music.musicUrl);
+    const musicUrl = useSelector(state => state.music.musicUrl);
     const isLooping = useSelector(state => state.music.loop);
     const currentMusicName = useSelector(state => state.music.musicName);
     const isShuffled = useSelector(state => state.music.shuffle);
@@ -13,34 +14,39 @@ function Player() {
 
     const dispatch = useDispatch();
 
-    async function handleNext() {
-        await dispatch(fetchMusic())
-        await dispatch(playNextSong())
+    useEffect(() => {
+        if (isShuffled) {
+            handleShuffled();
+        }
+    }, [isShuffled]);
+
+    function handleNext() {
+        dispatch(playNextSong())
     }
 
-    async function handlePrevious() {
-        await dispatch(fetchMusic())
-        await dispatch(playPreviousSong())
+    function handlePrevious() {
+        dispatch(playPreviousSong())
     }
 
-    async function handleShuffled() {
-        await dispatch(fetchMusic());
-        if (music.length > 0)
-            await dispatch(shuffleMusic());
+    function handleShuffled() {
+        if (music.length > 0) {
+            dispatch(shuffleMusic());
+        }
     }
 
     return (
         <AudioPlayer
+            id="player"
             className="absolute bottom-0"
-            src={audioLink}
+            src={musicUrl}
             controls
             autoPlay
-            loop={isLooping}
             onClickNext={isShuffled ? handleShuffled : handleNext}
             onClickPrevious={handlePrevious}
             showSkipControls
             showJumpControls={false}
-            onEnded={!isLooping && (isShuffled ? handleShuffled : handleNext)}
+            onEnded={isLooping ? () => dispatch(replaySong()) : (isShuffled ? handleShuffled : handleNext)}
+            loop={isLooping}
             customAdditionalControls={[
                 <p>{currentMusicName}</p>
             ]}

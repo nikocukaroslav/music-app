@@ -46,6 +46,9 @@ const musicSlice = createSlice({
         removeFromSelected(state, action) {
             state.selectedMusic = state.selectedMusic.filter(id => id !== action.payload)
         },
+        cleanSelected(state) {
+            state.selectedMusic = [];
+        },
         copyToClipboard(state) {
             state.copied = !state.copied
         },
@@ -91,11 +94,17 @@ const musicSlice = createSlice({
             state.musicUrl = state.music[previousIndex].url;
             state.musicId = state.music[previousIndex].id;
             state.musicName = state.music[previousIndex].name;
-        }
-
+        },
+        replaySong(state) {
+            state.musicUrl = state.musicUrl;
+            state.musicId = state.musicId;
+            state.musicName = state.musicName;
+            state.loop = state.loop;
+        },
     },
     extraReducers: builder => {
         builder.addCase(fetchMusic.pending, (state) => {
+            
             state.isLoading = true;
         });
         builder.addCase(fetchMusic.fulfilled, (state, action) => {
@@ -132,6 +141,8 @@ export const {
     setSelectMode,
     addToSelected,
     removeFromSelected,
+    cleanSelected,
+    replaySong,
 } = musicSlice.actions;
 
 export default musicSlice.reducer;

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MusicApp.Server.Models;
 using Save__plan_your_trips.Data;
+using System.Linq;
 
 namespace MusicApp.Server.Controllers
 {
@@ -15,10 +16,18 @@ namespace MusicApp.Server.Controllers
             _context = musicAppDbContext;
         }
 
-        [HttpGet(Name = "GetAlbums")]
+        [HttpGet("GetAllAlbums")]
         public List<Album> GetAll()
         {
             return _context.Albums.ToList();
+        }
+
+        [HttpGet("GetAlbum/${id}")]
+        public Album Get(Guid id)
+        {
+            var album = _context.Albums.Find(id);
+
+            return album;
         }
 
         [HttpPost(Name = "AddAlbum")]

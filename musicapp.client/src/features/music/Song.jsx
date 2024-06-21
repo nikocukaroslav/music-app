@@ -65,8 +65,8 @@ function Song({song}) {
                     <input type="checkbox"
                            onClick={e => e.stopPropagation()}
                            onChange={handleSelected}
-                           className="appearance-none h-5 w-5 border-2 border-gray-500
-                        rounded checked: checked:bg-gray-500 focus:outline-none hover:bg-gray-500 "
+                           className="appearance-none h-5 w-5 border-2 border-orange-600
+                        rounded checked:bg-orange-600 focus:outline-none hover:bg-orange-600 "
                     /> :
                     <OptionsButton onDelete={handleDelete} onShare={handleShare}/>
             }
