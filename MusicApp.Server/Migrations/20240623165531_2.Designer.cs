@@ -12,8 +12,8 @@ using Save__plan_your_trips.Data;
 namespace MusicApp.Server.Migrations
 {
     [DbContext(typeof(MusicAppDbContext))]
-    [Migration("20240623082548_4")]
-    partial class _4
+    [Migration("20240623165531_2")]
+    partial class _2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,6 +33,10 @@ namespace MusicApp.Server.Migrations
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("MusicList")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -54,9 +58,6 @@ namespace MusicApp.Server.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("AlbumId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -69,8 +70,6 @@ namespace MusicApp.Server.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AlbumId");
 
                     b.HasIndex("UserId");
 
@@ -105,18 +104,9 @@ namespace MusicApp.Server.Migrations
 
             modelBuilder.Entity("MusicApp.Server.Models.Music", b =>
                 {
-                    b.HasOne("MusicApp.Server.Models.Album", null)
-                        .WithMany("Musics")
-                        .HasForeignKey("AlbumId");
-
                     b.HasOne("MusicApp.Server.Models.User", null)
                         .WithMany("Musics")
                         .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("MusicApp.Server.Models.Album", b =>
-                {
-                    b.Navigation("Musics");
                 });
 
             modelBuilder.Entity("MusicApp.Server.Models.User", b =>

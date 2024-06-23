@@ -33,7 +33,7 @@ export const initialState = {
     isLoading: false,
     copied: false,
     selectMode: false,
-    selectedMusic: []
+    selectedMusic: [],
 }
 
 const musicSlice = createSlice({

@@ -12,8 +12,8 @@ using Save__plan_your_trips.Data;
 namespace MusicApp.Server.Migrations
 {
     [DbContext(typeof(MusicAppDbContext))]
-    [Migration("20240613070732_3")]
-    partial class _3
+    [Migration("20240623160351_1")]
+    partial class _1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,7 +38,7 @@ namespace MusicApp.Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -100,15 +100,13 @@ namespace MusicApp.Server.Migrations
                 {
                     b.HasOne("MusicApp.Server.Models.User", null)
                         .WithMany("Albums")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("MusicApp.Server.Models.Music", b =>
                 {
                     b.HasOne("MusicApp.Server.Models.Album", null)
-                        .WithMany("Musics")
+                        .WithMany("MusicList")
                         .HasForeignKey("AlbumId");
 
                     b.HasOne("MusicApp.Server.Models.User", null)
@@ -118,7 +116,7 @@ namespace MusicApp.Server.Migrations
 
             modelBuilder.Entity("MusicApp.Server.Models.Album", b =>
                 {
-                    b.Navigation("Musics");
+                    b.Navigation("MusicList");
                 });
 
             modelBuilder.Entity("MusicApp.Server.Models.User", b =>

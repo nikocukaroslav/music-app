@@ -14,7 +14,6 @@ function AddMusicButton() {
         <div
             onClick={handleClick}
             className="p-2  w-64 second-color text-xl hover:hover-color transition flex gap-3 items-center">
-            
             <PlusSvg/>
             <span>Add music</span>
         </div>

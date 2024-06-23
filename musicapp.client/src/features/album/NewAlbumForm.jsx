@@ -1,14 +1,12 @@
-import {addAlbum} from "@/services/apiMusicApp.js";
 import Button from "@/ui/Button.jsx";
 import {useDispatch, useSelector} from "react-redux";
-import {toggleCreateAlbumForm} from "@/features/album/albumSlice.js";
+import {createAlbum, toggleCreateAlbumForm} from "@/features/album/albumSlice.js";
 import MusicList from "@/features/music/MusicList.jsx";
 import {useState} from "react";
 import {generateGUID} from "@/helpers.js";
 
 function NewAlbumForm() {
     const [albumName, setAlbumName] = useState("");
-    const createdDate = Date.now();
     const musicList = useSelector(state => state.music.selectedMusic)
     const dispatch = useDispatch();
 
@@ -21,10 +19,13 @@ function NewAlbumForm() {
         const newAlbum = {
             id: generateGUID(),
             name: albumName,
-            createdDate: createdDate,
+            createdDate: new Date().toISOString(),
+            musicList: musicList,
         }
+
         console.log(newAlbum)
-        await addAlbum(newAlbum)
+        dispatch(createAlbum(newAlbum))
+        dispatch(toggleCreateAlbumForm())
     }
 
     return (
@@ -37,8 +38,7 @@ function NewAlbumForm() {
                            onChange={(e) => setAlbumName(e.target.value)}
                            className="p-1 background-color outline outline-gray-600 text-gray-100 rounded w-full"/>
                 </label>
-                <div className="mb-2">
-
+                <div className="">
                     <MusicList songStyles=" overflow-hidden max-w-72"
                                className="mb-0 overflow-auto shadow shadow-gray-800"
                                albumCreating={true}/>

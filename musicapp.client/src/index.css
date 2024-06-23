@@ -16,14 +16,14 @@ body {
     }
 
     .child-color {
-        @apply fill-orange-600
+        @apply fill-green-600
     }
 
     .child-color-2 {
         @apply fill-gray-700
     }
     .child-color-3 {
-        @apply fill-orange-600
+        @apply fill-green-600
     }
 
     .background-color {
@@ -70,7 +70,7 @@ body {
 }
 
 .rhap_main-controls-button {
-    color: #ea580c !important;
+    color: #16a34a !important;
 }
 
 .rhap_time {

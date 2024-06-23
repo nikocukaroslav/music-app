@@ -17,7 +17,6 @@ export async function uploadMusic(e) {
     return result;
 }
 
-
 export async function getMusic() {
     const result = await fetch(`${BASE_URL}/Music/GetAll`);
 
@@ -45,11 +44,19 @@ export async function addAlbum(album) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: album
+        body: JSON.stringify(album)
     })
 
     const result = await response.json()
     console.log(result)
 
     return result;
+}
+
+export async function getAlbums() {
+    const result = await fetch(`${BASE_URL}/Album/GetAll`)
+
+    if (!result.ok) throw Error("Couldn't find any music");
+
+    return await result.json()
 }

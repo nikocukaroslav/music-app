@@ -8,8 +8,8 @@ import SettingsSvg from "@/svg/SettingsSvg.jsx";
 function Menu() {
     return (
         <nav
-            className="h-full w-1/6 main-color border-r-4 px-1 py-2
-            border-r-gray-700 flex flex-col"
+            className="h-full w-1/6 main-color px-1 py-2
+             flex flex-col shadow-[0_0_12px_0_rgba(0,0,0,1)] shadow-gray-800"
         >
             <ul className=" flex flex-col gap-2 h-full">
                 <li>

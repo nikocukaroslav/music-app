@@ -21,6 +21,7 @@ function AlbumToolbar() {
     const selectedMusic = useSelector(state => state.music.selectedMusic);
     const menuIsActive = useSelector(state => state.menu.menuIsActive)
     const musicIsPlaying = useSelector(state => state.music.musicUrl)
+    const activeAlbum = useSelector(state => state.album.activeAlbum)
     const [confirmFormActive, setConfirmFormActive] = useState(false);
 
     const node = useRef();
@@ -97,7 +98,7 @@ function AlbumToolbar() {
                     Select
                 </Button>
 
-                <span className="absolute flex self-center translate-x-1/2 right-1/2 text-xl">Music</span>
+                <span className="absolute flex self-center translate-x-1/2 right-1/2 text-xl">{activeAlbum?.name}</span>
 
                 {activeSelectMode && <>
                     <Button onClick={handleDeleting}>

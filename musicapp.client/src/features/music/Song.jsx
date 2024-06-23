@@ -11,6 +11,7 @@ import {
 } from "@/features/music/musicSlice.js";
 import PauseSvg from "@/svg/PauseSvg.jsx";
 import OptionsButton from "@/ui/OptionsButton.jsx";
+import {addToMusicList, removeFromMusicList} from "@/features/album/albumSlice.js";
 
 function Song({song, songStyles, albumCreating = false}) {
     const currentPlaying = useSelector(state => state.music.musicUrl);
@@ -33,6 +34,7 @@ function Song({song, songStyles, albumCreating = false}) {
         }
     }
 
+
     function handleDelete(e) {
         e.stopPropagation();
         dispatch(removeMusic(song.id));
@@ -47,8 +49,10 @@ function Song({song, songStyles, albumCreating = false}) {
 
     function handleSelected(e) {
         if (e.target.checked) {
-            dispatch(addToSelected(song.id))
+            dispatch(addToMusicList(song));
+            dispatch(addToSelected(song.id));
         } else {
+            dispatch(removeFromMusicList(song.id))
             dispatch(removeFromSelected(song.id))
         }
     }
@@ -65,8 +69,8 @@ function Song({song, songStyles, albumCreating = false}) {
                     <input type="checkbox"
                            onClick={e => e.stopPropagation()}
                            onChange={handleSelected}
-                           className="appearance-none h-5 w-5 border-2 border-orange-600
-                        rounded checked:bg-orange-600 focus:outline-none hover:bg-orange-600 "
+                           className="appearance-none h-5 w-5 border-2 border-green-600
+                        rounded checked:bg-green-600 focus:outline-none hover:bg-green-600 "
                     /> :
                     <OptionsButton onDelete={handleDelete} onShare={handleShare}/>
             }

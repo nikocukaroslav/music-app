@@ -4,7 +4,7 @@ import AppLayout from "@/ui/AppLayout.jsx";
 import Home from "@/features/home/Home.jsx";
 import Settings from "@/ui/Settings.jsx";
 import MusicPage from "@/features/music/MusicPage.jsx";
-import {musicLoader} from "@/services/loaders.js";
+import {albumLoader, musicLoader} from "@/services/loaders.js";
 import AlbumsPage from "@/features/album/AlbumsPage.jsx";
 
 
@@ -23,7 +23,7 @@ const router = createBrowserRouter([{
         {
             path: "Albums",
             element: <AlbumsPage/>,
-            loader: musicLoader,
+            loader: albumLoader,
         },
         {
             path: "Settings",

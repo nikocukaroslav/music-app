@@ -8,7 +8,8 @@ import Copied from "@/ui/Copied.jsx";
 import NewAlbumForm from "@/features/album/NewAlbumForm.jsx";
 
 function AppLayout() {
-    const isLoading = useSelector(state => state.music.isLoading);
+    const isLoadingMusic = useSelector(state => state.music.isLoading);
+    const isLoadingAlbum = useSelector(state => state.album.isLoading);
     const copied = useSelector(state => state.music.copied);
     const isMenuActive = useSelector((state) => state.menu.menuIsActive);
     const isMusicPlaying = useSelector((state) => state.music.musicUrl);
@@ -23,7 +24,7 @@ function AppLayout() {
             {
                 copied && <Copied/>
             }
-            {isLoading && <Loader/>}
+            {isLoadingMusic || isLoadingAlbum && <Loader/>}
             <div className="h-screen flex flex-col">
                 <ToolBar/>
                 <main className="background-color flex flex-grow overflow-hidden">
