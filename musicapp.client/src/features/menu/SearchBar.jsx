@@ -46,7 +46,7 @@ function SearchBar() {
     }, [searchMode]);
 
     return (
-        <div className="w-80 flex content-center gap-3 " ref={node}>
+        <div className="w-80 flex content-center gap-3" ref={node}>
             <input className="p-1 background-color outline outline-gray-600 text-gray-100 rounded w-full"
                    onChange={handleSearch}
                    onClick={() => setSearchMode(true)}

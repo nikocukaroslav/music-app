@@ -104,7 +104,6 @@ const musicSlice = createSlice({
     },
     extraReducers: builder => {
         builder.addCase(fetchMusic.pending, (state) => {
-            
             state.isLoading = true;
         });
         builder.addCase(fetchMusic.fulfilled, (state, action) => {

@@ -16,13 +16,13 @@ namespace MusicApp.Server.Controllers
             _context = musicAppDbContext;
         }
 
-        [HttpGet("GetAllAlbums")]
+        [HttpGet("GetAll")]
         public List<Album> GetAll()
         {
             return _context.Albums.ToList();
         }
 
-        [HttpGet("GetAlbum/${id}")]
+        [HttpGet("Get/${id}")]
         public Album Get(Guid id)
         {
             var album = _context.Albums.Find(id);
@@ -30,7 +30,7 @@ namespace MusicApp.Server.Controllers
             return album;
         }
 
-        [HttpPost(Name = "AddAlbum")]
+        [HttpPost("Add")]
         public Album Add(Album album)
         {
             _context.Add(album);
@@ -39,7 +39,7 @@ namespace MusicApp.Server.Controllers
             return album;
         }
 
-        [HttpDelete(Name = "DeleteAlbum")]
+        [HttpDelete("Delete/${id}")]
         public void Delete(Guid id)
         {
             _context.Remove(id);

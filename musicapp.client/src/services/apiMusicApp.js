@@ -38,3 +38,18 @@ export async function deleteMusic(id) {
 
     return `Music with id ${id} has been deleted`
 }
+
+export async function addAlbum(album) {
+    const response = await fetch(`${BASE_URL}/Album/Add`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: album
+    })
+
+    const result = await response.json()
+    console.log(result)
+
+    return result;
+}

@@ -12,7 +12,7 @@ import {
 import PauseSvg from "@/svg/PauseSvg.jsx";
 import OptionsButton from "@/ui/OptionsButton.jsx";
 
-function Song({song}) {
+function Song({song, songStyles, albumCreating = false}) {
     const currentPlaying = useSelector(state => state.music.musicUrl);
     const isSelectModeActive = useSelector((state) => state.music.selectMode);
 
@@ -59,9 +59,9 @@ function Song({song}) {
             className={`flex justify-between ${isPlaying ? "hover-color" : "second-color"} 
                 p-2 content-center items-center hover:hover-color transition`}>
             {isPlaying ? < PauseSvg/> : <PlaySvg/>}
-            <span>{song.name}</span>
+            <span className={songStyles}>{song.name}</span>
             {
-                isSelectModeActive ?
+                albumCreating || isSelectModeActive ?
                     <input type="checkbox"
                            onClick={e => e.stopPropagation()}
                            onChange={handleSelected}

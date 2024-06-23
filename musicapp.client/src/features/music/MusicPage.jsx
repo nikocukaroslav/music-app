@@ -5,7 +5,7 @@ function MusicPage() {
     return (
         <div className="overflow-hidden">
             <MusicToolbar/>
-            <MusicList/>
+            <MusicList className="mx-4"/>
         </div>
     );
 }

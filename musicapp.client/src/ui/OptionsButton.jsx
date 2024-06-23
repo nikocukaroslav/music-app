@@ -30,7 +30,7 @@ function OptionsButton({onDelete, onShare}) {
 
     return (
         <div className="relative flex" ref={node}>
-            <button className="p-1" onClick={handleActive}><DotsSvg/></button>
+            <span className="p-1" onClick={handleActive}><DotsSvg/></span>
             {active && <div className="absolute main-color border-2 border-gray-700
             right-5 top-6 w-40 flex flex-col divide-y-2 items-start divide-gray-700 z-10">
                 <button className="p-1 flex gap-2.5 w-full items-center transition hover:hover-color"
