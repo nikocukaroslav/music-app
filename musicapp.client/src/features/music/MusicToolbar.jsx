@@ -86,7 +86,7 @@ function MusicToolbar() {
 
 
     return (
-        <nav className="flex justify-between items-center m-2 relative ">
+        <nav className="flex justify-between items-center m-2">
             <div className="flex gap-2">
                 <Button onClick={handleShuffling} clicked={activeShuffling}>
                     <ShuffleSvg/>

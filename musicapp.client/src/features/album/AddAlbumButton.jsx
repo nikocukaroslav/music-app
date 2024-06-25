@@ -1,13 +1,16 @@
 import {useDispatch} from "react-redux";
 import NewAlbum from "@/svg/NewAlbum.jsx";
 import {setActiveAlbum, toggleCreateAlbumForm} from "@/features/album/albumSlice.js";
+import {cleanSelected, fetchMusic} from "@/features/music/musicSlice.js";
 
 function AddAlbumButton() {
     const dispatch = useDispatch();
 
     function handleCreateAlbumForm() {
+        dispatch(fetchMusic())
         dispatch(toggleCreateAlbumForm());
-        dispatch(setActiveAlbum(null));
+        dispatch(setActiveAlbum(null))
+        dispatch(cleanSelected())
     }
 
     return (

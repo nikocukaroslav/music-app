@@ -17,8 +17,8 @@ const router = createBrowserRouter([{
         },
         {
             path: "/Music",
+            element: <MusicPage/>,
             loader: musicLoader,
-            element: <MusicPage/>
         },
         {
             path: "Albums",

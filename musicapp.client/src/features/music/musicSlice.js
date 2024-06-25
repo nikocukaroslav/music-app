@@ -40,6 +40,9 @@ const musicSlice = createSlice({
     name: "music",
     initialState,
     reducers: {
+        setMusic(state, action) {
+            state.music = action.payload;
+        },
         addToSelected(state, action) {
             state.selectedMusic.push(action.payload);
         },
@@ -95,11 +98,17 @@ const musicSlice = createSlice({
             state.musicId = state.music[previousIndex].id;
             state.musicName = state.music[previousIndex].name;
         },
+        playFirstSong(state) {
+            if (state.music.length === 0) return;
+            state.musicUrl = state.music[0].url;
+            state.musicId = state.music[0].id;
+            state.musicName = state.music[0].name;
+        },
         replaySong(state) {
-            state.musicUrl = state.musicUrl;
-            state.musicId = state.musicId;
-            state.musicName = state.musicName;
-            state.loop = state.loop;
+            state.musicUrl
+            state.musicId
+            state.musicName
+            state.loop
         },
     },
     extraReducers: builder => {
@@ -142,6 +151,8 @@ export const {
     removeFromSelected,
     cleanSelected,
     replaySong,
+    setMusic,
+    playFirstSong
 } = musicSlice.actions;
 
 export default musicSlice.reducer;

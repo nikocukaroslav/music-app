@@ -22,12 +22,22 @@ namespace MusicApp.Server.Controllers
             return _context.Albums.ToList();
         }
 
-        [HttpGet("Get/${id}")]
-        public Album Get(Guid id)
+        [HttpPatch("Update")]
+        public Album Update(Album album)
         {
-            var album = _context.Albums.Find(id);
+           var albumToEdit =   _context.Albums.FirstOrDefault(a => a.Id == album.Id);
 
-            return album;
+            if (albumToEdit != null)
+            {
+                albumToEdit.Id= album.Id;
+                albumToEdit.MusicList = album.MusicList;
+
+                _context.SaveChanges();
+
+                return albumToEdit;
+            }
+
+            return null;
         }
 
         [HttpPost("Add")]
@@ -39,11 +49,17 @@ namespace MusicApp.Server.Controllers
             return album;
         }
 
-        [HttpDelete("Delete/${id}")]
+        [HttpDelete("Delete/{id}")]
         public void Delete(Guid id)
         {
-            _context.Remove(id);
-            _context.SaveChanges();
+            var albumToDelete = _context.Albums.Find(id);
+
+            if (albumToDelete != null)
+            {
+                _context.Remove(albumToDelete);
+                _context.SaveChanges();
+            }
+            else throw new Exception("Can't delete album");
         }
     }
 }

@@ -24,7 +24,7 @@ function AppLayout() {
             {
                 copied && <Copied/>
             }
-            {isLoadingMusic || isLoadingAlbum && <Loader/>}
+            {(isLoadingMusic || isLoadingAlbum) && <Loader/>}
             <div className="h-screen flex flex-col">
                 <ToolBar/>
                 <main className="background-color flex flex-grow overflow-hidden">

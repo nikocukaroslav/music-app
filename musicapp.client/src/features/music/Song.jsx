@@ -11,7 +11,7 @@ import {
 } from "@/features/music/musicSlice.js";
 import PauseSvg from "@/svg/PauseSvg.jsx";
 import OptionsButton from "@/ui/OptionsButton.jsx";
-import {addToMusicList, removeFromMusicList} from "@/features/album/albumSlice.js";
+import {addToMusicList, removeFromAlbum, removeFromMusicList} from "@/features/album/albumSlice.js";
 
 function Song({song, songStyles, albumCreating = false}) {
     const currentPlaying = useSelector(state => state.music.musicUrl);
@@ -20,6 +20,7 @@ function Song({song, songStyles, albumCreating = false}) {
     const dispatch = useDispatch();
 
     const musicUrl = song.url;
+
     const isPlaying = currentPlaying === musicUrl;
 
     function handleActive() {
@@ -34,15 +35,19 @@ function Song({song, songStyles, albumCreating = false}) {
         }
     }
 
-
     function handleDelete(e) {
         e.stopPropagation();
         dispatch(removeMusic(song.id));
     }
 
+    function handleRemove(e) {
+        e.stopPropagation();
+        dispatch(removeFromAlbum(song.id));
+    }
+
     function handleShare(e) {
         e.stopPropagation();
-        navigator.clipboard.writeText(song.url);
+        navigator.clipboard.writeText(musicUrl);
         setTimeout(() => dispatch(copyToClipboard()), 3000)
         dispatch(copyToClipboard());
     }
@@ -72,7 +77,8 @@ function Song({song, songStyles, albumCreating = false}) {
                            className="appearance-none h-5 w-5 border-2 border-green-600
                         rounded checked:bg-green-600 focus:outline-none hover:bg-green-600 "
                     /> :
-                    <OptionsButton onDelete={handleDelete} onShare={handleShare}/>
+                    <OptionsButton onDelete={handleDelete} onShare={handleShare} onRemove={handleRemove}
+                                   className="right-5 top-6"/>
             }
         </li>
     );
