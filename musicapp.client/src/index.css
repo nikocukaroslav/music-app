@@ -35,7 +35,7 @@ body {
     }
 
     .border-color {
-        @apply bg-gray-700
+        @apply border-gray-500
     }
 
     .loader {

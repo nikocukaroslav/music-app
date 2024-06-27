@@ -21,19 +21,21 @@ const router = createBrowserRouter([{
             loader: musicLoader,
         },
         {
-            path: "Albums",
+            path: "/Albums/:id?",
             element: <AlbumsPage/>,
             loader: albumLoader,
         },
         {
-            path: "Settings",
+            path: "/Settings",
             element: <Settings/>
         }
     ]
 }])
 
 function App() {
-    return (<RouterProvider router={router}/>);
+    return (
+        <RouterProvider router={router}/>
+    );
 }
 
 export default App;

@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {addAlbum, deleteAlbum, editAlbum, getAlbums,} from "@/services/apiMusicApp.js";
+import {addAlbum, deleteAlbum, editAlbum, getAlbum, getAlbums,} from "@/services/apiMusicApp.js";
 import {fetchMusic, playFirstSong, setMusic,} from "@/features/music/musicSlice.js";
 
 const initialState = {
@@ -26,12 +26,15 @@ export const createAlbum = createAsyncThunk(
 export const fetchAndFilterMusic = createAsyncThunk(
     "album/fetchAndFilterMusic",
     async (album, {dispatch, getState}) => {
-        await dispatch(fetchMusic());
         const music = getState().music.music;
+
+        const currentAlbum = await getAlbum(album.id)
+
         const filteredMusic = music.filter((song) =>
-            album.musicList.includes(song.id)
+            currentAlbum.musicList.includes(song.id)
         );
-        dispatch(setActiveAlbum(album));
+
+        dispatch(setActiveAlbum(currentAlbum));
         dispatch(setMusic(filteredMusic));
         dispatch(playFirstSong());
     }
@@ -50,6 +53,9 @@ export const removeFromAlbum = createAsyncThunk(
     "album/removeFromAlbum",
     async (id, {dispatch, getState}) => {
         const state = getState();
+        const music = getState().music.music;
+
+        await dispatch(fetchMusic())
 
         const updatedMusicList = state.album.activeAlbum.musicList.filter(
             (song) => song !== id
@@ -60,11 +66,14 @@ export const removeFromAlbum = createAsyncThunk(
             musicList: updatedMusicList,
         };
 
-        const response = await editAlbum(albumToUpdate);
+        const filteredMusic = music.filter((song) =>
+            albumToUpdate.musicList.includes(song.id)
+        );
 
-        dispatch(fetchAlbums())
+        const response = editAlbum(albumToUpdate);
 
-        console.log(response);
+        dispatch(setMusic(filteredMusic))
+
         return response;
     }
 );

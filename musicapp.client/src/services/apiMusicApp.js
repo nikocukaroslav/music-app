@@ -84,3 +84,11 @@ export async function deleteAlbum(id) {
 
     return `Music with id ${id} has been deleted`;
 }
+
+export async function getAlbum(id) {
+    const response = await fetch(`${BASE_URL}/Album/Get/${id}`);
+
+    const result = await response.json();
+
+    return result
+}

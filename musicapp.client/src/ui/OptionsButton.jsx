@@ -5,7 +5,7 @@ import TrashSvg from "@/svg/TrashSvg.jsx";
 import {useSelector} from "react-redux";
 import CrossSvg from "@/svg/CrossSvg.jsx";
 
-function OptionsButton({onDelete, onShare, onRemove, className}) {
+function OptionsButton({onDelete, onShare, onRemove, className, isMusic = true}) {
     const [active, setActive] = useState(false);
     const isAlbumActive = useSelector(state => state.album.activeAlbum);
     const node = useRef();
@@ -40,10 +40,11 @@ function OptionsButton({onDelete, onShare, onRemove, className}) {
                         onClick={onDelete}>
                     <TrashSvg w={4} h={4} color={"child-color-2"}/>Delete
                 </button>
-                {isAlbumActive && <button className="p-1 flex gap-2.5 w-full items-center transition hover:hover-color"
-                                          onClick={onRemove}>
-                    <CrossSvg/>Remove
-                </button>}
+                {isAlbumActive && isMusic &&
+                    <button className="p-1 flex gap-2.5 w-full items-center transition hover:hover-color"
+                            onClick={onRemove}>
+                        <CrossSvg className="child-color-2" h={4} w={4}/>Remove
+                    </button>}
                 <button className="p-1 flex gap-2.5 w-full items-center transition hover:hover-color"
                         onClick={onShare}>
                     <ShareSvg/>Share

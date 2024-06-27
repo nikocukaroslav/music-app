@@ -21,6 +21,14 @@ namespace MusicApp.Server.Controllers
         {
             return _context.Albums.ToList();
         }
+        
+        [HttpGet("Get/{id}")]
+        public Album Get(Guid id)
+        {
+            var album = _context.Albums.Find(id);
+
+            return album;
+        }
 
         [HttpPatch("Update")]
         public Album Update(Album album)

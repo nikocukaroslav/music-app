@@ -1,7 +1,7 @@
-function Button({children, onClick, clicked, className}) {
+function Button({children, onClick, clicked, className = "second-color"}) {
     return (
         <button onClick={onClick}
-                className={`second-color p-2.5 rounded-xl transition hover:hover-color ${className}
+                className={`p-2.5 rounded-xl transition hover:hover-color ${className}
                 ${clicked && "hover-color"}`}>
             {children}
         </button>

@@ -40,12 +40,12 @@ function NewAlbumForm() {
                 </label>
                 <div className="">
                     <MusicList songStyles="overflow-hidden max-w-72"
-                               className="mb-1 overflow-auto h-[46vh] shadow shadow-gray-800"
+                               className="mb-auto overflow-auto max-h-[46vh] shadow shadow-gray-800"
                                albumCreating={true}/>
                 </div>
                 <div className="text-lg mt-auto flex gap-3 w-full">
-                    <Button onClick={handleFormActive}>Cancel</Button>
-                    <Button>Add</Button>
+                    <Button onClick={handleFormActive} className="border-2 border-color">Cancel</Button>
+                    <Button className="border-2 border-color main-color hover:bg-gray-700">Add</Button>
                 </div>
             </div>
 
