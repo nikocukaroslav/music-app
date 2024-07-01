@@ -1,36 +1,25 @@
 import OptionsButton from "@/ui/OptionsButton.jsx";
 import PlaySvg from "@/svg/PlaySvg.jsx";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchAndFilterMusic, removeAlbum} from "@/features/album/albumSlice.js";
+import {removeAlbum} from "@/features/album/albumSlice.js";
 import PauseSvg from "@/svg/PauseSvg.jsx";
-import {useNavigate, useParams} from "react-router-dom";
-import {useEffect} from "react";
-import {getAlbum} from "@/services/apiMusicApp.js";
+import {useNavigate} from "react-router-dom";
 
 
 function Album({album}) {
     const activeAlbum = useSelector(state => state.album.activeAlbum)
     const dispatch = useDispatch();
 
-    const {id} = useParams();
-
     const navigate = useNavigate();
 
     const isPlaying = activeAlbum ? album.id === activeAlbum.id : false;
 
-    useEffect(() => {
-        async function fetchAlbum() {
-            const album = await getAlbum(id)
-            dispatch(fetchAndFilterMusic(album));
-        }
-
-        fetchAlbum()
-    }, [dispatch]);
-
     async function handleSelect() {
+
         navigate(`/Albums/${album.id}`);
-        dispatch(fetchAndFilterMusic(album));
+
     }
+
 
     function handleDelete(e) {
         e.stopPropagation();

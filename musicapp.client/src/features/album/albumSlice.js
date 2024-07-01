@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {addAlbum, deleteAlbum, editAlbum, getAlbum, getAlbums,} from "@/services/apiMusicApp.js";
-import {fetchMusic, playFirstSong, setMusic,} from "@/features/music/musicSlice.js";
+import {playFirstSong, setMusic,} from "@/features/music/musicSlice.js";
 
 const initialState = {
     isLoading: false,
@@ -53,9 +53,7 @@ export const removeFromAlbum = createAsyncThunk(
     "album/removeFromAlbum",
     async (id, {dispatch, getState}) => {
         const state = getState();
-        const music = getState().music.music;
-
-        await dispatch(fetchMusic())
+        const music = state.music.music;
 
         const updatedMusicList = state.album.activeAlbum.musicList.filter(
             (song) => song !== id
@@ -70,16 +68,17 @@ export const removeFromAlbum = createAsyncThunk(
             albumToUpdate.musicList.includes(song.id)
         );
 
-        const response = editAlbum(albumToUpdate);
+        const response = await editAlbum(albumToUpdate);
 
         dispatch(setMusic(filteredMusic))
+        dispatch(setActiveAlbum(albumToUpdate))
 
         return response;
     }
 );
 
 const albumSlice = createSlice({
-    name: "menu",
+    name: "album",
     initialState,
     reducers: {
         setActiveAlbum(state, action) {

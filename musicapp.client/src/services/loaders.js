@@ -8,6 +8,5 @@ export async function musicLoader() {
 }
 
 export async function albumLoader() {
-    await store.dispatch(fetchMusic());
     return store.dispatch(fetchAlbums());
 }

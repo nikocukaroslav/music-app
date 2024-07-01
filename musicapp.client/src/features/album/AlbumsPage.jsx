@@ -1,8 +1,28 @@
 import AlbumList from "@/features/album/AlbumList.jsx";
 import Playlist from "@/features/album/Playlist.jsx";
 import AddAlbumButton from "@/features/album/AddAlbumButton.jsx";
+import {useParams} from "react-router-dom";
+import {useEffect} from "react";
+import {getAlbum} from "@/services/apiMusicApp.js";
+import {fetchAndFilterMusic} from "@/features/album/albumSlice.js";
+import {useDispatch} from "react-redux";
+import {fetchMusic} from "@/features/music/musicSlice.js";
 
 function AlbumsPage() {
+    const dispatch = useDispatch();
+
+    const {id} = useParams();
+
+    useEffect(() => {
+        async function fetchAlbum() {
+            await dispatch(fetchMusic())
+            const album = await getAlbum(id)
+            dispatch(fetchAndFilterMusic(album));
+        }
+
+        fetchAlbum()
+    }, [id, dispatch]);
+
     return (
         <>
             <section className="flex gap-4">

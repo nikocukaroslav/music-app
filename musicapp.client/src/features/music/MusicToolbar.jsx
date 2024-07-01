@@ -16,6 +16,7 @@ import NewAlbum from "@/svg/NewAlbum.jsx";
 import {useEffect, useRef, useState} from "react";
 import AddMusicButton from "@/features/album/AddMusicButton.jsx";
 import CrossSvg from "@/svg/CrossSvg.jsx";
+import {removeFromAlbum} from "@/features/album/albumSlice.js";
 
 function MusicToolbar({albumToolsActive = false, className}) {
     const activeLooping = useSelector(state => state.music.loop);
@@ -55,9 +56,20 @@ function MusicToolbar({albumToolsActive = false, className}) {
         if (selectedMusic.length <= 0) return;
         selectedMusic.map(music => {
                 dispatch(removeMusic(music));
-                dispatch(cleanSelected());
             }
         )
+        dispatch(cleanSelected());
+        setConfirmFormActive(false)
+        dispatch(setSelectMode());
+    }
+
+    function handleRemove() {
+        if (selectedMusic.length <= 0) return;
+        selectedMusic.map(music => {
+                dispatch(removeFromAlbum(music));
+            }
+        )
+        dispatch(cleanSelected());
         setConfirmFormActive(false)
         dispatch(setSelectMode());
     }
@@ -102,7 +114,7 @@ function MusicToolbar({albumToolsActive = false, className}) {
                 </Button>
 
                 {albumToolsActive && <span
-                    className="absolute flex self-center translate-x-[150%] right-1/2 text-xl">{activeAlbum?.name}</span>}
+                    className="absolute flex translate-x-[150%] right-1/2 text-xl px-10 py-2">{activeAlbum?.name}</span>}
 
                 {activeSelectMode && <>
                     <Button onClick={handleDeleting}>
@@ -128,9 +140,10 @@ function MusicToolbar({albumToolsActive = false, className}) {
                         </div>
                     }
                     {!albumToolsActive ? <Button className="flex items-center gap-3 second-color">
-                        <NewAlbum/>
-                        <span>New album</span>
-                    </Button> : <Button><CrossSvg className="child-color" h={5} w={5}/></Button>
+                            <NewAlbum/>
+                            <span>New album</span>
+                        </Button> :
+                        <Button onClick={handleRemove}><CrossSvg className="child-color" h={5} w={5}/></Button>
                     }
                 </>
                 }
