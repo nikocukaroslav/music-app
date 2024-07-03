@@ -1,13 +1,14 @@
 import Button from "@/ui/Button.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {createAlbum, toggleCreateAlbumForm} from "@/features/album/albumSlice.js";
-import MusicList from "@/features/music/MusicList.jsx";
 import {useState} from "react";
 import {generateGUID} from "@/helpers.js";
+import MusicListForForms from "@/features/album/MusicListForForms.jsx";
 
 function NewAlbumForm() {
     const [albumName, setAlbumName] = useState("");
-    const musicList = useSelector(state => state.music.selectedMusic)
+    const musicList = useSelector(state => state.music.selectedMusic);
+
     const dispatch = useDispatch();
 
     function handleFormActive() {
@@ -24,7 +25,7 @@ function NewAlbumForm() {
         }
 
         dispatch(createAlbum(newAlbum))
-        dispatch(toggleCreateAlbumForm())
+        handleFormActive();
     }
 
     return (
@@ -38,17 +39,16 @@ function NewAlbumForm() {
                            onChange={(e) => setAlbumName(e.target.value)}
                            className="p-1 background-color outline outline-gray-600 text-gray-100 rounded w-full"/>
                 </label>
-                <div className="">
-                    <MusicList songStyles="overflow-hidden max-w-72"
-                               className="mb-auto overflow-auto max-h-[46vh] shadow shadow-gray-800"
-                               albumCreating={true}/>
+                <div>
+                    <MusicListForForms songStyles="overflow-hidden max-w-72"
+                                       className="mb-auto overflow-auto max-h-[46vh] shadow shadow-gray-800"
+                                       albumCreating={true}/>
                 </div>
                 <div className="text-lg mt-auto flex gap-3 w-full">
                     <Button onClick={handleFormActive} className="border-2 border-color">Cancel</Button>
                     <Button className="border-2 border-color main-color hover:bg-gray-700">Add</Button>
                 </div>
             </div>
-
         </form>
     );
 }

@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "Hash": "JMprAKSBkBbN9vxUHSbuyRlmPEXIEyBuWpvtKNPf2Uo=",
+  "Hash": "60d+aR7rB4WLfBPUiIvxL1Glnp/fdu7uNDfVyZ5y4Rs=",
   "Source": "MusicApp.Server",
   "BasePath": "_content/MusicApp.Server",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "C:\\Users\\Ярик\\Desktop\\React\\music-app\\musicapp.client\\musicapp.client.esproj",
+      "Identity": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\musicapp.client\\musicapp.client.esproj",
       "Version": 2,
       "Source": "musicapp.client",
       "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",

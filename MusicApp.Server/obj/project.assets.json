@@ -7268,19 +7268,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ярик\\.nuget\\packages\\": {}
+    "C:\\Users\\Yarek\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ярик\\Desktop\\React\\music-app\\MusicApp.Server\\MusicApp.Server.csproj",
+      "projectUniqueName": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\MusicApp.Server.csproj",
       "projectName": "MusicApp.Server",
-      "projectPath": "C:\\Users\\Ярик\\Desktop\\React\\music-app\\MusicApp.Server\\MusicApp.Server.csproj",
-      "packagesPath": "C:\\Users\\Ярик\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ярик\\Desktop\\React\\music-app\\MusicApp.Server\\obj\\",
+      "projectPath": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\MusicApp.Server.csproj",
+      "packagesPath": "C:\\Users\\Yarek\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Ярик\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Yarek\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

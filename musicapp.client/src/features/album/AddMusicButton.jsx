@@ -1,16 +1,17 @@
-import {useRef} from "react";
 import PlusSvg from "@/svg/PlusSvg.jsx";
+import {toggleAddMusicForm} from "@/features/album/albumSlice.js";
+import {useDispatch} from "react-redux";
 
 function AddMusicButton() {
-    const fileInputRef = useRef();
+    const dispatch = useDispatch();
 
-    function handleClick() {
-        fileInputRef.current.click();
+    function handleFormActive() {
+        dispatch(toggleAddMusicForm());
     }
 
     return (
         <div
-            onClick={handleClick}
+            onClick={handleFormActive}
             className="p-2  w-64 second-color text-xl hover:hover-color transition flex gap-3 items-center">
             <PlusSvg/>
             <span>Add music</span>

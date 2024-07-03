@@ -6,6 +6,7 @@ import Player from "@/features/music/Player.jsx";
 import Loader from "@/ui/Loader.jsx";
 import Copied from "@/ui/Copied.jsx";
 import NewAlbumForm from "@/features/album/NewAlbumForm.jsx";
+import AddMusicForm from "@/features/album/AddMusicForm.jsx";
 
 function AppLayout() {
     const isLoadingMusic = useSelector(state => state.music.isLoading);
@@ -14,12 +15,17 @@ function AppLayout() {
     const isMenuActive = useSelector((state) => state.menu.menuIsActive);
     const isMusicPlaying = useSelector((state) => state.music.musicUrl);
     const isCreateAlbumFormActive = useSelector((state) => state.album.isCreateAlbumFormActive);
+    const isAddMusicFormActive = useSelector((state) => state.album.isAddMusicFormActive);
 
     return (
         <>
             {
                 isCreateAlbumFormActive &&
                 <NewAlbumForm/>
+            }
+            {
+                isAddMusicFormActive &&
+                <AddMusicForm/>
             }
             {
                 copied && <Copied/>

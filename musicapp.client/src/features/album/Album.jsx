@@ -15,11 +15,8 @@ function Album({album}) {
     const isPlaying = activeAlbum ? album.id === activeAlbum.id : false;
 
     async function handleSelect() {
-
         navigate(`/Albums/${album.id}`);
-
     }
-
 
     function handleDelete(e) {
         e.stopPropagation();

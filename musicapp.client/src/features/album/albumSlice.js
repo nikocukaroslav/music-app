@@ -7,7 +7,9 @@ const initialState = {
     albums: [],
     musicList: [],
     isCreateAlbumFormActive: false,
+    isAddMusicFormActive: false,
     activeAlbum: null,
+    isMusicInList: null,
 };
 
 export const fetchAlbums = createAsyncThunk("album/fetchAlbums", async () => {
@@ -43,21 +45,19 @@ export const fetchAndFilterMusic = createAsyncThunk(
 export const removeAlbum = createAsyncThunk(
     "album/removeAlbum",
     async (id, {dispatch}) => {
-        const response = await deleteAlbum(id);
+        await deleteAlbum(id);
         dispatch(fetchAlbums());
-        return response;
     }
 );
 
 export const removeFromAlbum = createAsyncThunk(
     "album/removeFromAlbum",
-    async (id, {dispatch, getState}) => {
+    async (selectedMusic, {dispatch, getState}) => {
         const state = getState();
         const music = state.music.music;
 
         const updatedMusicList = state.album.activeAlbum.musicList.filter(
-            (song) => song !== id
-        );
+            (song) => !selectedMusic.includes(song));
 
         const albumToUpdate = {
             ...state.album.activeAlbum,
@@ -68,19 +68,49 @@ export const removeFromAlbum = createAsyncThunk(
             albumToUpdate.musicList.includes(song.id)
         );
 
-        const response = await editAlbum(albumToUpdate);
+        await editAlbum(albumToUpdate);
 
-        dispatch(setMusic(filteredMusic))
-        dispatch(setActiveAlbum(albumToUpdate))
-
-        return response;
+        dispatch(setActiveAlbum(albumToUpdate));
+        dispatch(setMusic(filteredMusic));
     }
 );
+
+export const updateAlbum = createAsyncThunk(
+    "album/updateAlbum",
+    async (selectedMusic, {dispatch, getState}) => {
+        const state = getState();
+        const music = state.music.music;
+
+        const musicList = state.album.activeAlbum.musicList
+
+        const updatedMusicList = [...musicList, ...selectedMusic];
+
+        console.log(selectedMusic)
+        console.log(updatedMusicList)
+        const albumToUpdate = {
+            ...state.album.activeAlbum,
+            musicList: updatedMusicList,
+        };
+
+        const filteredMusic = music.filter((song) =>
+            albumToUpdate.musicList.includes(song.id)
+        );
+
+        await editAlbum(albumToUpdate);
+
+        dispatch(setActiveAlbum(albumToUpdate));
+        dispatch(setMusic(filteredMusic));
+    }
+);
+
 
 const albumSlice = createSlice({
     name: "album",
     initialState,
     reducers: {
+        handleIsMusicInList(state, action) {
+            state.isMusicInList = action.payload
+        },
         setActiveAlbum(state, action) {
             state.activeAlbum = action.payload;
         },
@@ -95,14 +125,17 @@ const albumSlice = createSlice({
         toggleCreateAlbumForm(state) {
             state.isCreateAlbumFormActive = !state.isCreateAlbumFormActive;
         },
+        toggleAddMusicForm(state) {
+            state.isAddMusicFormActive = !state.isAddMusicFormActive;
+
+        },
     },
     extraReducers: (builder) => {
         builder.addCase(createAlbum.pending, (state) => {
             state.isLoading = true;
         });
-        builder.addCase(createAlbum.fulfilled, (state, action) => {
+        builder.addCase(createAlbum.fulfilled, (state) => {
             state.isLoading = false;
-            state.music = action.payload;
         });
         builder.addCase(fetchAlbums.pending, (state) => {
             state.isLoading = true;
@@ -120,6 +153,18 @@ const albumSlice = createSlice({
                 (album) => album.id !== action.payload
             );
         });
+        builder.addCase(removeFromAlbum.pending, (state) => {
+            state.isLoading = true
+        });
+        builder.addCase(removeFromAlbum.fulfilled, (state) => {
+            state.isLoading = false
+        });
+        builder.addCase(updateAlbum.pending, (state) => {
+            state.isLoading = true;
+        });
+        builder.addCase(updateAlbum.fulfilled, (state) => {
+            state.isLoading = false;
+        })
     },
 });
 
@@ -128,6 +173,8 @@ export const {
     addToMusicList,
     removeFromMusicList,
     setActiveAlbum,
+    toggleAddMusicForm,
+    handleIsMusicInList
 } = albumSlice.actions;
 
 export default albumSlice.reducer;

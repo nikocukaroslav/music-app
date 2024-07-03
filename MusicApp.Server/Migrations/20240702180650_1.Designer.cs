@@ -12,8 +12,8 @@ using Save__plan_your_trips.Data;
 namespace MusicApp.Server.Migrations
 {
     [DbContext(typeof(MusicAppDbContext))]
-    [Migration("20240623165531_2")]
-    partial class _2
+    [Migration("20240702180650_1")]
+    partial class _1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

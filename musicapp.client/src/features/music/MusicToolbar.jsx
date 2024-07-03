@@ -7,9 +7,9 @@ import {
     cleanSelected,
     loopMusic,
     removeMusic,
-    setSelectMode,
     setShuffled,
-    shuffleMusic
+    shuffleMusic,
+    toggleSelectMode
 } from "@/features/music/musicSlice.js";
 import TrashSvg from "@/svg/TrashSvg.jsx";
 import NewAlbum from "@/svg/NewAlbum.jsx";
@@ -44,7 +44,7 @@ function MusicToolbar({albumToolsActive = false, className}) {
     }
 
     function handleSelectMode() {
-        dispatch(setSelectMode())
+        dispatch(toggleSelectMode())
     }
 
     function handleDeleting() {
@@ -54,24 +54,22 @@ function MusicToolbar({albumToolsActive = false, className}) {
 
     function handleDelete() {
         if (selectedMusic.length <= 0) return;
-        selectedMusic.map(music => {
-                dispatch(removeMusic(music));
+        selectedMusic.forEach(musicId => {
+                dispatch(removeMusic(musicId));
             }
         )
         dispatch(cleanSelected());
         setConfirmFormActive(false)
-        dispatch(setSelectMode());
+        dispatch(toggleSelectMode());
     }
 
     function handleRemove() {
         if (selectedMusic.length <= 0) return;
-        selectedMusic.map(music => {
-                dispatch(removeFromAlbum(music));
-            }
-        )
+        // Remove all selected songs from the album
+        dispatch(removeFromAlbum(selectedMusic));
         dispatch(cleanSelected());
         setConfirmFormActive(false)
-        dispatch(setSelectMode());
+        dispatch(toggleSelectMode());
     }
 
     function handleCancel() {
@@ -83,8 +81,8 @@ function MusicToolbar({albumToolsActive = false, className}) {
     useEffect(() => {
         const handleClickOutside = (e) => {
             if (selectedMusic.length <= 0) return;
-            if (!node.current.contains(e.target)) {
-                dispatch(setSelectMode());
+            if (node.current && !node.current.contains(e.target)) {
+                dispatch(toggleSelectMode());
                 setConfirmFormActive(false);
                 dispatch(cleanSelected());
             }

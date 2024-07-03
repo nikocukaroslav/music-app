@@ -7,6 +7,12 @@ export const fetchMusic = createAsyncThunk(
     }
 )
 
+export const fetchAllMusic = createAsyncThunk(
+    "music/fetchAllMusic", async () => {
+        return await getMusic();
+    }
+)
+
 export const loadMusic = createAsyncThunk(
     "music/loadMusic", async (e, {dispatch}) => {
         const response = await uploadMusic(e);
@@ -24,6 +30,7 @@ export const removeMusic = createAsyncThunk(
 )
 
 export const initialState = {
+    allMusic: [],
     music: [],
     loop: false,
     shuffle: false,
@@ -55,7 +62,7 @@ const musicSlice = createSlice({
         copyToClipboard(state) {
             state.copied = !state.copied
         },
-        setSelectMode(state) {
+        toggleSelectMode(state) {
             state.selectMode = !state.selectMode
         },
         setActiveMusic(state, action) {
@@ -119,6 +126,13 @@ const musicSlice = createSlice({
             state.isLoading = false;
             state.music = action.payload;
         });
+        builder.addCase(fetchAllMusic.pending, (state) => {
+            state.isLoading = true;
+        });
+        builder.addCase(fetchAllMusic.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.allMusic = action.payload;
+        });
         builder.addCase(loadMusic.pending, (state) => {
             state.isLoading = true;
         });
@@ -146,7 +160,7 @@ export const {
     shuffleMusic,
     setShuffled,
     copyToClipboard,
-    setSelectMode,
+    toggleSelectMode,
     addToSelected,
     removeFromSelected,
     cleanSelected,

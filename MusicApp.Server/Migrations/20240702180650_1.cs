@@ -31,7 +31,8 @@ namespace MusicApp.Server.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    MusicList = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -50,17 +51,11 @@ namespace MusicApp.Server.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Url = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    AlbumId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Musics", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Musics_Albums_AlbumId",
-                        column: x => x.AlbumId,
-                        principalTable: "Albums",
-                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Musics_Users_UserId",
                         column: x => x.UserId,
@@ -74,11 +69,6 @@ namespace MusicApp.Server.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Musics_AlbumId",
-                table: "Musics",
-                column: "AlbumId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Musics_UserId",
                 table: "Musics",
                 column: "UserId");
@@ -88,10 +78,10 @@ namespace MusicApp.Server.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Musics");
+                name: "Albums");
 
             migrationBuilder.DropTable(
-                name: "Albums");
+                name: "Musics");
 
             migrationBuilder.DropTable(
                 name: "Users");

@@ -1,1 +1,2 @@
 C:\Users\Ярик\Desktop\React\music-app\musicapp.client\obj\Debug\musicapp.client.esproj.CoreCompileInputs.cache
+C:\Users\Yarek\Desktop\React\music-app\musicapp.client\obj\Debug\musicapp.client.esproj.CoreCompileInputs.cache

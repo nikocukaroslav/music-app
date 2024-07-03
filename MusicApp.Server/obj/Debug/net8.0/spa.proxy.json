@@ -3,7 +3,7 @@
 "ServerUrl": "https://localhost:5173",
 "RedirectUrl": "",
 "LaunchCommand": "npm run dev",
-"WorkingDirectory": "C:\\Users\\Ярик\\Desktop\\React\\music-app\\MusicApp.Server\\..\\musicapp.client",
+"WorkingDirectory": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\..\\musicapp.client",
 "MaxTimeoutInSeconds": "120",
 "KeepRunning": "false"
 }
