@@ -20,7 +20,6 @@ function AddMusicForm() {
         dispatch(toggleAddMusicForm());
     }
 
-    console.log(isMusicInList)
     return (
         <form
             className="absolute z-20 backdrop-blur-[6px] top-0 left-0 right-0 bottom-0 flex justify-center items-center w-screen"

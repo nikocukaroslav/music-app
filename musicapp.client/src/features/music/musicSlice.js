@@ -1,5 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {deleteMusic, getMusic, uploadMusic} from "@/services/apiMusicApp.js";
+import {removeFromAlbum} from "@/features/album/albumSlice.js";
 
 export const fetchMusic = createAsyncThunk(
     "music/fetchMusic", async () => {
@@ -22,10 +23,15 @@ export const loadMusic = createAsyncThunk(
 )
 
 export const removeMusic = createAsyncThunk(
-    "music/removeMusic", async (id, {dispatch}) => {
-        const response = await deleteMusic(id);
-        dispatch(fetchMusic());
-        return response;
+    "music/removeMusic", async (id, {dispatch, getState}) => {
+        const activeAlbum = getState().album.activeAlbum;
+
+        await deleteMusic(id);
+
+        if (activeAlbum)
+            dispatch(removeFromAlbum(id));
+        else
+            dispatch(fetchMusic());
     }
 )
 
@@ -64,6 +70,9 @@ const musicSlice = createSlice({
         },
         toggleSelectMode(state) {
             state.selectMode = !state.selectMode
+        },
+        resetSelectMode(state) {
+            state.selectMode = false;
         },
         setActiveMusic(state, action) {
             state.musicUrl = action.payload;
@@ -161,6 +170,7 @@ export const {
     setShuffled,
     copyToClipboard,
     toggleSelectMode,
+    resetSelectMode,
     addToSelected,
     removeFromSelected,
     cleanSelected,

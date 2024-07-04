@@ -1,6 +1,7 @@
 import Song from "@/features/music/Song.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {handleIsMusicInList} from "@/features/album/albumSlice.js";
+import {useEffect} from "react";
 
 function MusicListForForms({className, songStyles, albumCreating, filter = false}) {
     const allMusic = useSelector(state => state.music.allMusic)
@@ -9,10 +10,11 @@ function MusicListForForms({className, songStyles, albumCreating, filter = false
     const dispatch = useDispatch();
 
     const musicList = filter ? allMusic.filter(song => !activeAlbum.musicList.includes(song.id)) : allMusic
-
-    const isMusicInList = musicList.length === 0
-
-    dispatch(handleIsMusicInList(!isMusicInList))
+    
+    useEffect(() => {
+        const isMusicInList = musicList.length === 0;
+        dispatch(handleIsMusicInList(!isMusicInList));
+    }, [musicList, dispatch]);
 
     return (
         <>

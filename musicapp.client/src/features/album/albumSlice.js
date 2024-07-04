@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {addAlbum, deleteAlbum, editAlbum, getAlbum, getAlbums,} from "@/services/apiMusicApp.js";
-import {playFirstSong, setMusic,} from "@/features/music/musicSlice.js";
+import {addAlbum, deleteAlbum, editAlbum, getAlbums,} from "@/services/apiMusicApp.js";
+import {fetchMusic, playFirstSong, setMusic,} from "@/features/music/musicSlice.js";
 
 const initialState = {
     isLoading: false,
@@ -28,15 +28,13 @@ export const createAlbum = createAsyncThunk(
 export const fetchAndFilterMusic = createAsyncThunk(
     "album/fetchAndFilterMusic",
     async (album, {dispatch, getState}) => {
-        const music = getState().music.music;
-
-        const currentAlbum = await getAlbum(album.id)
+        const music = getState().music.allMusic;
 
         const filteredMusic = music.filter((song) =>
-            currentAlbum.musicList.includes(song.id)
+            album.musicList.includes(song.id)
         );
 
-        dispatch(setActiveAlbum(currentAlbum));
+        dispatch(setActiveAlbum(album));
         dispatch(setMusic(filteredMusic));
         dispatch(playFirstSong());
     }
@@ -78,6 +76,7 @@ export const removeFromAlbum = createAsyncThunk(
 export const updateAlbum = createAsyncThunk(
     "album/updateAlbum",
     async (selectedMusic, {dispatch, getState}) => {
+        await dispatch(fetchMusic())
         const state = getState();
         const music = state.music.music;
 
@@ -85,14 +84,12 @@ export const updateAlbum = createAsyncThunk(
 
         const updatedMusicList = [...musicList, ...selectedMusic];
 
-        console.log(selectedMusic)
-        console.log(updatedMusicList)
         const albumToUpdate = {
             ...state.album.activeAlbum,
             musicList: updatedMusicList,
         };
 
-        const filteredMusic = music.filter((song) =>
+        const filteredMusic = music.filter(song =>
             albumToUpdate.musicList.includes(song.id)
         );
 

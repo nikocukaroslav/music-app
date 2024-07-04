@@ -6,7 +6,6 @@ import {useEffect} from "react";
 import {getAlbum} from "@/services/apiMusicApp.js";
 import {fetchAndFilterMusic} from "@/features/album/albumSlice.js";
 import {useDispatch} from "react-redux";
-import {fetchMusic} from "@/features/music/musicSlice.js";
 
 function AlbumsPage() {
     const dispatch = useDispatch();
@@ -15,13 +14,13 @@ function AlbumsPage() {
 
     useEffect(() => {
         async function fetchAlbum() {
-            await dispatch(fetchMusic())
             const album = await getAlbum(id)
             dispatch(fetchAndFilterMusic(album));
         }
 
-        fetchAlbum()
+        id && fetchAlbum()
     }, [id, dispatch]);
+
 
     return (
         <>
