@@ -2,6 +2,7 @@ import {useEffect, useRef, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import SearchSvg from "@/svg/SearchSvg.jsx";
 import {fetchMusic} from "@/features/music/musicSlice.js";
+import Input from "@/ui/Input.jsx";
 
 function SearchBar() {
     const [searchTerm, setSearchTerm] = useState("");
@@ -47,10 +48,10 @@ function SearchBar() {
 
     return (
         <div className="w-80 flex content-center gap-3" ref={node}>
-            <input className="p-1 background-color outline outline-gray-600 text-gray-100 rounded w-full"
+            <Input type="text"
                    onChange={handleSearch}
                    onClick={() => setSearchMode(true)}
-                   type="text"/>
+            />
             <button onClick={(toggleSearchMode)}><SearchSvg/></button>
             {
                 searchMode && searchTerm.length > 0 && (filteredMusic.length > 0 ?

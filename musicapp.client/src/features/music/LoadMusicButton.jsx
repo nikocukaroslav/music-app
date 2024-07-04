@@ -2,6 +2,8 @@ import PlusSvg from "@/svg/PlusSvg.jsx";
 import {useRef} from "react";
 import {useDispatch} from "react-redux";
 import {loadMusic} from "@/features/music/musicSlice.js";
+import {$LoadMusic} from "@/features/settings/language.js";
+import BigButton from "@/ui/BigButton.jsx";
 
 function LoadMusicButton() {
     const fileInputRef = useRef();
@@ -17,9 +19,9 @@ function LoadMusicButton() {
     }
 
     return (
-        <div
+        <BigButton
             onClick={handleClick}
-            className="p-2 w-64 second-color text-xl hover:hover-color transition flex gap-3 items-center">
+            svg={<PlusSvg/>}>
             <input
                 ref={fileInputRef}
                 type="file"
@@ -28,9 +30,8 @@ function LoadMusicButton() {
                 onChange={uploadFiles}
             >
             </input>
-            <PlusSvg/>
-            <span>Load music</span>
-        </div>
+            {$LoadMusic}
+        </BigButton>
     );
 }
 

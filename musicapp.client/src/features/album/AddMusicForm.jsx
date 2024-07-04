@@ -2,6 +2,8 @@ import Button from "@/ui/Button.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {toggleAddMusicForm, updateAlbum} from "@/features/album/albumSlice.js";
 import MusicListForForms from "@/features/album/MusicListForForms.jsx";
+import {cleanSelected} from "@/features/music/musicSlice.js";
+import {$Add, $Cancel} from "@/features/settings/language.js";
 
 function AddMusicForm() {
     const selectedMusic = useSelector(state => state.music.selectedMusic);
@@ -13,6 +15,7 @@ function AddMusicForm() {
         e.preventDefault();
         dispatch(updateAlbum(selectedMusic));
         dispatch(toggleAddMusicForm());
+        dispatch(cleanSelected())
     }
 
     function handleFormActive(e) {
@@ -31,9 +34,10 @@ function AddMusicForm() {
                                        albumCreating={true}/>
                 </div>
                 <div className="text-lg mt-auto flex gap-3 w-full">
-                    <Button onClick={handleFormActive} className="border-2 border-color">Cancel</Button>
+                    <Button onClick={handleFormActive} className="border-2 border-color">{$Cancel}</Button>
                     {isMusicInList &&
-                        <Button className="border-2 border-color main-color hover:bg-gray-700">Add</Button>}
+                        <Button
+                            className="border-2 border-color main-color hover:bg-gray-700">{$Add}</Button>}
                 </div>
             </div>
         </form>

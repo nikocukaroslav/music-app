@@ -2,7 +2,7 @@ import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import {useDispatch, useSelector} from "react-redux";
 import {playNextSong, playPreviousSong, replaySong, shuffleMusic} from "@/features/music/musicSlice.js";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
 
 function Player() {
@@ -11,6 +11,8 @@ function Player() {
     const currentMusicName = useSelector(state => state.music.musicName);
     const isShuffled = useSelector(state => state.music.shuffle);
     const music = useSelector(state => state.music.music);
+    const showJumpControls = useSelector(state => state.settings.showJumpControls);
+    const [volume, setVolume] = useState(localStorage.getItem("volume") || 1);
 
     const dispatch = useDispatch();
 
@@ -19,6 +21,10 @@ function Player() {
             handleShuffled();
         }
     }, [isShuffled]);
+
+    useEffect(() => {
+        localStorage.setItem("volume", volume);
+    }, [volume]);
 
     function handleNext() {
         dispatch(playNextSong())
@@ -34,6 +40,10 @@ function Player() {
         }
     }
 
+    const handleVolumeChange = (e) => {
+        setVolume(e.target.volume);
+    }
+
     return (
         <AudioPlayer
             id="player"
@@ -44,9 +54,11 @@ function Player() {
             onClickNext={isShuffled ? handleShuffled : handleNext}
             onClickPrevious={handlePrevious}
             showSkipControls
-            showJumpControls={false}
+            showJumpControls={showJumpControls}
             onEnded={isLooping ? () => dispatch(replaySong()) : (isShuffled ? handleShuffled : handleNext)}
             loop={isLooping}
+            onVolumeChange={handleVolumeChange}
+            volume={volume}
             customAdditionalControls={[
                 <p>{currentMusicName}</p>
             ]}

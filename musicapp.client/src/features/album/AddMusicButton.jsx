@@ -1,6 +1,8 @@
 import PlusSvg from "@/svg/PlusSvg.jsx";
 import {toggleAddMusicForm} from "@/features/album/albumSlice.js";
 import {useDispatch} from "react-redux";
+import {$AddMusic} from "@/features/settings/language.js";
+import BigButton from "@/ui/BigButton.jsx";
 
 function AddMusicButton() {
     const dispatch = useDispatch();
@@ -10,12 +12,12 @@ function AddMusicButton() {
     }
 
     return (
-        <div
+        <BigButton
             onClick={handleFormActive}
-            className="p-2  w-64 second-color text-xl hover:hover-color transition flex gap-3 items-center">
-            <PlusSvg/>
-            <span>Add music</span>
-        </div>
+            svg={<PlusSvg/>}
+        >
+            {$AddMusic}
+        </BigButton>
     );
 }
 

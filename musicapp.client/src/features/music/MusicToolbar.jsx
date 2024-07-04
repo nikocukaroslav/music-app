@@ -16,6 +16,7 @@ import {useEffect, useRef, useState} from "react";
 import AddMusicButton from "@/features/album/AddMusicButton.jsx";
 import CrossSvg from "@/svg/CrossSvg.jsx";
 import {removeFromAlbum} from "@/features/album/albumSlice.js";
+import {$Cancel, $ConfirmDeleting, $Delete, $Select} from "@/features/settings/language.js";
 
 function MusicToolbar({albumToolsActive = false, className}) {
     const music = useSelector(state => state.music.music);
@@ -107,8 +108,9 @@ function MusicToolbar({albumToolsActive = false, className}) {
                     <Button onClick={handleLooping} clicked={activeLooping}>
                         <RepeatSvg/>
                     </Button>
-                    <Button className="ml-4 second-color" onClick={handleSelectMode} clicked={activeSelectMode}>
-                        Select
+                    <Button className="ml-4 second-color" onClick={handleSelectMode}
+                            clicked={activeSelectMode}>
+                        {$Select}
                     </Button>
 
                     {albumToolsActive && <span
@@ -116,23 +118,23 @@ function MusicToolbar({albumToolsActive = false, className}) {
 
                     {activeSelectMode && <>
                         <Button onClick={handleDeleting}>
-                            <TrashSvg h={5} w={5} color={"child-color-3"}/>
+                            <TrashSvg h={5} w={5} color="child-color-3"/>
                         </Button>
                         {
                             confirmFormActive && (selectedMusic.length > 0) &&
                             <div
                                 ref={node}
                                 className={`px-7 py-5 shadow-xl second-color rounded-xl absolute z-40
-                                bottom-2/4 right-2/4 flex flex-col gap-5 items-center
+                                bottom-2/4 left-1/3 flex flex-col gap-5 items-center 
                                 border-2 border-gray-600 ${!menuIsActive && "translate-x-2/4"}`}>
-                                <span> Are you sure?</span>
+                                <span>{$ConfirmDeleting}</span>
                                 <div className="flex gap-3 ">
                                     <Button
                                         className="border-gray-600 border-2 px-5"
-                                        onClick={handleCancel}>Cancel
+                                        onClick={handleCancel}>{$Cancel}
                                     </Button>
-                                    <Button className="bg-red-600 px-5 hover:bg-red-700"
-                                            onClick={handleDelete}>Delete
+                                    <Button className="bg-red-600 px-5 hover:bg-red-700 "
+                                            onClick={handleDelete}>{$Delete}
                                     </Button>
                                 </div>
                             </div>
