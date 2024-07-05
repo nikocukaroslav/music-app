@@ -3,6 +3,7 @@ import menuReducer from "@/features/menu/menuSlice.js";
 import musicReducer from "@/features/music/musicSlice.js";
 import albumReducer from "@/features/album/albumSlice.js";
 import settingsReducer from "@/features/settings/settingsSlice.js";
+import authrorizationReducer from "@/features/authorization/authorizationSlice.js";
 
 export const store = configureStore({
     reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
         music: musicReducer,
         album: albumReducer,
         settings: settingsReducer,
+        authorization: authrorizationReducer,
     },
 })

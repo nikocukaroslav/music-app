@@ -6,15 +6,16 @@ import Settings from "@/features/settings/Settings.jsx";
 import MusicPage from "@/features/music/MusicPage.jsx";
 import {albumLoader, musicLoader} from "@/services/loaders.js";
 import AlbumsPage from "@/features/album/AlbumsPage.jsx";
-import Login from "@/features/user/Login.jsx";
-import Authorisation from "@/features/user/Authorisation.jsx";
-import Registration from "@/features/user/Registration.jsx";
+import Login from "@/features/authorization/Login.jsx";
+import Authorization from "@/features/authorization/Authorization.jsx";
+import Registration from "@/features/authorization/Registration.jsx";
+import ProtectedRoute from "@/features/authorization/ProtectedRoute.jsx";
 
 
 const router = createBrowserRouter([
     {
-        path: "/Authorisation",
-        element: <Authorisation/>,
+        path: "/Authorization",
+        element: <Authorization/>,
         children: [
             {
                 element: <Login/>,
@@ -36,17 +37,26 @@ const router = createBrowserRouter([
             },
             {
                 path: "/Music",
-                element: <MusicPage/>,
+                element:
+                    <ProtectedRoute>
+                        <MusicPage/>
+                    </ProtectedRoute>,
                 loader: musicLoader,
             },
             {
                 path: "Albums/:id?",
-                element: <AlbumsPage/>,
+                element:
+                    <ProtectedRoute>
+                        <AlbumsPage/>
+                    </ProtectedRoute>,
                 loader: albumLoader,
             },
             {
                 path: "Settings",
-                element: <Settings/>
+                element:
+                    <ProtectedRoute>
+                        <Settings/>
+                    </ProtectedRoute>,
             }
         ]
     }

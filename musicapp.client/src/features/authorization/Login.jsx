@@ -1,0 +1,81 @@
+import Input from "@/ui/Input.jsx";
+import Button from "@/ui/Button.jsx";
+import CheckBox from "@/ui/CheckBox.jsx";
+import {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {setStatus} from "@/features/authorization/authorizationSlice.js";
+import {loginUser} from "@/services/apiMusicApp.js";
+
+function Login() {
+    const [login, setLogin] = useState("");
+    const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
+    const status = useSelector(state => state.authorization.status.status);
+
+    const navigate = useNavigate();
+
+    const dispatch = useDispatch();
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+
+        const user = {
+            login: login,
+            password: password,
+        }
+
+        const result = await loginUser(user);
+
+        dispatch(setStatus(user))
+
+        localStorage.setItem("status", result.status)
+
+        if (result.status === "authorized")
+            navigate("/Music")
+    }
+
+    useEffect(() => {
+        dispatch(setStatus({
+            login: "",
+            password: ""
+        }))
+        setLogin("")
+        setPassword("")
+    }, [dispatch]);
+
+    console.log(status)
+
+    return (
+        <form className="flex flex-col gap-5 h-full"
+              onSubmit={handleSubmit}>
+            <label className="flex flex-col gap-2">
+                <span>Login </span>
+                <Input type="text"
+                       required={true}
+                       value={login}
+                       onChange={(e) => setLogin(e.target.value)}/>
+            </label>
+            <label className="flex flex-col gap-2">
+                <span>Password </span>
+                <Input type={showPassword ? "text" : "password"}
+                       required={true}
+                       value={password}
+                       onChange={(e) => setPassword(e.target.value)}/>
+            </label>
+            <label className="text-sm flex items-center gap-2 -mt-2">
+                <CheckBox
+                    checked={showPassword}
+                    onChange={(e) => setShowPassword(e.target.checked)}
+                    className="appearance-none h-5 w-5 border-2 border-gray-500
+                        rounded checked:bg-gray-500 focus:outline-none hover:bg-gray-500 "/>
+                <span>Show password</span>
+            </label>
+            {(status === "unauthorized" && login.length > 0 && password.length > 0) &&
+                <p className="text-x text-red-500">Login or password is incorrect</p>}
+            <Button className="main-color mt-auto">Log in</Button>
+        </form>
+    );
+}
+
+export default Login;

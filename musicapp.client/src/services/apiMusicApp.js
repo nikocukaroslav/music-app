@@ -54,11 +54,11 @@ export async function addAlbum(album) {
 }
 
 export async function getAlbums() {
-    const result = await fetch(`${BASE_URL}/Album/GetAll`);
+    const response = await fetch(`${BASE_URL}/Album/GetAll`);
 
-    if (!result.ok) throw Error("Couldn't find any music");
+    if (!response.ok) throw Error("Couldn't find any music");
 
-    return await result.json();
+    return await response.json();
 }
 
 export async function editAlbum(album) {
@@ -74,13 +74,13 @@ export async function editAlbum(album) {
 }
 
 export async function deleteAlbum(id) {
-    const result = await fetch(`${BASE_URL}/Album/Delete/${id}`, {
+    const response = await fetch(`${BASE_URL}/Album/Delete/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
         },
     });
-    if (!result.ok) throw Error("Couldn't delete album");
+    if (!response.ok) throw Error("Couldn't delete album");
 
     return `Music with id ${id} has been deleted`;
 }
@@ -90,5 +90,35 @@ export async function getAlbum(id) {
 
     const result = await response.json();
 
+    return result
+}
+
+export async function createUser(user) {
+    const response = await fetch(`${BASE_URL}/Authorisation/CreateUser`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user),
+        }
+    );
+
+    const result = await response.json();
+    console.log(result)
+    return result
+}
+
+export async function loginUser(user) {
+    const response = await fetch(`${BASE_URL}/Authorisation/Identify`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user),
+        }
+    );
+
+    const result = await response.json();
+   
     return result
 }

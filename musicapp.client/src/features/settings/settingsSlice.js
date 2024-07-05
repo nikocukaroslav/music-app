@@ -15,7 +15,7 @@ const settingsSlice = createSlice({
         },
         changeLanguage(state, action) {
             state.language = action.payload;
-            localStorage.setItem('language', action.payload);
+            localStorage.setItem("language", action.payload);
         }
     }
 })
