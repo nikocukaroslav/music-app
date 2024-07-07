@@ -282,3 +282,9 @@ C:\Users\Yarek\Desktop\React\music-app\MusicApp.Server\obj\Debug\net8.0\refint\M
 C:\Users\Yarek\Desktop\React\music-app\MusicApp.Server\obj\Debug\net8.0\MusicApp.Server.pdb
 C:\Users\Yarek\Desktop\React\music-app\MusicApp.Server\obj\Debug\net8.0\MusicApp.Server.genruntimeconfig.cache
 C:\Users\Yarek\Desktop\React\music-app\MusicApp.Server\obj\Debug\net8.0\ref\MusicApp.Server.dll
+C:\Users\Yarek\Desktop\React\music-app\MusicApp.Server\bin\Debug\net8.0\NAudio.dll
+C:\Users\Yarek\Desktop\React\music-app\MusicApp.Server\bin\Debug\net8.0\NAudio.Asio.dll
+C:\Users\Yarek\Desktop\React\music-app\MusicApp.Server\bin\Debug\net8.0\NAudio.Core.dll
+C:\Users\Yarek\Desktop\React\music-app\MusicApp.Server\bin\Debug\net8.0\NAudio.Midi.dll
+C:\Users\Yarek\Desktop\React\music-app\MusicApp.Server\bin\Debug\net8.0\NAudio.Wasapi.dll
+C:\Users\Yarek\Desktop\React\music-app\MusicApp.Server\bin\Debug\net8.0\NAudio.WinMM.dll

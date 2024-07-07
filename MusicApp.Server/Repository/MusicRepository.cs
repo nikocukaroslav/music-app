@@ -34,12 +34,24 @@ public class MusicRepository : IMusicRepository
         var uploadResult = await client.UploadAsync(uploadParams);
         var musicUrl = uploadResult.SecureUri.ToString();
 
+        var tempFilePath = Path.GetTempFileName();
+        using (var stream = System.IO.File.Create(tempFilePath))
+        {
+            await file.CopyToAsync(stream);
+        }
+
+        var reader = new NAudio.Wave.AudioFileReader(tempFilePath);
+        var duration = reader.TotalTime.TotalSeconds;
+
+        System.IO.File.Delete(tempFilePath);
+
         var newMusic = new Music
         {
             Id = Guid.NewGuid(),
             Name = file.FileName,
             Url = musicUrl,
             UserId = userId,
+            Duration = duration,
         };
 
         _context.Add(newMusic);

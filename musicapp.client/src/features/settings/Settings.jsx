@@ -19,7 +19,7 @@ function Settings({global = false}) {
     }
 
     return (
-        <section className={`${global ? "" : "p-3"}`}>
+        <section className={`${global ? "" : "p-3"} w-full`}>
             <ul className="flex flex-col gap-3">
                 <li className="flex flex-col gap-2">
                     <h3 className="text-xl">{translation.Language}</h3>

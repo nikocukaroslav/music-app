@@ -99,7 +99,8 @@ function MusicToolbar({albumToolsActive = false, className}) {
 
 
     return (
-        <nav className={`flex justify-between items-center  ${className}`}>
+        <nav
+            className={`flex justify-between items-center ${className}`}>
             {music.length > 0 &&
                 <div className="flex gap-2">
                     <Button onClick={handleShuffling} clicked={activeShuffling}>

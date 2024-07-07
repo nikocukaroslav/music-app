@@ -38,6 +38,17 @@ body {
         @apply border-gray-500
     }
 
+    .song-logo-one{
+        @apply bg-blue-500
+    }
+
+    .song-logo-two{
+        @apply bg-sky-500
+    }
+    .song-logo-three{
+        @apply bg-emerald-500
+    }
+
     .loader {
         width: 45px;
         aspect-ratio: 0.75;
@@ -62,15 +73,29 @@ body {
             background-position: 0% 50%, 50% 50%, 100% 100%;
         }
     }
+
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
 }
 
 .rhap_container {
+    padding: 12px 16px !important;
     box-shadow: 0 -2px 4px 0 rgba(31, 41, 55, 0.7) !important;
     color: #f3f4f6 !important;
     background-color: #374151 !important;
 }
 
 .rhap_main-controls-button {
+    margin-top: 12px !important;
+    width: 100% !important;
+    height: 100% !important;
+    font-size: 44px !important;
     color: #16a34a !important;
 }
 

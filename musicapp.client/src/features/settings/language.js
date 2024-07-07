@@ -77,4 +77,4 @@ const translations = {
 
 };
 
-export const translation = translations[language];
+export const translation = translations[language] || translations["en"];

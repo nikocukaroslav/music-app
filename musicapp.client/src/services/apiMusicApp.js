@@ -5,6 +5,12 @@ export async function uploadMusic(e, userId) {
     for (const file of e.target.files) {
         console.log(file);
         data.append("files", file);
+
+        let audio = new Audio(URL.createObjectURL(file));
+
+        audio.onloadedmetadata = function () {
+            data.append("duration", audio.duration);
+        }
     }
 
     data.append("userId", userId);
@@ -14,7 +20,9 @@ export async function uploadMusic(e, userId) {
         body: data,
     });
 
-    return await response.json();
+    const result = await response.json();
+    
+    return result
 }
 
 export async function getMusic(userId) {

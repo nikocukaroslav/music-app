@@ -1,7 +1,7 @@
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import {useDispatch, useSelector} from "react-redux";
-import {playNextSong, playPreviousSong, replaySong, shuffleMusic} from "@/features/music/musicSlice.js";
+import {playNextSong, playPreviousSong, replaySong, setIsPlaying, shuffleMusic} from "@/features/music/musicSlice.js";
 import {useEffect, useState} from "react";
 
 
@@ -47,7 +47,7 @@ function Player() {
     return (
         <AudioPlayer
             id="player"
-            className="absolute bottom-0"
+            className=""
             src={musicUrl}
             controls
             autoPlay
@@ -62,6 +62,8 @@ function Player() {
             customAdditionalControls={[
                 <p>{currentMusicName}</p>
             ]}
+            onListen={() => dispatch(setIsPlaying(true))}
+            onPause={() => dispatch(setIsPlaying(false))}
         />
     );
 }

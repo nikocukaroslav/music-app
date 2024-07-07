@@ -21,11 +21,12 @@ namespace MusicApp.Server.Controllers
         [HttpGet("GetAll/{userId}")]
         public List<Music> GetAll(Guid userId)
         {
-            return _context.Musics.Where(x=> x.UserId == userId).ToList();
+            return _context.Musics.Where(x => x.UserId == userId).ToList();
         }
 
         [HttpPost("Upload")]
-        public async Task<JsonResult> UploadMusic(List<IFormFile> files, [FromForm] Guid userId)
+        public async Task<JsonResult> UploadMusic(List<IFormFile> files,
+            [FromForm] Guid userId)
         {
             var musicUrls = new List<string>();
 

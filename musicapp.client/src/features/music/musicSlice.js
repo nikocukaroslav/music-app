@@ -49,12 +49,16 @@ export const initialState = {
     copied: false,
     selectMode: false,
     selectedMusic: [],
+    isPlaying: false,
 }
 
 const musicSlice = createSlice({
     name: "music",
     initialState,
     reducers: {
+        setIsPlaying(state, action) {
+            state.isPlaying = action.payload;
+        },
         setMusic(state, action) {
             state.music = action.payload;
         },
@@ -162,6 +166,7 @@ const musicSlice = createSlice({
 })
 
 export const {
+    setIsPlaying,
     setActiveMusic,
     loopMusic,
     setActiveMusicName,

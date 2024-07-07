@@ -13,14 +13,14 @@ function Playlist() {
     const music = useSelector(state => state.music.music);
 
     return (
-        <div className="m-2 h-full">
+        <div className=" h-full">
             {
                 (albumIsActive && id) ?
                     <>
                         {
                             music.length > 0 ? (
                                     <>
-                                        <MusicToolbar albumToolsActive={true}/>
+                                        <MusicToolbar className="mb-3" albumToolsActive={true}/>
                                         <MusicList/>
                                     </>
                                 )

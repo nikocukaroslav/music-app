@@ -45,13 +45,9 @@ function AppLayout() {
                 <ToolBar/>
                 <main className="background-color flex flex-grow overflow-hidden">
                     {isMenuActive && <Menu/>}
-
-                    <div className="overflow-auto h-full w-full">
-                        <Outlet/>
-                    </div>
-                    {isMusicPlaying && <Player/>}
-
+                    <Outlet/>
                 </main>
+                {isMusicPlaying && <Player/>}
             </div>
         </>
     );
