@@ -4,7 +4,7 @@ import ShareSvg from "@/svg/ShareSvg.jsx";
 import TrashSvg from "@/svg/TrashSvg.jsx";
 import {useSelector} from "react-redux";
 import CrossSvg from "@/svg/CrossSvg.jsx";
-import {$Delete, $Remove, $Share} from "@/features/settings/language.js";
+import {translation} from "@/features/settings/language.js";
 
 function OptionsButton({onDelete, onShare, onRemove, className, isMusic = true}) {
     const [active, setActive] = useState(false);
@@ -39,16 +39,16 @@ function OptionsButton({onDelete, onShare, onRemove, className, isMusic = true})
                 ${className} w-40 flex flex-col divide-y-2 items-start divide-gray-700 z-10`}>
                 <button className="p-1 flex gap-2.5 w-full items-center transition hover:hover-color"
                         onClick={onDelete}>
-                    <TrashSvg w={4} h={4} color={"child-color-2"}/>{$Delete}
+                    <TrashSvg w={4} h={4} color={"child-color-2"}/>{translation.Delete}
                 </button>
                 {isAlbumActive && isMusic &&
                     <button className="p-1 flex gap-2.5 w-full items-center transition hover:hover-color"
                             onClick={onRemove}>
-                        <CrossSvg className="child-color-2" h={4} w={4}/>{$Remove}
+                        <CrossSvg className="child-color-2" h={4} w={4}/>{translation.Remove}
                     </button>}
                 <button className="p-1 flex gap-2.5 w-full items-center transition hover:hover-color"
                         onClick={onShare}>
-                    <ShareSvg/>{$Share}
+                    <ShareSvg/>{translation.Share}
                 </button>
             </div>}
         </div>

@@ -1,7 +1,6 @@
 import "./index.css";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import AppLayout from "@/ui/AppLayout.jsx";
-import Home from "@/features/home/Home.jsx";
 import Settings from "@/features/settings/Settings.jsx";
 import MusicPage from "@/features/music/MusicPage.jsx";
 import {albumLoader, musicLoader} from "@/services/loaders.js";
@@ -24,6 +23,10 @@ const router = createBrowserRouter([
             {
                 element: <Registration/>,
                 path: "Registration"
+            },
+            {
+                element: <Settings global={true}/>,
+                path: "GlobalSettings"
             }
         ]
     },
@@ -31,10 +34,6 @@ const router = createBrowserRouter([
         path: "/",
         element: <AppLayout/>,
         children: [
-            {
-                path: "/",
-                element: <Home/>
-            },
             {
                 path: "/Music",
                 element:

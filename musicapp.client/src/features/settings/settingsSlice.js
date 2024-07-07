@@ -3,7 +3,7 @@ import {createSlice} from "@reduxjs/toolkit";
 
 export const initialState = {
     showJumpControls: false,
-    language: localStorage.getItem("language") || "eng",
+    language: localStorage.getItem("language") || "en",
 }
 
 const settingsSlice = createSlice({

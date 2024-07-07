@@ -58,7 +58,7 @@ function SearchBar() {
                     <ul className="absolute flex flex-col hover-color top-16 left-2/4 -translate-x-2/4 z-30 w-1/4
                         divide-y-2 divide-gray-900 border-2 border-gray-900 overflow-auto max-h-96">
                         {filteredMusic.map(music => (
-                                <li className="p-3 h-full overflow-hidden w-full ">{music.name}</li>
+                                <li key={music.id} className="p-3 h-full overflow-hidden w-full ">{music.name}</li>
                             )
                         )}
                     </ul> : <p className="absolute p-3 top-16 left-2/4

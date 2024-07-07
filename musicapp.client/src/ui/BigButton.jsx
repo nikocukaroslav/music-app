@@ -1,8 +1,8 @@
-function BigButton({onClick, children, svg}) {
+function BigButton({onClick, children, svg, className = "min-w-64"}) {
     return (
         <div
             onClick={onClick}
-            className="p-2 min-w-64 second-color text-xl hover:hover-color transition flex gap-3 items-center">
+            className={`p-2 ${className} second-color text-xl hover:hover-color transition flex gap-3 items-center`}>
             {svg}
             <span>{children}</span>
         </div>

@@ -13,6 +13,7 @@ import {
     setUsername
 } from "@/features/authorization/authorizationSlice.js";
 import {createUser} from "@/services/apiMusicApp.js";
+import {translation} from "@/features/settings/language.js";
 
 function Registration() {
     const [login, setLogin] = useState("");
@@ -21,7 +22,6 @@ function Registration() {
     const [loginIsValid, setLoginIsValid] = useState(true);
     const [showPassword, setShowPassword] = useState(false);
     const [isLoginExist, setIsLoginExist] = useState(false);
-
     const navigate = useNavigate();
 
     const dispatch = useDispatch()
@@ -49,8 +49,6 @@ function Registration() {
 
         const result = await createUser(user);
 
-        console.log(result)
-
         if (result.error) {
             setIsLoginExist(true)
         } else {
@@ -69,14 +67,14 @@ function Registration() {
         <form className="flex flex-col gap-5 h-full"
               onSubmit={handleSubmit}>
             <label className="flex flex-col gap-2">
-                <span>Create login </span>
+                <span>{translation.CreateLogin}</span>
                 <Input type="text"
                        required={true}
                        value={login}
                        onChange={(e) => setLogin(e.target.value)}/>
             </label>
             <label className="flex flex-col gap-2">
-                <span>Pick password </span>
+                <span>{translation.PickPassword}</span>
                 <Input type={showPassword ? "text" : "password"}
                        required={true}
                        value={password}
@@ -88,15 +86,15 @@ function Registration() {
                     onChange={(e) => setShowPassword(e.target.checked)}
                     className="appearance-none h-5 w-5 border-2 border-gray-500
                         rounded checked:bg-gray-500 focus:outline-none hover:bg-gray-500 "/>
-                <span>Show password</span>
+                <span>{translation.ShowPassword}</span>
             </label>
             {!loginIsValid &&
-                <p className="text-xl text-red-500">Login should be longer</p>}
+                <p className="text-xl text-red-500">{translation.PasswordShouldBeLonger}</p>}
             {!passwordIsValid &&
-                <p className="text-xl text-red-500">Password should be longer</p>}
+                <p className="text-xl text-red-500">{translation.LoginShouldBeLonger}</p>}
             {isLoginExist &&
-                <p className="text-xl text-red-500">This login already exist</p>}
-            <Button className="main-color mt-auto">Create account</Button>
+                <p className="text-xl text-red-500">{translation.LoginAlreadyExist}</p>}
+            <Button className="main-color mt-auto">{translation.CreateAccount}</Button>
         </form>
     );
 }

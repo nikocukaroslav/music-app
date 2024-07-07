@@ -2,7 +2,7 @@ import Song from "@/features/music/Song.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {handleIsMusicInList} from "@/features/album/albumSlice.js";
 import {useEffect} from "react";
-import {$AllMusicAlreadyInAlbum} from "@/features/settings/language.js";
+import {translation} from "@/features/settings/language.js";
 
 function MusicListForForms({className, songStyles, albumCreating, filter = false}) {
     const allMusic = useSelector(state => state.music.allMusic);
@@ -27,7 +27,7 @@ function MusicListForForms({className, songStyles, albumCreating, filter = false
                                      albumCreating={albumCreating}/>
                     })}
                 </ul> :
-                <p className="text-xl text-center content-center h-[56vh]">{$AllMusicAlreadyInAlbum}</p>
+                <p className="text-xl text-center content-center h-[56vh]">{translation.AllMusicAlreadyInAlbum}</p>
             }
         </>
     );

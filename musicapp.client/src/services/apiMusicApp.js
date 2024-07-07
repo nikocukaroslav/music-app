@@ -14,10 +14,7 @@ export async function uploadMusic(e, userId) {
         body: data,
     });
 
-    console.log(data)
-    const result = await response.json();
-    console.log(result);
-    return result;
+    return await response.json();
 }
 
 export async function getMusic(userId) {
@@ -58,10 +55,7 @@ export async function addAlbum(album) {
         body: JSON.stringify(album),
     });
 
-    const result = await response.json();
-    console.log(result);
-
-    return result;
+    return await response.json();
 }
 
 export async function editAlbum(album) {
@@ -91,9 +85,7 @@ export async function deleteAlbum(id) {
 export async function getAlbum(id) {
     const response = await fetch(`${BASE_URL}/Album/Get/${id}`);
 
-    const result = await response.json();
-
-    return result
+    return await response.json()
 }
 
 export async function createUser(user) {
@@ -106,9 +98,7 @@ export async function createUser(user) {
         }
     );
 
-    const result = await response.json();
-    console.log(result)
-    return result
+    return await response.json()
 }
 
 export async function loginUser(user) {
@@ -121,7 +111,5 @@ export async function loginUser(user) {
         }
     );
 
-    const result = await response.json();
-
-    return result
+    return await response.json()
 }

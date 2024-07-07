@@ -15,7 +15,7 @@ function ToolBar() {
 
     return (
         <div className="flex justify-between second-color p-5 w-full relative
-        shadow-[0_2px_6px_0_rgba(0,0,0,1)] shadow-gray-800 z-10">
+        shadow-[0_2px_6px_0_rgba(0,0,0,0.7)] shadow-gray-800 z-10">
             <button onClick={handleMenuActive}><MenuSvg/></button>
             <SearchBar/>
             <div className="self-center flex gap-3 items-center">

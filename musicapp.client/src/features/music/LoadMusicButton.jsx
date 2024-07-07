@@ -2,7 +2,7 @@ import PlusSvg from "@/svg/PlusSvg.jsx";
 import {useRef} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {loadMusic} from "@/features/music/musicSlice.js";
-import {$LoadMusic} from "@/features/settings/language.js";
+import {translation} from "@/features/settings/language.js";
 import BigButton from "@/ui/BigButton.jsx";
 
 function LoadMusicButton() {
@@ -31,7 +31,7 @@ function LoadMusicButton() {
                 onChange={uploadFiles}
             >
             </input>
-            {$LoadMusic}
+            {translation.LoadMusic}
         </BigButton>
     );
 }

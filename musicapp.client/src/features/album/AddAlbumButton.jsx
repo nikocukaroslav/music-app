@@ -2,8 +2,8 @@ import {useDispatch} from "react-redux";
 import {toggleCreateAlbumForm} from "@/features/album/albumSlice.js";
 import {cleanSelected} from "@/features/music/musicSlice.js";
 import NewAlbum from "@/svg/NewAlbum.jsx";
-import {$NewAlbum} from "@/features/settings/language.js";
 import BigButton from "@/ui/BigButton.jsx";
+import {translation} from "@/features/settings/language.js";
 
 function AddAlbumButton() {
     const dispatch = useDispatch();
@@ -17,8 +17,9 @@ function AddAlbumButton() {
         <BigButton
             onClick={handleCreateAlbumForm}
             svg={<NewAlbum/>}
+            className="w-full"
         >
-            {$NewAlbum}
+            {translation.NewAlbum}
         </BigButton>
     );
 }

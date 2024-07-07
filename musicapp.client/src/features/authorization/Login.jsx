@@ -12,6 +12,7 @@ import {
     setUsername
 } from "@/features/authorization/authorizationSlice.js";
 import {loginUser} from "@/services/apiMusicApp.js";
+import {translation} from "@/features/settings/language.js";
 
 function Login() {
     const [login, setLogin] = useState("");
@@ -59,14 +60,14 @@ function Login() {
         <form className="flex flex-col gap-5 h-full"
               onSubmit={handleSubmit}>
             <label className="flex flex-col gap-2">
-                <span>Login </span>
+                <span>{translation.Login}</span>
                 <Input type="text"
                        required={true}
                        value={login}
                        onChange={(e) => setLogin(e.target.value)}/>
             </label>
             <label className="flex flex-col gap-2">
-                <span>Password </span>
+                <span>{translation.Password}</span>
                 <Input type={showPassword ? "text" : "password"}
                        required={true}
                        value={password}
@@ -78,11 +79,11 @@ function Login() {
                     onChange={(e) => setShowPassword(e.target.checked)}
                     className="appearance-none h-5 w-5 border-2 border-gray-500
                         rounded checked:bg-gray-500 focus:outline-none hover:bg-gray-500 "/>
-                <span>Show password</span>
+                <span>{translation.ShowPassword}</span>
             </label>
             {(!isIdentified && login.length > 0 && password.length > 0) &&
-                <p className="text-xl text-red-500">Login or password is incorrect</p>}
-            <Button className="main-color mt-auto">Log in</Button>
+                <p className="text-xl text-red-500">{translation.LoginOrPasswordIsIncorrect}</p>}
+            <Button className="main-color mt-auto">{translation.LogIn}</Button>
         </form>
     );
 }
