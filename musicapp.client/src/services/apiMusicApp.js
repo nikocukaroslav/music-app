@@ -1,24 +1,27 @@
 const BASE_URL = "https://localhost:7155";
 
-export async function uploadMusic(e) {
+export async function uploadMusic(e, userId) {
     let data = new FormData();
     for (const file of e.target.files) {
         console.log(file);
         data.append("files", file);
     }
 
+    data.append("userId", userId);
+
     const response = await fetch(`${BASE_URL}/Music/Upload`, {
         method: "POST",
         body: data,
     });
 
+    console.log(data)
     const result = await response.json();
     console.log(result);
     return result;
 }
 
-export async function getMusic() {
-    const result = await fetch(`${BASE_URL}/Music/GetAll`);
+export async function getMusic(userId) {
+    const result = await fetch(`${BASE_URL}/Music/GetAll/${userId}`);
 
     if (!result.ok) throw Error("Couldn't find any music");
 
@@ -38,6 +41,14 @@ export async function deleteMusic(id) {
     return `Music with id ${id} has been deleted`;
 }
 
+export async function getAlbums(userId) {
+    const response = await fetch(`${BASE_URL}/Album/GetAll/${userId}`);
+
+    if (!response.ok) throw Error("Couldn't find any albums");
+
+    return await response.json();
+}
+
 export async function addAlbum(album) {
     const response = await fetch(`${BASE_URL}/Album/Add`, {
         method: "POST",
@@ -51,14 +62,6 @@ export async function addAlbum(album) {
     console.log(result);
 
     return result;
-}
-
-export async function getAlbums() {
-    const response = await fetch(`${BASE_URL}/Album/GetAll`);
-
-    if (!response.ok) throw Error("Couldn't find any music");
-
-    return await response.json();
 }
 
 export async function editAlbum(album) {
@@ -119,6 +122,6 @@ export async function loginUser(user) {
     );
 
     const result = await response.json();
-   
+
     return result
 }

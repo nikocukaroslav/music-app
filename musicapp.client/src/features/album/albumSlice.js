@@ -12,9 +12,14 @@ const initialState = {
     isMusicInList: null,
 };
 
-export const fetchAlbums = createAsyncThunk("album/fetchAlbums", async () => {
-    return await getAlbums();
-});
+export const fetchAlbums = createAsyncThunk(
+    "album/fetchAlbums",
+    async (_, {getState}) => {
+        const state = getState();
+        const userId = state.authorization.userId;
+
+        return await getAlbums(userId);
+    });
 
 export const createAlbum = createAsyncThunk(
     "album/createAlbum",
@@ -42,8 +47,8 @@ export const fetchAndFilterMusic = createAsyncThunk(
 
 export const removeAlbum = createAsyncThunk(
     "album/removeAlbum",
-    async (id, {dispatch}) => {
-        await deleteAlbum(id);
+    async (album, {dispatch}) => {
+        await deleteAlbum(album.id);
         dispatch(fetchAlbums());
     }
 );

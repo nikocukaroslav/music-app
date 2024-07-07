@@ -18,20 +18,20 @@ namespace MusicApp.Server.Controllers
             _musicRepository = musicRepository;
         }
 
-        [HttpGet("GetAll")]
-        public List<Music> GetAll()
+        [HttpGet("GetAll/{userId}")]
+        public List<Music> GetAll(Guid userId)
         {
-            return _context.Musics.ToList();
+            return _context.Musics.Where(x=> x.UserId == userId).ToList();
         }
 
         [HttpPost("Upload")]
-        public async Task<JsonResult> UploadMusic(List<IFormFile> files)
+        public async Task<JsonResult> UploadMusic(List<IFormFile> files, [FromForm] Guid userId)
         {
             var musicUrls = new List<string>();
 
             foreach (var file in files)
             {
-                var musicUrl = await _musicRepository.UploadMusic(file);
+                var musicUrl = await _musicRepository.UploadMusic(file, userId);
                 musicUrls.Add(musicUrl);
             }
             return new JsonResult(new { link = musicUrls });

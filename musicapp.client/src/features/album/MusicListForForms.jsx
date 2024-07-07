@@ -5,8 +5,8 @@ import {useEffect} from "react";
 import {$AllMusicAlreadyInAlbum} from "@/features/settings/language.js";
 
 function MusicListForForms({className, songStyles, albumCreating, filter = false}) {
-    const allMusic = useSelector(state => state.music.allMusic)
-    const activeAlbum = useSelector(state => state.album.activeAlbum)
+    const allMusic = useSelector(state => state.music.allMusic);
+    const activeAlbum = useSelector(state => state.album.activeAlbum);
 
     const dispatch = useDispatch();
 

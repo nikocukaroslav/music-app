@@ -7,15 +7,15 @@
       "RelativeMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|solutionrelative:musicapp.server\\controllers\\authorisationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/MusicAppDb/True/SqlTable/dbo.Users.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|c:\\users\\yarek\\desktop\\react\\music-app\\musicapp.server\\repository\\musicrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|solutionrelative:musicapp.server\\repository\\musicrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|c:\\users\\yarek\\desktop\\react\\music-app\\musicapp.server\\controllers\\musiccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|solutionrelative:musicapp.server\\controllers\\musiccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/MusicAppDb/True/SqlTable/dbo.Users.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|c:\\users\\yarek\\desktop\\react\\music-app\\musicapp.server\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -76,7 +76,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "dbo.Users [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/MusicAppDb/True/SqlTable/dbo.Users.sql",
               "ToolTip": "dbo.Users [Data]",
@@ -148,7 +148,7 @@
               "RelativeDocumentMoniker": "MusicApp.Server\\Controllers\\AuthorisationController.cs",
               "ToolTip": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Controllers\\AuthorisationController.cs",
               "RelativeToolTip": "MusicApp.Server\\Controllers\\AuthorisationController.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAiwCcAAAAvAAAA",
+              "ViewState": "AQIAABcAAAAAAAAAAAAAwCcAAABTAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-13T07:09:29.212Z",
               "EditorCaption": ""
@@ -167,7 +167,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MusicController.cs",
               "DocumentMoniker": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Controllers\\MusicController.cs",
               "RelativeDocumentMoniker": "MusicApp.Server\\Controllers\\MusicController.cs",
@@ -179,7 +179,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MusicRepository.cs",
               "DocumentMoniker": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Repository\\MusicRepository.cs",
               "RelativeDocumentMoniker": "MusicApp.Server\\Repository\\MusicRepository.cs",
@@ -187,8 +187,7 @@
               "RelativeToolTip": "MusicApp.Server\\Repository\\MusicRepository.cs",
               "ViewState": "AQIAAB4AAAAAAAAAAAAMwCEAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T06:51:23.987Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-13T06:51:23.987Z"
             },
             {
               "$type": "Document",

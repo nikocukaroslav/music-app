@@ -3,20 +3,22 @@ import {deleteMusic, getMusic, uploadMusic} from "@/services/apiMusicApp.js";
 import {removeFromAlbum} from "@/features/album/albumSlice.js";
 
 export const fetchMusic = createAsyncThunk(
-    "music/fetchMusic", async () => {
-        return await getMusic();
+    "music/fetchMusic", async (_, {getState}) => {
+        const userId = getState().authorization.userId;
+        return await getMusic(userId);
     }
 )
 
 export const fetchAllMusic = createAsyncThunk(
-    "music/fetchAllMusic", async () => {
-        return await getMusic();
+    "music/fetchAllMusic", async (_, {getState}) => {
+        const userId = getState().authorization.userId;
+        return await getMusic(userId);
     }
 )
 
 export const loadMusic = createAsyncThunk(
-    "music/loadMusic", async (e, {dispatch}) => {
-        const response = await uploadMusic(e);
+    "music/loadMusic", async ({e, userId}, {dispatch}) => {
+        const response = await uploadMusic(e, userId);
         dispatch(fetchMusic());
         return response;
     }

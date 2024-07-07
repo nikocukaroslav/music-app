@@ -5,9 +5,11 @@ import {useParams} from "react-router-dom";
 import {useEffect} from "react";
 import {getAlbum} from "@/services/apiMusicApp.js";
 import {fetchAndFilterMusic} from "@/features/album/albumSlice.js";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 function AlbumsPage() {
+    const albums = useSelector(state => state.album.albums)
+
     const dispatch = useDispatch();
 
     const {id} = useParams();
@@ -29,9 +31,10 @@ function AlbumsPage() {
                     <AddAlbumButton/>
                     <AlbumList/>
                 </div>
-                <div className="w-5/6">
-                    <Playlist/>
-                </div>
+                {albums.length > 0 &&
+                    <div className="w-5/6">
+                        <Playlist/>
+                    </div>}
             </section>
         </>
     );

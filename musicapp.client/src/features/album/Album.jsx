@@ -20,7 +20,7 @@ function Album({album}) {
 
     function handleDelete(e) {
         e.stopPropagation();
-        dispatch(removeAlbum(album.id))
+        dispatch(removeAlbum(album))
     }
 
     return (

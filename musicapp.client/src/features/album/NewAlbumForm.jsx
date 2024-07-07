@@ -10,7 +10,7 @@ import Input from "@/ui/Input.jsx";
 function NewAlbumForm() {
     const [albumName, setAlbumName] = useState("");
     const musicList = useSelector(state => state.music.selectedMusic);
-
+    const userId = useSelector(state => state.authorization.userId);
     const dispatch = useDispatch();
 
     function handleFormActive() {
@@ -23,6 +23,7 @@ function NewAlbumForm() {
             id: generateGUID(),
             name: albumName,
             createdDate: new Date().toISOString(),
+            userId: userId,
             musicList: musicList,
         }
 

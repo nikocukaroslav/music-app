@@ -20,12 +20,19 @@ namespace MusicApp.Server.Controllers
         }
 
         [HttpPost("CreateUser")]
-        public User Add(User user)
+        public async Task<IActionResult> Add(User user)
         {
-            _context.Add(user);
-            _context.SaveChanges();
+            var userWithSameId = await _context.Users.FirstOrDefaultAsync(u => u.Login == user.Login);
 
-            return user;
+            if (userWithSameId == null)
+            {
+                _context.Add(user);
+                _context.SaveChanges();
+
+                return Ok(new { newUser = user });
+            }
+
+            return BadRequest(new { error = "Already exist" });
         }
 
         [HttpPost("Identify")]
@@ -37,11 +44,11 @@ namespace MusicApp.Server.Controllers
             {
                 if (userToLogin.Password == user.Password)
                 {
-                    return Ok(new { status = "authorized" });
+                    return Ok(new { status = "authorized", id = userToLogin.Id, login = userToLogin.Login });
                 }
             }
 
-            return Ok(new { status = "unauthorized" });
+            return Unauthorized(new { status = "unauthorized" });
         }
     }
 }

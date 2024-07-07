@@ -1,34 +1,44 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {loginUser} from "@/services/apiMusicApp.js";
+import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
-    status: localStorage.getItem("status") || "",
+    status: localStorage.getItem("status") || "unauthorized",
+    login: localStorage.getItem("login") || "",
     isLoading: false,
+    userId: localStorage.getItem("userId") || "",
 }
-
-export const setStatus = createAsyncThunk(
-    "authorization/setStatus",
-    async (user) => {
-        return await loginUser(user);
-    }
-)
 
 const authorizationSlice = createSlice({
         name: "authorization",
         initialState,
-        reducers: {},
-        extraReducers: (builder) => {
-            builder.addCase(setStatus.pending, (state) => {
-                state.isLoading = true;
-            });
-            builder.addCase(setStatus.fulfilled, (state, action) => {
+        reducers: {
+            setIsLoading(state, action) {
+                state.isLoading = action.payload;
+            },
+            setUsername(state, action) {
+                state.login = action.payload;
+                localStorage.setItem("login", action.payload);
+            },
+            setUserId(state, action) {
+                state.userId = action.payload;
+                localStorage.setItem("userId", action.payload);
+            },
+            setStatus(state, action) {
                 state.status = action.payload;
-                state.isLoading = false;
-            })
+                localStorage.setItem("status", action.payload);
+            },
+            resetStatus(state) {
+                state.status = "unauthorized";
+                state.login = undefined;
+                state.userId = undefined;
+                localStorage.setItem("status", "unauthorized");
+                localStorage.setItem("login", undefined);
+                localStorage.setItem("userId", undefined);
+            },
         }
+
     }
 )
 
-export const {} = authorizationSlice.actions;
+export const {setIsLoading, setUserId, setUsername, setStatus, resetStatus} = authorizationSlice.actions;
 
 export default authorizationSlice.reducer;

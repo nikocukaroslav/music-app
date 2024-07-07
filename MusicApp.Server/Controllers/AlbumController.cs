@@ -16,10 +16,10 @@ namespace MusicApp.Server.Controllers
             _context = musicAppDbContext;
         }
 
-        [HttpGet("GetAll")]
-        public List<Album> GetAll()
+        [HttpGet("GetAll/{userId}")]
+        public List<Album> GetAll(Guid userId)
         {
-            return _context.Albums.ToList();
+            return _context.Albums.Where(x=> x.UserId== userId).ToList();
         }
         
         [HttpGet("Get/{id}")]

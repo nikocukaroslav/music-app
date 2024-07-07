@@ -3,48 +3,57 @@ import Button from "@/ui/Button.jsx";
 import CheckBox from "@/ui/CheckBox.jsx";
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
-import {setStatus} from "@/features/authorization/authorizationSlice.js";
+import {useDispatch} from "react-redux";
+import {
+    resetStatus,
+    setIsLoading,
+    setStatus,
+    setUserId,
+    setUsername
+} from "@/features/authorization/authorizationSlice.js";
 import {loginUser} from "@/services/apiMusicApp.js";
 
 function Login() {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
-    const status = useSelector(state => state.authorization.status.status);
+    const [isIdentified, setIsIdentified] = useState(true);
 
     const navigate = useNavigate();
 
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        dispatch(resetStatus())
+    }, [dispatch]);
+
     async function handleSubmit(e) {
         e.preventDefault();
+
+        dispatch(setIsLoading(true))
 
         const user = {
             login: login,
             password: password,
         }
 
-        const result = await loginUser(user);
+        const result = await loginUser(user)
 
-        dispatch(setStatus(user))
+        dispatch(setStatus(result.status))
+        dispatch(setUsername(result.login))
+        dispatch(setUserId(result.id))
 
-        localStorage.setItem("status", result.status)
-
-        if (result.status === "authorized")
+        if (result.status === "authorized") {
             navigate("/Music")
+        } else {
+            setIsIdentified(false)
+            setTimeout(() =>
+                setIsIdentified(true), 5000
+            )
+        }
+
+        dispatch(setIsLoading(false))
     }
-
-    useEffect(() => {
-        dispatch(setStatus({
-            login: "",
-            password: ""
-        }))
-        setLogin("")
-        setPassword("")
-    }, [dispatch]);
-
-    console.log(status)
 
     return (
         <form className="flex flex-col gap-5 h-full"
@@ -71,8 +80,8 @@ function Login() {
                         rounded checked:bg-gray-500 focus:outline-none hover:bg-gray-500 "/>
                 <span>Show password</span>
             </label>
-            {(status === "unauthorized" && login.length > 0 && password.length > 0) &&
-                <p className="text-x text-red-500">Login or password is incorrect</p>}
+            {(!isIdentified && login.length > 0 && password.length > 0) &&
+                <p className="text-xl text-red-500">Login or password is incorrect</p>}
             <Button className="main-color mt-auto">Log in</Button>
         </form>
     );

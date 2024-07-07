@@ -3,15 +3,16 @@ import {useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 
 function ProtectedRoute({children}) {
-    const status = useSelector(state => state.authorization.status.status);
+    const status = useSelector(state => state.authorization.status);
     const navigate = useNavigate();
 
+    console.log(status)
     useEffect(() => {
         if (status !== "authorized") {
             navigate('/Authorization/Login');
         }
     }, [status, navigate]);
-    
+
     return children;
 }
 

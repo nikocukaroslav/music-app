@@ -1,17 +1,45 @@
 import Input from "@/ui/Input.jsx";
 import Button from "@/ui/Button.jsx";
-import {useState} from "react";
-import {createUser} from "@/services/apiMusicApp.js";
+import {useEffect, useState} from "react";
 import {generateGUID} from "@/helpers.js";
 import CheckBox from "@/ui/CheckBox.jsx";
+import {useNavigate} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {
+    resetStatus,
+    setIsLoading,
+    setStatus,
+    setUserId,
+    setUsername
+} from "@/features/authorization/authorizationSlice.js";
+import {createUser} from "@/services/apiMusicApp.js";
 
 function Registration() {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
-    const [showPassword, setShowPassword] = useState(false)
+    const [passwordIsValid, setPasswordIsValid] = useState(true);
+    const [loginIsValid, setLoginIsValid] = useState(true);
+    const [showPassword, setShowPassword] = useState(false);
+    const [isLoginExist, setIsLoginExist] = useState(false);
+
+    const navigate = useNavigate();
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(resetStatus())
+    }, [dispatch]);
 
     async function handleSubmit(e) {
         e.preventDefault();
+
+        setIsLoginExist(false);
+        setPasswordIsValid(password.length >= 3);
+        setLoginIsValid(login.length >= 3);
+
+        if (password.length < 3 || login.length < 3) return;
+
+        dispatch(setIsLoading(true))
 
         const user = {
             id: generateGUID(),
@@ -19,10 +47,23 @@ function Registration() {
             password: password,
         }
 
-        await createUser(user);
-        setLogin("")
-        setPassword("")
+        const result = await createUser(user);
+
+        console.log(result)
+
+        if (result.error) {
+            setIsLoginExist(true)
+        } else {
+            dispatch(setStatus("authorized"))
+            dispatch(setUserId(result.newUser.id))
+            dispatch(setUsername(result.newUser.login))
+
+            navigate("/Music")
+        }
+
+        dispatch(setIsLoading(false))
     }
+
 
     return (
         <form className="flex flex-col gap-5 h-full"
@@ -49,6 +90,12 @@ function Registration() {
                         rounded checked:bg-gray-500 focus:outline-none hover:bg-gray-500 "/>
                 <span>Show password</span>
             </label>
+            {!loginIsValid &&
+                <p className="text-xl text-red-500">Login should be longer</p>}
+            {!passwordIsValid &&
+                <p className="text-xl text-red-500">Password should be longer</p>}
+            {isLoginExist &&
+                <p className="text-xl text-red-500">This login already exist</p>}
             <Button className="main-color mt-auto">Create account</Button>
         </form>
     );
