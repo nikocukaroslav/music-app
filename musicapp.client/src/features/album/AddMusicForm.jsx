@@ -29,15 +29,18 @@ function AddMusicForm() {
             onSubmit={handleSubmit}>
             <div className="w-1/3 h-2/3 second-color p-5 rounded-xl flex flex-col shadow-xl">
                 <div>
-                    <MusicListForForms filter={true} songStyles="overflow-hidden max-w-72"
-                                       className="mb-auto overflow-auto max-h-[52vh] shadow shadow-gray-800"
+                    <MusicListForForms filter={true}
+                                       songStyles="max-w-80 overflow-hidden" logoStyles="p-2"
+                                       className="overflow-auto max-h-[55vh] shadow shadow-gray-800"
                                        albumCreating={true}/>
                 </div>
-                <div className="text-lg mt-auto flex gap-3 w-full">
-                    <Button onClick={handleFormActive} className="border-2 border-color">{translation.Cancel}</Button>
+                <div className="text-lg mt-auto flex gap-3">
+                    <Button onClick={handleFormActive}
+                            className="border-2 border-color w-1/2">{translation.Cancel}</Button>
                     {isMusicInList &&
                         <Button
-                            className="border-2 border-color main-color hover:bg-gray-700">{translation.Add}</Button>}
+                            className="border-2 border-color main-color hover:bg-gray-700 w-1/2">
+                            {translation.Add}</Button>}
                 </div>
             </div>
         </form>

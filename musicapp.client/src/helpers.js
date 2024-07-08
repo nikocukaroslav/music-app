@@ -11,3 +11,15 @@ export function toShortTime(time) {
     const seconds = Math.floor(time % 60);
     return `${minutes}:${seconds}`;
 }
+
+export function randomColor() {
+    const colors = [
+        "song-logo-one",
+        "song-logo-two",
+        "song-logo-three",
+        "song-logo-four"
+    ];
+
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    return colors[randomIndex];
+}

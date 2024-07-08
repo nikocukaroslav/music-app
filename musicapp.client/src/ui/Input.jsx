@@ -1,11 +1,12 @@
-function Input({onChange, onClick, required, type, value}) {
+function Input({onChange, onClick, required, type, value, className, readOnly = false}) {
     return (
-        <input className="p-1 background-color outline outline-gray-600 text-gray-100 rounded w-full"
+        <input className={`p-1 background-color outline outline-gray-600 text-gray-100 rounded-md w-full ${className}`}
                required={required}
                onChange={onChange}
                onClick={onClick}
                type={type}
                value={value}
+               readOnly={readOnly}
         />
     );
 }

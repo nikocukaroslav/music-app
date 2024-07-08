@@ -114,9 +114,6 @@ function MusicToolbar({albumToolsActive = false, className}) {
                         {translation.Select}
                     </Button>
 
-                    {albumToolsActive && <span
-                        className="absolute flex translate-x-[150%] right-1/2 text-xl px-10 py-2">{activeAlbum?.name}</span>}
-
                     {activeSelectMode && <>
                         <Button onClick={handleDeleting}>
                             <TrashSvg h={5} w={5} color="child-color-3"/>
@@ -126,15 +123,15 @@ function MusicToolbar({albumToolsActive = false, className}) {
                             <div
                                 ref={node}
                                 className={`px-7 py-5 shadow-xl second-color rounded-xl absolute z-40
-                                bottom-2/4 left-1/3 flex flex-col gap-5 items-center 
-                                border-2 border-gray-600 ${!menuIsActive && "translate-x-2/4"}`}>
+                                bottom-2/4  right-1/2 flex flex-col gap-5 items-center translate-x-2/4 translate-y-1/3
+                                border-2 border-gray-600`}>
                                 <span>{translation.ConfirmDeleting}</span>
                                 <div className="flex gap-3 ">
                                     <Button
                                         className="border-gray-600 border-2 px-5"
                                         onClick={handleCancel}>{translation.Cancel}
                                     </Button>
-                                    <Button className="bg-red-600 px-5 hover:bg-red-700 "
+                                    <Button className="bg-red-600 px-5 hover:bg-red-700"
                                             onClick={handleDelete}>{translation.Delete}
                                     </Button>
                                 </div>
@@ -147,6 +144,8 @@ function MusicToolbar({albumToolsActive = false, className}) {
                     }
                 </div>
             }
+            {albumToolsActive && <span
+                className="text-xl">{activeAlbum?.name}</span>}
             {albumToolsActive ? <AddMusicButton/> : <LoadMusicButton/>}
         </nav>
     );

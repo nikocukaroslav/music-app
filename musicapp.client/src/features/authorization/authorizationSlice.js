@@ -2,9 +2,9 @@ import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
     status: localStorage.getItem("status") || "unauthorized",
+    userId: localStorage.getItem("userId") || "",
     login: localStorage.getItem("login") || "",
     isLoading: false,
-    userId: localStorage.getItem("userId") || "",
 }
 
 const authorizationSlice = createSlice({
@@ -33,9 +33,8 @@ const authorizationSlice = createSlice({
                 localStorage.setItem("status", "unauthorized");
                 localStorage.setItem("login", undefined);
                 localStorage.setItem("userId", undefined);
-            },
+            }
         }
-
     }
 )
 

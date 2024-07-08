@@ -5,7 +5,7 @@ function AlbumList() {
     const albums = useSelector((state) => state.album.albums);
 
     return (
-        <ul className="mt-4 flex flex-col gap-2">
+        <ul className="flex flex-col gap-2">
             {albums.map((album) => {
                 return <Album album={album} key={album.id}/>;
             })}

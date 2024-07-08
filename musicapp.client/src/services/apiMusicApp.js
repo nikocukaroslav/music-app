@@ -21,7 +21,7 @@ export async function uploadMusic(e, userId) {
     });
 
     const result = await response.json();
-    
+
     return result
 }
 
@@ -120,4 +120,16 @@ export async function loginUser(user) {
     );
 
     return await response.json()
+}
+
+export async function changeLogin(user) {
+    const response = await fetch(`${BASE_URL}/Authorisation/ChangeLogin`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+    })
+
+    return await response.json();
 }

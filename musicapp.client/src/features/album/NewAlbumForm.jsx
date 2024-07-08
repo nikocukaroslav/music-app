@@ -36,20 +36,23 @@ function NewAlbumForm() {
             className="absolute z-20 backdrop-blur-[6px] top-0 left-0 right-0 bottom-0 flex justify-center items-center w-screen"
             onSubmit={handleAddAlbum}>
             <div className="w-1/3 h-2/3 second-color p-5 rounded-xl flex flex-col shadow-xl">
-                <label className="text-xl flex flex-col gap-3">{translation.AlbumName}
-                    <Input type="text"
-                           required={true}
-                           onChange={(e) => setAlbumName(e.target.value)}
+                <label className="text-xl flex flex-col gap-3 mb-3">{translation.AlbumName}
+                    <Input
+                        type="text"
+                        required={true}
+                        onChange={(e) => setAlbumName(e.target.value)}
                     />
                 </label>
                 <div>
-                    <MusicListForForms songStyles="overflow-hidden max-w-72"
+                    <MusicListForForms songStyles="max-w-80 overflow-hidden" logoStyles="p-2"
                                        className="mb-auto overflow-auto max-h-[46vh] shadow shadow-gray-800"
                                        albumCreating={true}/>
                 </div>
-                <div className="text-lg mt-auto flex gap-3 w-full">
-                    <Button onClick={handleFormActive} className="border-2 border-color">{translation.Cancel}</Button>
-                    <Button className="border-2 border-color main-color hover:bg-gray-700">{translation.Add}</Button>
+                <div className="text-lg mt-auto flex gap-3">
+                    <Button onClick={handleFormActive}
+                            className="border-2 border-color w-1/2">{translation.Cancel}</Button>
+                    <Button
+                        className="border-2 border-color main-color hover:bg-gray-700 w-1/2">{translation.Add}</Button>
                 </div>
             </div>
         </form>

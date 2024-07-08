@@ -22,9 +22,9 @@ namespace MusicApp.Server.Controllers
         [HttpPost("CreateUser")]
         public async Task<IActionResult> Add(User user)
         {
-            var userWithSameId = await _context.Users.FirstOrDefaultAsync(u => u.Login == user.Login);
+            var userWithSameLogin = await _context.Users.FirstOrDefaultAsync(u => u.Login == user.Login);
 
-            if (userWithSameId == null)
+            if (userWithSameLogin == null)
             {
                 _context.Add(user);
                 _context.SaveChanges();
@@ -49,6 +49,26 @@ namespace MusicApp.Server.Controllers
             }
 
             return Unauthorized(new { status = "unauthorized" });
+        }
+
+        [HttpPatch("ChangeLogin")]
+        public async Task<IActionResult> ChangeLogin(User user)
+        {
+            var userToUpdate = await _context.Users.FirstOrDefaultAsync(u => u.Id == user.Id);
+            var userWithSameLogin = await _context.Users.FirstOrDefaultAsync(u => u.Login == user.Login);
+
+            if (userToUpdate != null && userWithSameLogin == null)
+            {
+                if (userToUpdate.Password == user.Password)
+                {
+                    userToUpdate.Login = user.Login;
+                    _context.SaveChanges();
+
+                    return Ok(new { status = "successful" });
+                }
+            }
+
+            return BadRequest(new { status = "rejected" });
         }
     }
 }

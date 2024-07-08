@@ -17,7 +17,7 @@ function AddAlbumButton() {
         <BigButton
             onClick={handleCreateAlbumForm}
             svg={<NewAlbum/>}
-            className="w-full"
+            className="w-full mb-3"
         >
             {translation.NewAlbum}
         </BigButton>

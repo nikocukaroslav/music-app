@@ -1,4 +1,4 @@
-function CrossSvg({className, h, w}) {
+function CrossSvg({className, h = 5, w = 5}) {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
              className={`w-${w} h-${h} ${className}`}

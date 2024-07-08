@@ -39,15 +39,31 @@ body {
     }
 
     .song-logo-one{
-        @apply bg-blue-500
+        @apply bg-gradient-to-tr from-green-600 to-green-300
     }
 
     .song-logo-two{
-        @apply bg-sky-500
+        @apply bg-gradient-to-tr from-cyan-600 to-cyan-300
     }
+
     .song-logo-three{
-        @apply bg-emerald-500
+        @apply bg-gradient-to-tr from-teal-600 to-teal-300
     }
+
+    .song-logo-four{
+        @apply bg-gradient-to-tr from-emerald-600 to-emerald-300
+    }
+ /*   .song-logo-one{
+        @apply bg-gradient-to-tr from-red-400 to-red-300
+    }
+
+    .song-logo-two{
+        @apply bg-gradient-to-tr from-indigo-400 to-indigo-300
+    }
+
+    .song-logo-three{
+        @apply bg-gradient-to-tr from-fuchsia-400 to-fuchsia-300
+    }*/
 
     .loader {
         width: 45px;

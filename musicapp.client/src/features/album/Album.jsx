@@ -25,7 +25,7 @@ function Album({album}) {
 
     return (
         <li onClick={handleSelect}
-            className={`py-2 px-1 w-full second-color flex hover:hover-color
+            className={`py-2 px-1 w-full second-color flex hover:hover-color rounded-md
                 transition gap-3 items-center justify-between ${isPlaying ? "hover-color" : "second-color"}
                 `}>
             <div className="flex items-center gap-2 ">
