@@ -4,12 +4,16 @@ import {createSlice} from "@reduxjs/toolkit";
 export const initialState = {
     showJumpControls: false,
     language: localStorage.getItem("language") || "en",
+    isLoading: false,
 }
 
 const settingsSlice = createSlice({
     name: "settings",
     initialState,
     reducers: {
+        setIsLoadingSettings(state, action) {
+            state.isLoading = action.payload;
+        },
         toggleJumpControls(state) {
             state.showJumpControls = !state.showJumpControls;
         },
@@ -20,6 +24,6 @@ const settingsSlice = createSlice({
     }
 })
 
-export const {toggleJumpControls, changeLanguage} = settingsSlice.actions;
+export const {toggleJumpControls, changeLanguage, setIsLoadingSettings} = settingsSlice.actions;
 
 export default settingsSlice.reducer;

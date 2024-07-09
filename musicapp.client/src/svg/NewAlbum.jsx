@@ -1,7 +1,7 @@
-function NewAlbum() {
+function NewAlbum({className, h = "5", w = "5"}) {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-             className="w-5 h-5 bg child-color"
+             className={`w-${w} h-${h} ${className}`}
              viewBox="0 0 16 16">
             <path d="M12 13c0 1.105-1.12 2-2.5 2S7 14.105 7 13s1.12-2 2.5-2 2.5.895 2.5 2"/>
             <path fillRule="evenodd" d="M12 3v10h-1V3z"/>

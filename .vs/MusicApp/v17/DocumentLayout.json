@@ -3,32 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|c:\\users\\yarek\\desktop\\react\\music-app\\musicapp.server\\repository\\musicrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|solutionrelative:musicapp.server\\repository\\musicrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|c:\\users\\yarek\\desktop\\react\\music-app\\musicapp.server\\repository\\interfaces\\imusicrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|solutionrelative:musicapp.server\\repository\\interfaces\\imusicrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|c:\\users\\yarek\\desktop\\react\\music-app\\musicapp.server\\controllers\\musiccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|solutionrelative:musicapp.server\\controllers\\musiccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|c:\\users\\yarek\\desktop\\react\\music-app\\musicapp.server\\controllers\\authorizationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|solutionrelative:musicapp.server\\controllers\\authorizationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|c:\\users\\yarek\\desktop\\react\\music-app\\musicapp.server\\models\\music.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|solutionrelative:musicapp.server\\models\\music.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|c:\\users\\yarek\\desktop\\react\\music-app\\musicapp.server\\models\\album.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|solutionrelative:musicapp.server\\models\\album.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|c:\\users\\yarek\\desktop\\react\\music-app\\musicapp.server\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|solutionrelative:musicapp.server\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|c:\\users\\yarek\\desktop\\react\\music-app\\musicapp.server\\controllers\\authorisationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|solutionrelative:musicapp.server\\controllers\\authorisationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/MusicAppDb/True/SqlTable/dbo.Users.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
@@ -36,33 +20,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|c:\\users\\yarek\\desktop\\react\\music-app\\musicapp.server\\controllers\\albumcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|solutionrelative:musicapp.server\\controllers\\albumcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/MusicAppDb/True/SqlTable/dbo.Albums.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|c:\\users\\yarek\\desktop\\react\\music-app\\musicapp.server\\data\\musicappdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|solutionrelative:musicapp.server\\data\\musicappdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|c:\\users\\yarek\\desktop\\react\\music-app\\musicapp.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|solutionrelative:musicapp.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|c:\\users\\yarek\\desktop\\react\\music-app\\musicapp.server\\migrations\\20240702180650_1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|solutionrelative:musicapp.server\\migrations\\20240702180650_1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|c:\\users\\yarek\\desktop\\react\\music-app\\musicapp.server\\migrations\\20240705071231_3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|solutionrelative:musicapp.server\\migrations\\20240705071231_3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|c:\\users\\yarek\\desktop\\react\\music-app\\musicapp.server\\migrations\\20240705065027_2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|solutionrelative:musicapp.server\\migrations\\20240705065027_2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|c:\\users\\yarek\\desktop\\react\\music-app\\musicapp.server\\migrations\\20240707175212_4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{91C72429-A08A-4980-B4C8-018C56B9565A}|MusicApp.Server\\MusicApp.Server.csproj|solutionrelative:musicapp.server\\migrations\\20240707175212_4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -72,7 +29,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -80,190 +37,65 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "20240707175212_4.cs",
-              "DocumentMoniker": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Migrations\\20240707175212_4.cs",
-              "RelativeDocumentMoniker": "MusicApp.Server\\Migrations\\20240707175212_4.cs",
-              "ToolTip": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Migrations\\20240707175212_4.cs",
-              "RelativeToolTip": "MusicApp.Server\\Migrations\\20240707175212_4.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAswA4AAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-07T17:52:12.493Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "20240702180650_1.cs",
-              "DocumentMoniker": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Migrations\\20240702180650_1.cs",
-              "RelativeDocumentMoniker": "MusicApp.Server\\Migrations\\20240702180650_1.cs",
-              "ToolTip": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Migrations\\20240702180650_1.cs",
-              "RelativeToolTip": "MusicApp.Server\\Migrations\\20240702180650_1.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAcwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-02T18:06:51.063Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Models\\User.cs",
-              "RelativeDocumentMoniker": "MusicApp.Server\\Models\\User.cs",
-              "ToolTip": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Models\\User.cs",
-              "RelativeToolTip": "MusicApp.Server\\Models\\User.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T15:27:25.884Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "dbo.Albums [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/MusicAppDb/True/SqlTable/dbo.Albums.sql",
-              "ToolTip": "dbo.Albums [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-06-23T08:14:14.817Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AuthorisationController.cs",
-              "DocumentMoniker": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Controllers\\AuthorisationController.cs",
-              "RelativeDocumentMoniker": "MusicApp.Server\\Controllers\\AuthorisationController.cs",
-              "ToolTip": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Controllers\\AuthorisationController.cs",
-              "RelativeToolTip": "MusicApp.Server\\Controllers\\AuthorisationController.cs",
-              "ViewState": "AQIAABcAAAAAAAAAAAAAwCcAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T07:09:29.212Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Music.cs",
               "DocumentMoniker": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Models\\Music.cs",
               "RelativeDocumentMoniker": "MusicApp.Server\\Models\\Music.cs",
               "ToolTip": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Models\\Music.cs",
               "RelativeToolTip": "MusicApp.Server\\Models\\Music.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAVAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T06:54:54.971Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MusicController.cs",
-              "DocumentMoniker": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Controllers\\MusicController.cs",
-              "RelativeDocumentMoniker": "MusicApp.Server\\Controllers\\MusicController.cs",
-              "ToolTip": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Controllers\\MusicController.cs",
-              "RelativeToolTip": "MusicApp.Server\\Controllers\\MusicController.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAA9wCIAAABPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T06:51:55.066Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MusicRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Repository\\MusicRepository.cs",
-              "RelativeDocumentMoniker": "MusicApp.Server\\Repository\\MusicRepository.cs",
-              "ToolTip": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Repository\\MusicRepository.cs",
-              "RelativeToolTip": "MusicApp.Server\\Repository\\MusicRepository.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAiwCkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T06:51:23.987Z",
+              "WhenOpened": "2024-07-09T09:09:51.666Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Album.cs",
-              "DocumentMoniker": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Models\\Album.cs",
-              "RelativeDocumentMoniker": "MusicApp.Server\\Models\\Album.cs",
-              "ToolTip": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Models\\Album.cs",
-              "RelativeToolTip": "MusicApp.Server\\Models\\Album.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-10T13:43:22.518Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IMusicRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Repository\\Interfaces\\IMusicRepository.cs",
-              "RelativeDocumentMoniker": "MusicApp.Server\\Repository\\Interfaces\\IMusicRepository.cs",
-              "ToolTip": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Repository\\Interfaces\\IMusicRepository.cs",
-              "RelativeToolTip": "MusicApp.Server\\Repository\\Interfaces\\IMusicRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAABHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-12T15:56:52.091Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "20240705065027_2.cs",
-              "DocumentMoniker": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Migrations\\20240705065027_2.cs",
-              "RelativeDocumentMoniker": "MusicApp.Server\\Migrations\\20240705065027_2.cs",
-              "ToolTip": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Migrations\\20240705065027_2.cs",
-              "RelativeToolTip": "MusicApp.Server\\Migrations\\20240705065027_2.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-05T06:50:28.095Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "20240705071231_3.cs",
-              "DocumentMoniker": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Migrations\\20240705071231_3.cs",
-              "RelativeDocumentMoniker": "MusicApp.Server\\Migrations\\20240705071231_3.cs",
-              "ToolTip": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Migrations\\20240705071231_3.cs",
-              "RelativeToolTip": "MusicApp.Server\\Migrations\\20240705071231_3.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-05T07:12:31.232Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "dbo.Users [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/MusicAppDb/True/SqlTable/dbo.Users.sql",
-              "ToolTip": "dbo.Users [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-07-05T07:13:36.026Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "AlbumController.cs",
               "DocumentMoniker": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Controllers\\AlbumController.cs",
               "RelativeDocumentMoniker": "MusicApp.Server\\Controllers\\AlbumController.cs",
               "ToolTip": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Controllers\\AlbumController.cs",
               "RelativeToolTip": "MusicApp.Server\\Controllers\\AlbumController.cs",
-              "ViewState": "AQIAACMAAAAAAAAAAAAuwCgAAAA4AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T07:23:38.642Z"
+              "WhenOpened": "2024-07-09T07:07:43.132Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "MusicAppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Data\\MusicAppDbContext.cs",
-              "RelativeDocumentMoniker": "MusicApp.Server\\Data\\MusicAppDbContext.cs",
-              "ToolTip": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Data\\MusicAppDbContext.cs",
-              "RelativeToolTip": "MusicApp.Server\\Data\\MusicAppDbContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAABAAAA",
+              "DocumentIndex": 0,
+              "Title": "MusicController.cs",
+              "DocumentMoniker": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Controllers\\MusicController.cs",
+              "RelativeDocumentMoniker": "MusicApp.Server\\Controllers\\MusicController.cs",
+              "ToolTip": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Controllers\\MusicController.cs",
+              "RelativeToolTip": "MusicApp.Server\\Controllers\\MusicController.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAADwvyEAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T07:20:45.145Z"
+              "WhenOpened": "2024-07-09T06:22:36.074Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Program.cs",
-              "RelativeDocumentMoniker": "MusicApp.Server\\Program.cs",
-              "ToolTip": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Program.cs",
-              "RelativeToolTip": "MusicApp.Server\\Program.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAkwA4AAAAzAAAA",
+              "DocumentIndex": 3,
+              "Title": "dbo.Users [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/MusicAppDb/True/SqlTable/dbo.Users.sql",
+              "ToolTip": "dbo.Users [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-07-09T06:09:30.887Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthorizationController.cs",
+              "DocumentMoniker": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Controllers\\AuthorizationController.cs",
+              "RelativeDocumentMoniker": "MusicApp.Server\\Controllers\\AuthorizationController.cs",
+              "ToolTip": "C:\\Users\\Yarek\\Desktop\\React\\music-app\\MusicApp.Server\\Controllers\\AuthorizationController.cs",
+              "RelativeToolTip": "MusicApp.Server\\Controllers\\AuthorizationController.cs",
+              "ViewState": "AQIAAFMAAAAAAAAAAAAAwFwAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T07:20:48.441Z"
+              "WhenOpened": "2024-07-09T06:04:51.444Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -17,6 +17,7 @@ import AddMusicButton from "@/features/album/AddMusicButton.jsx";
 import CrossSvg from "@/svg/CrossSvg.jsx";
 import {removeFromAlbum} from "@/features/album/albumSlice.js";
 import {translation} from "@/features/settings/language.js";
+import ConfirmDeletingForm from "@/ui/ConfirmDeletingForm.jsx";
 
 function MusicToolbar({albumToolsActive = false, className}) {
     const music = useSelector(state => state.music.music);
@@ -27,7 +28,7 @@ function MusicToolbar({albumToolsActive = false, className}) {
     const menuIsActive = useSelector(state => state.menu.menuIsActive)
     const musicIsPlaying = useSelector(state => state.music.musicUrl)
     const activeAlbum = useSelector(state => state.album.activeAlbum)
-    const [confirmFormActive, setConfirmFormActive] = useState(false);
+    const [deletingFormActive, setDeletingFormActive] = useState(false);
 
     const node = useRef();
 
@@ -50,7 +51,7 @@ function MusicToolbar({albumToolsActive = false, className}) {
 
     function handleDeleting() {
         if (selectedMusic.length <= 0) return;
-        setConfirmFormActive(true)
+        setDeletingFormActive(true)
     }
 
     function handleDelete() {
@@ -60,7 +61,7 @@ function MusicToolbar({albumToolsActive = false, className}) {
             }
         )
         dispatch(cleanSelected());
-        setConfirmFormActive(false)
+        setDeletingFormActive(false)
         dispatch(toggleSelectMode());
     }
 
@@ -68,12 +69,12 @@ function MusicToolbar({albumToolsActive = false, className}) {
         if (selectedMusic.length <= 0) return;
         dispatch(removeFromAlbum(selectedMusic));
         dispatch(cleanSelected());
-        setConfirmFormActive(false)
+        setDeletingFormActive(false)
         dispatch(toggleSelectMode());
     }
 
     function handleCancel() {
-        setConfirmFormActive(false);
+        setDeletingFormActive(false);
         handleSelectMode();
         dispatch(cleanSelected());
     }
@@ -83,7 +84,7 @@ function MusicToolbar({albumToolsActive = false, className}) {
             if (selectedMusic.length <= 0) return;
             if (node.current && !node.current.contains(e.target)) {
                 dispatch(toggleSelectMode());
-                setConfirmFormActive(false);
+                setDeletingFormActive(false);
                 dispatch(cleanSelected());
             }
         };
@@ -119,23 +120,8 @@ function MusicToolbar({albumToolsActive = false, className}) {
                             <TrashSvg h={5} w={5} color="child-color-3"/>
                         </Button>
                         {
-                            confirmFormActive && (selectedMusic.length > 0) &&
-                            <div
-                                ref={node}
-                                className={`px-7 py-5 shadow-xl second-color rounded-xl absolute z-40
-                                bottom-2/4  right-1/2 flex flex-col gap-5 items-center translate-x-2/4 translate-y-1/3
-                                border-2 border-gray-600`}>
-                                <span>{translation.ConfirmDeleting}</span>
-                                <div className="flex gap-3 ">
-                                    <Button
-                                        className="border-gray-600 border-2 px-5"
-                                        onClick={handleCancel}>{translation.Cancel}
-                                    </Button>
-                                    <Button className="bg-red-600 px-5 hover:bg-red-700"
-                                            onClick={handleDelete}>{translation.Delete}
-                                    </Button>
-                                </div>
-                            </div>
+                            deletingFormActive && (selectedMusic.length > 0) &&
+                            <ConfirmDeletingForm onCancel={handleCancel} onDelete={handleDelete}/>
                         }
                         {albumToolsActive &&
                             <Button onClick={handleRemove}><CrossSvg className="child-color" h={5} w={5}/></Button>

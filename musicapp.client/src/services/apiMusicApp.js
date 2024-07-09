@@ -97,7 +97,7 @@ export async function getAlbum(id) {
 }
 
 export async function createUser(user) {
-    const response = await fetch(`${BASE_URL}/Authorisation/CreateUser`, {
+    const response = await fetch(`${BASE_URL}/Authorization/CreateUser`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -110,7 +110,7 @@ export async function createUser(user) {
 }
 
 export async function loginUser(user) {
-    const response = await fetch(`${BASE_URL}/Authorisation/Identify`, {
+    const response = await fetch(`${BASE_URL}/Authorization/Identify`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -123,7 +123,7 @@ export async function loginUser(user) {
 }
 
 export async function changeLogin(user) {
-    const response = await fetch(`${BASE_URL}/Authorisation/ChangeLogin`, {
+    const response = await fetch(`${BASE_URL}/Authorization/ChangeLogin`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
@@ -132,4 +132,28 @@ export async function changeLogin(user) {
     })
 
     return await response.json();
+}
+
+export async function changePassword(user) {
+    const response = await fetch(`${BASE_URL}/Authorization/ChangePassword`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+    })
+
+    return await response.json();
+}
+
+export async function deleteUser(id) {
+    const response = await fetch(`${BASE_URL}/Authorization/DeleteUser/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+    if (!response.ok) throw Error("Couldn't delete user");
+
+    return `Music with id ${id} has been deleted`;
 }

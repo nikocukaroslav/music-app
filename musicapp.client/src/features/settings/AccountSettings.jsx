@@ -4,17 +4,25 @@ import Button from "@/ui/Button.jsx";
 import {translation} from "@/features/settings/language.js";
 import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {setIsLoading, setUsername} from "@/features/authorization/authorizationSlice.js";
-import {changeLogin} from "@/services/apiMusicApp.js";
+import {setUsername} from "@/features/authorization/authorizationSlice.js";
+import {changeLogin, changePassword, deleteUser} from "@/services/apiMusicApp.js";
+import {setIsLoadingSettings} from "@/features/settings/settingsSlice.js";
+import {fetchMusic, removeMusic} from "@/features/music/musicSlice.js";
+import {useNavigate} from "react-router-dom";
+import ConfirmDeletingForm from "@/ui/ConfirmDeletingForm.jsx";
 
 function AccountSettings() {
     const [loginChanging, setLoginChanging] = useState(false);
     const [passwordChanging, setPasswordChanging] = useState(false);
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
+    const [deletingFormActive, setDeletingFormActive] = useState(false);
     const userId = useSelector(state => state.authorization.userId);
+    const music = useSelector(state => state.music.music);
 
     const dispatch = useDispatch();
+
+    const navigate = useNavigate();
 
     function handleLoginChangingActive() {
         setLoginChanging(!loginChanging);
@@ -30,10 +38,13 @@ function AccountSettings() {
         setPassword("");
     }
 
+    function handleDeletingFormActive() {
+        setDeletingFormActive(!deletingFormActive)
+    }
 
     async function handleSubmitChangeLogin(e) {
         e.preventDefault();
-        dispatch(setIsLoading(true))
+        dispatch(setIsLoadingSettings(true))
 
         const user = {
             id: userId,
@@ -48,16 +59,42 @@ function AccountSettings() {
         if (result.status === "successful")
             dispatch(setUsername(login));
 
-        dispatch(setIsLoading(false))
+        dispatch(setIsLoadingSettings(false))
     }
 
-    function handleSubmitChangePassword(e) {
+    async function handleSubmitChangePassword(e) {
         e.preventDefault();
+        dispatch(setIsLoadingSettings(true))
+
+        const user = {
+            id: userId,
+            login: login,
+            password: password,
+        }
+
+        const result = await changePassword(user);
+
+        console.log(result)
+
+        dispatch(setIsLoadingSettings(false))
+    }
+
+    async function deleteAccount() {
+        dispatch(setIsLoadingSettings(true));
+        dispatch(fetchMusic());
+
+        await Promise.all(music.map(song => dispatch(removeMusic(song.id))));
+
+        if (music.length === 0)
+            await deleteUser(userId);
+
+        dispatch(setIsLoadingSettings(false));
+
+        navigate("/Authorization/Login")
     }
 
     return (
         <>
-
             <h2 className="text-xl">Account settings</h2>
             <li>
                 <BigButton className={`${loginChanging && "rounded-b-none"}`}
@@ -109,13 +146,18 @@ function AccountSettings() {
                         <label className="flex flex-col gap-1">
                             <span>Confirm password</span>
                             <Input
-                                type="text"
+                                value={password}
+                                onChange={e => setPassword(e.target.value)}
+                                type="password"
+
                             />
                         </label>
                         <label className="flex flex-col gap-1">
                             <span>New password</span>
                             <Input
-                                type="text"
+                                value={login}
+                                onChange={e => setLogin(e.target.value)}
+                                type="password"
                             />
                         </label>
                         <div className="flex gap-3 ">
@@ -132,7 +174,15 @@ function AccountSettings() {
                 }
             </li>
             <li>
-                <BigButton className="bg-red-600 hover:bg-red-700">Delete account</BigButton>
+                <BigButton
+                    className="bg-red-600 hover:bg-red-700"
+                    onClick={handleDeletingFormActive}>
+                    Delete account
+                </BigButton>
+                {
+                    deletingFormActive &&
+                    <ConfirmDeletingForm onCancel={handleDeletingFormActive} onDelete={deleteAccount}/>
+                }
             </li>
         </>
     );

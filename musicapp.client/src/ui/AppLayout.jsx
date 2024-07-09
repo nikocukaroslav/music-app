@@ -12,6 +12,7 @@ import {useEffect} from "react";
 function AppLayout() {
     const isLoadingMusic = useSelector(state => state.music.isLoading);
     const isLoadingAlbum = useSelector(state => state.album.isLoading);
+    const isLoadingSettings = useSelector(state => state.settings.isLoading);
     const copied = useSelector(state => state.music.copied);
     const isMenuActive = useSelector((state) => state.menu.menuIsActive);
     const isMusicPlaying = useSelector((state) => state.music.musicUrl);
@@ -40,7 +41,7 @@ function AppLayout() {
             {
                 copied && <Copied/>
             }
-            {(isLoadingMusic || isLoadingAlbum) && <Loader/>}
+            {(isLoadingMusic || isLoadingAlbum || isLoadingSettings) && <Loader/>}
             <div className="h-screen flex flex-col relative">
                 <ToolBar/>
                 <main className="background-color flex flex-grow overflow-hidden">

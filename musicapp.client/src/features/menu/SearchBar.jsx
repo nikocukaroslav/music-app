@@ -63,7 +63,7 @@ function SearchBar() {
                         <MusicListForForms className="no-scrollbar overflow-auto mt-0 mb-0"
                                            songStyles="max-w-96 overflow-hidden" logoStyles="p-2"
                                            filteredMusic={filteredMusic}/>
-                    </ul> : <p className="absolute p-3 top-16 left-2/4
+                    </ul> : <p className="absolute p-3 top-16 left-2/4 rounded-md
                         -translate-x-2/4 z-30 w-1/4 border-2 border-gray-900 second-color">No music
                         found</p>)
             }
