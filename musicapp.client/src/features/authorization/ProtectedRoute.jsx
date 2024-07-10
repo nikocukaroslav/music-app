@@ -9,7 +9,7 @@ function ProtectedRoute({children}) {
     console.log(status)
     useEffect(() => {
         if (status !== "authorized") {
-            navigate('/Authorization/Login');
+            navigate('/authorization/login');
         }
     }, [status, navigate]);
 

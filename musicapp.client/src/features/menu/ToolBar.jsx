@@ -26,7 +26,7 @@ function ToolBar() {
             <SearchBar/>
             <div className="self-center flex gap-3 items-center">
                 <span>{login}</span>
-                <NavLink to="/Authorization/Login"><LogoutSvg/></NavLink>
+                <NavLink to="/authorization/login"><LogoutSvg/></NavLink>
             </div>
         </div>
     );

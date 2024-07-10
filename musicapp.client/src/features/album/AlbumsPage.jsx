@@ -26,7 +26,7 @@ function AlbumsPage() {
 
     return (
         <>
-            <section className="flex gap-4 mx-4 my-3  w-full">
+            <section className="flex gap-6 mx-4 my-3  w-full">
                 <div className="w-1/6 ">
                     <AddAlbumButton/>
                     <AlbumList/>

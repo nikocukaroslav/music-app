@@ -1,7 +1,6 @@
 import BigButton from "@/ui/BigButton.jsx";
 import Input from "@/ui/Input.jsx";
 import Button from "@/ui/Button.jsx";
-import {translation} from "@/features/settings/language.js";
 import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {setUsername} from "@/features/authorization/authorizationSlice.js";
@@ -10,6 +9,8 @@ import {setIsLoadingSettings} from "@/features/settings/settingsSlice.js";
 import {fetchMusic, removeMusic} from "@/features/music/musicSlice.js";
 import {useNavigate} from "react-router-dom";
 import ConfirmDeletingForm from "@/ui/ConfirmDeletingForm.jsx";
+import CrossSvg from "@/svg/CrossSvg.jsx";
+import ChevronSvg from "@/svg/ChevronSvg.jsx";
 
 function AccountSettings() {
     const [loginChanging, setLoginChanging] = useState(false);
@@ -90,61 +91,59 @@ function AccountSettings() {
 
         dispatch(setIsLoadingSettings(false));
 
-        navigate("/Authorization/Login")
+        navigate("/authorization/login")
     }
 
     return (
         <>
-            <h2 className="text-xl">Account settings</h2>
             <li>
-                <BigButton className={`${loginChanging && "rounded-b-none"}`}
-                           onClick={handleLoginChangingActive}>Change
-                    login</BigButton>
+                <BigButton className={`${loginChanging && "rounded-b-none"} py-5 px-3 relative items-center`}
+                           onClick={handleLoginChangingActive}> <span>Change
+                        login</span> <span className="absolute top-1/2 -translate-y-2/4 end-5">{loginChanging ?
+                    <CrossSvg h="6" w="6" className="bg-inherit"/> :
+                    <ChevronSvg w="8" h="8" className="bg-inherit"/>} </span>
+                </BigButton>
                 {
                     loginChanging &&
                     <form
                         onSubmit={handleSubmitChangeLogin}
-                        className="w-64 flex flex-col gap-2 second-color p-2 rounded-b-md">
-                        <label className="flex flex-col gap-1">
-                            <span>New login</span>
+                        className="flex gap-5 items-center second-color p-3 rounded-b-md">
+                        <label className="flex gap-5 items-center w-1/2">
+                            <span className="w-1/3">New login</span>
                             <Input
                                 value={login}
                                 onChange={e => setLogin(e.target.value)}
                                 type="text"
                             />
                         </label>
-                        <label className="flex flex-col gap-1">
-                            <span>Confirm password</span>
+                        <label className="flex gap-5 items-center w-1/2 ">
+                            <span className="w-1/3">Confirm password</span>
                             <Input
                                 value={password}
                                 onChange={e => setPassword(e.target.value)}
                                 type="password"
                             />
                         </label>
-                        <div className="flex gap-3 ">
-                            <Button
-                                className="border-2 border-color hover:bg-gray-500 w-1/2"
-                                padding="1"
-                                onClick={() => setLoginChanging(false)}
-                            >{translation.Cancel}</Button>
-                            <Button
-                                className="border-2 border-color main-color hover:bg-gray-700  w-1/2"
-                                padding="1">Save</Button>
-                        </div>
+                        <Button
+                            className="w-[10%] border-2 border-color main-color hover:bg-gray-700"
+                            padding="1">Save</Button>
                     </form>
                 }
             </li>
             <li>
-                <BigButton className={`${passwordChanging && "rounded-b-none"}`}
-                           onClick={handlePasswordChangingActive}>Change
-                    password</BigButton>
+                <BigButton className={`${passwordChanging && "rounded-b-none"} py-5 px-3 relative items-center`}
+                           onClick={handlePasswordChangingActive}> <span>Change
+                        login</span> <span className="absolute top-1/2 -translate-y-2/4 end-5">{passwordChanging ?
+                    <CrossSvg h="6" w="6" className="bg-inherit"/> :
+                    <ChevronSvg w="8" h="8" className="bg-inherit"/>} </span>
+                </BigButton>
                 {
                     passwordChanging &&
                     <form
                         onSubmit={handleSubmitChangePassword}
-                        className="w-64 flex flex-col gap-2 second-color p-2 rounded-b-md">
-                        <label className="flex flex-col gap-1">
-                            <span>Confirm password</span>
+                        className="flex gap-5 items-center second-color p-3 rounded-b-md">
+                        <label className="flex gap-5 items-center w-1/2">
+                            <span className="w-1/3">Confirm password</span>
                             <Input
                                 value={password}
                                 onChange={e => setPassword(e.target.value)}
@@ -152,30 +151,23 @@ function AccountSettings() {
 
                             />
                         </label>
-                        <label className="flex flex-col gap-1">
-                            <span>New password</span>
+                        <label className="flex gap-5 items-center w-1/2">
+                            <span className="w-1/3">New password</span>
                             <Input
                                 value={login}
                                 onChange={e => setLogin(e.target.value)}
                                 type="password"
                             />
                         </label>
-                        <div className="flex gap-3 ">
-                            <Button
-                                className="border-2 border-color hover:bg-gray-500 w-1/2"
-                                padding="1"
-                                onClick={() => setPasswordChanging(false)}
-                            >{translation.Cancel}</Button>
-                            <Button
-                                className="border-2 border-color main-color hover:bg-gray-700  w-1/2"
-                                padding="1">Save</Button>
-                        </div>
+                        <Button
+                            className="w-[10%] border-2 border-color main-color hover:bg-gray-700"
+                            padding="1">Save</Button>
                     </form>
                 }
             </li>
-            <li>
+            <li className="self-end ">
                 <BigButton
-                    className="bg-red-600 hover:bg-red-700"
+                    className="bg-red-600 hover:bg-red-700 w-52"
                     onClick={handleDeletingFormActive}>
                     Delete account
                 </BigButton>

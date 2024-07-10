@@ -24,7 +24,7 @@ function AppLayout() {
 
     useEffect(() => {
         if (location.pathname === "/") {
-            navigate("/Music");
+            navigate("/music");
         }
     }, [location, navigate]);
 

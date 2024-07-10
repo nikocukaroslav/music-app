@@ -45,7 +45,7 @@ function Login() {
         dispatch(setUserId(result.id))
 
         if (result.status === "authorized") {
-            navigate("/Music")
+            navigate("/music")
         } else {
             setIsIdentified(false)
             setTimeout(() =>

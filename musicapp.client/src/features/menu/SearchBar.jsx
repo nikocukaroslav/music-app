@@ -50,6 +50,7 @@ function SearchBar() {
     return (
         <div className="w-80 flex content-center gap-3 ml-12" ref={node}>
             <Input
+                placeholder="Search songs"
                 type="text"
                 onChange={handleSearch}
                 onClick={() => setSearchMode(true)}

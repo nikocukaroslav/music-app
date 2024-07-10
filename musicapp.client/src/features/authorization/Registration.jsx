@@ -56,7 +56,7 @@ function Registration() {
             dispatch(setUserId(result.newUser.id))
             dispatch(setUsername(result.newUser.login))
 
-            navigate("/Music")
+            navigate("/music")
         }
 
         dispatch(setIsLoading(false))

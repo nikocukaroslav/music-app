@@ -30,7 +30,7 @@ function Menu() {
                             ${isActive && "hover-color"}`
                         }
                         }
-                        to="/Music"
+                        to="/music"
                     >
                         <MusicSvg/>
                         <span>{translation.Music}</span>
@@ -43,7 +43,7 @@ function Menu() {
                             ${isActive && "hover-color"}`
                         }
                         }
-                        to="/Albums"
+                        to="/albums"
                     >
                         <AlbumSvg/>
                         <span>{translation.Albums}</span>
@@ -56,7 +56,7 @@ function Menu() {
                             ${isActive && "hover-color"}`
                         }
                         }
-                        to="/Settings"
+                        to="/settings"
                     >
                         <SettingsSvg/>
                         <span>{translation.Settings}</span>

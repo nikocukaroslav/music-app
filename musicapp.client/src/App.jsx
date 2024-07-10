@@ -13,20 +13,20 @@ import ProtectedRoute from "@/features/authorization/ProtectedRoute.jsx";
 
 const router = createBrowserRouter([
     {
-        path: "/Authorization",
+        path: "/authorization",
         element: <Authorization/>,
         children: [
             {
                 element: <Login/>,
-                path: "Login"
+                path: "login"
             },
             {
                 element: <Registration/>,
-                path: "Registration"
+                path: "registration"
             },
             {
                 element: <Settings global={true}/>,
-                path: "GlobalSettings"
+                path: "globalSettings"
             }
         ]
     },
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
         element: <AppLayout/>,
         children: [
             {
-                path: "/Music",
+                path: "/music",
                 element:
                     <ProtectedRoute>
                         <MusicPage/>
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
                 loader: musicLoader,
             },
             {
-                path: "Albums/:id?",
+                path: "/albums/:id?",
                 element:
                     <ProtectedRoute>
                         <AlbumsPage/>
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
                 loader: albumLoader,
             },
             {
-                path: "Settings",
+                path: "/settings",
                 element:
                     <ProtectedRoute>
                         <Settings/>

@@ -13,7 +13,7 @@ function Authorization() {
                 <NavLink
                     className="p-3 second-color border-2 border-gray-700 text-xl rounded-xl
                     hover:bg-inherit transition flex gap-3 items-center"
-                    to="GlobalSettings"
+                    to="globalsettings"
                 >
                     <SettingsSvg h={8} w={8}/>
                 </NavLink>
@@ -23,10 +23,10 @@ function Authorization() {
                     <nav className="shadow-xl flex divide-x-2 divide-gray-700 text-center absolute w-full">
                         <NavLink
                             className={({isActive}) => !isActive ? "w-1/2 hover:hover-color p-3 transition" : "w-1/2 p-3 hover-color"}
-                            to="Login">{translation.LogIn}</NavLink>
+                            to="login">{translation.LogIn}</NavLink>
                         <NavLink
                             className={({isActive}) => !isActive ? "w-1/2 hover:hover-color p-3 transition" : "w-1/2 p-3 hover-color"}
-                            to="Registration">{translation.Registration}</NavLink>
+                            to="registration">{translation.Registration}</NavLink>
                     </nav>
                     <div className="py-6 px-6 h-full pt-16 text-xl">
                         <Outlet/>
