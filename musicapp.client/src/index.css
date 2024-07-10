@@ -7,35 +7,44 @@ body {
 }
 
 @layer components {
-    .main-color {
-        @apply bg-gray-500
-    }
-
-    .second-color {
-        @apply bg-gray-700
-    }
-
-    .child-color {
-        @apply fill-green-600
-    }
-
-    .child-color-2 {
-        @apply fill-gray-700
-    }
-    .child-color-3 {
-        @apply fill-green-600
-    }
-
     .background-color {
         @apply bg-gray-500
     }
-
+    .background-color-darker {
+        @apply bg-gray-800
+    }
+    .main-color {
+        @apply bg-gray-700
+    }
     .hover-color {
         @apply bg-gray-600
     }
-
+    .gradient-color {
+        @apply from-gray-500 to-gray-600
+    }
     .border-color {
         @apply border-gray-500
+    }
+    .border-color-darker {
+        @apply border-gray-800
+    }
+    .checkbox-border{
+        @apply border-green-600
+    }
+    .checkbox-background {
+        @apply bg-green-600
+    }
+    .icon-color {
+        @apply fill-green-600
+    }
+    .icon-color-darker {
+        @apply fill-gray-700
+    }
+    .outline-color{
+        @apply outline-gray-600
+    }
+    .divide-color{
+        @apply divide-gray-800
     }
 
     .song-logo-one{
@@ -53,17 +62,6 @@ body {
     .song-logo-four{
         @apply bg-gradient-to-tr from-emerald-600 to-emerald-300
     }
- /*   .song-logo-one{
-        @apply bg-gradient-to-tr from-red-400 to-red-300
-    }
-
-    .song-logo-two{
-        @apply bg-gradient-to-tr from-indigo-400 to-indigo-300
-    }
-
-    .song-logo-three{
-        @apply bg-gradient-to-tr from-fuchsia-400 to-fuchsia-300
-    }*/
 
     .loader {
         width: 45px;

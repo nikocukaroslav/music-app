@@ -3,13 +3,14 @@ import {fetchAllMusic, fetchMusic, resetSelectMode} from "@/features/music/music
 import {fetchAlbums, setActiveAlbum} from "@/features/album/albumSlice.js";
 
 export async function musicLoader() {
-    store.dispatch(resetSelectMode())
-    await store.dispatch(setActiveAlbum(null))
+    store.dispatch(resetSelectMode());
+    await store.dispatch(setActiveAlbum(null));
     return store.dispatch(fetchMusic());
 }
 
 export async function albumLoader() {
-    store.dispatch(resetSelectMode())
+    store.dispatch(setActiveAlbum(null));
+    store.dispatch(resetSelectMode());
     await store.dispatch(fetchAllMusic());
     return store.dispatch(fetchAlbums());
 }
