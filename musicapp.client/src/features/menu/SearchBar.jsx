@@ -1,15 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SearchSvg from "@/svg/SearchSvg.jsx";
-import { fetchMusic } from "@/features/music/musicSlice.js";
+import { fetchAllMusic } from "@/features/music/musicSlice.js";
 import Input from "@/ui/Input.jsx";
 import MusicListForForms from "@/features/album/MusicListForForms.jsx";
+import { translation } from "@/features/settings/language.js";
 
 function SearchBar() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchMode, setSearchMode] = useState(false);
   const [filteredMusic, setFilteredMusic] = useState([]);
-  const musicList = useSelector((state) => state.music.music);
+  const musicList = useSelector((state) => state.music.allMusic);
 
   const node = useRef();
 
@@ -17,7 +18,11 @@ function SearchBar() {
 
   function toggleSearchMode() {
     setSearchMode(!searchMode);
-    if (!searchMode) dispatch(fetchMusic());
+  }
+
+  function activateSearchMode() {
+    setSearchMode(true);
+    dispatch(fetchAllMusic());
   }
 
   function handleSearch(e) {
@@ -30,7 +35,7 @@ function SearchBar() {
         music.name.toLowerCase().includes(searchTerm.toLowerCase()),
       ),
     );
-  }, [searchTerm]);
+  }, [musicList, searchTerm]);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -51,10 +56,10 @@ function SearchBar() {
   return (
     <div className="w-80 flex content-center gap-3 ml-12" ref={node}>
       <Input
-        placeholder="Search songs"
+        placeholder={translation.SearchMusic}
         type="text"
         onChange={handleSearch}
-        onClick={() => setSearchMode(true)}
+        onClick={activateSearchMode}
       />
       <button onClick={toggleSearchMode}>
         <SearchSvg />

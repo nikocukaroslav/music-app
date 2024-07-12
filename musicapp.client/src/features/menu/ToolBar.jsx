@@ -18,14 +18,14 @@ function ToolBar() {
   return (
     <div
       className="flex justify-between main-color p-5 w-full relative
-        shadow-[0_2px_6px_0_rgba(0,0,0,0.7)] shadow-gray-800 z-10"
+        toolbar-shadow z-10"
     >
       <button onClick={handleMenuActive}>
         {!menuIsActive ? (
           <MenuSvg h="8" w="8" />
         ) : (
           <div className="h-8 w-8 flex items-center justify-center">
-            <CrossSvg h="6" w="6" />
+            <CrossSvg className="svg-6 icon-color" />
           </div>
         )}
       </button>

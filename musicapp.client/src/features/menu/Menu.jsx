@@ -9,7 +9,7 @@ function Menu() {
   return (
     <nav
       className="h-full w-1/6 py-1 main-color
-             flex flex-col shadow-[0_0_12px_0_rgba(0,0,0,0.7)] shadow-gray-800"
+             flex flex-col menu-shadow "
     >
       <ul className="flex flex-col gap-1 h-full">
         <li>

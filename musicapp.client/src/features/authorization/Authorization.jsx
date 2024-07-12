@@ -7,11 +7,11 @@ import { translation } from "@/features/settings/language.js";
 function Authorization() {
   const isLoading = useSelector((state) => state.authorization.isLoading);
   return (
-    <>
+    <div className="text-color">
       {isLoading && <Loader />}
       <div className="absolute left-3 bottom-3">
         <NavLink
-          className="p-3 main-color border-2 border-gray-700 text-xl rounded-xl
+          className="p-3 main-color border-2 border-color text-xl rounded-xl
                     hover:bg-inherit transition flex gap-3 items-center"
           to="globalsettings"
         >
@@ -20,7 +20,7 @@ function Authorization() {
       </div>
       <main className="bg-gradient-to-bl gradient-color h-screen flex items-center justify-center">
         <div className="h-2/3 w-1/3 main-color rounded-xl overflow-hidden relative">
-          <nav className="shadow-xl flex divide-x-2 divide-gray-700 text-center absolute w-full">
+          <nav className="shadow-xl flex divide-x-2 divide-color text-center absolute w-full">
             <NavLink
               className={({ isActive }) => {
                 return `w-1/2 hover:hover-color p-3 transition ${isActive && "hover-color"}`;
@@ -43,7 +43,7 @@ function Authorization() {
           </div>
         </div>
       </main>
-    </>
+    </div>
   );
 }
 

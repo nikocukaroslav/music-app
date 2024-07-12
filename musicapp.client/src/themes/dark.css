@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .text-color {
+        @apply text-neutral-200;
+    }
+
+    .background-color {
+        @apply bg-neutral-800;
+    }
+
+    .background-color-darker {
+        @apply bg-neutral-800;
+    }
+
+    .main-color {
+        @apply bg-neutral-950;
+    }
+
+    .hover-color {
+        @apply bg-neutral-900;
+    }
+
+    .border-color {
+        @apply border-neutral-800;
+    }
+
+    .border-color-darker {
+        @apply border-neutral-900;
+    }
+
+    .checkbox-border {
+        @apply border-neutral-500;
+    }
+
+    .checkbox-background {
+        @apply bg-neutral-500;
+    }
+
+    .icon-color {
+        @apply fill-neutral-300;
+    }
+
+    .icon-color-darker {
+        @apply fill-neutral-950;
+    }
+
+    .outline-color {
+        @apply outline-neutral-700;
+    }
+
+    .divide-color {
+        @apply divide-neutral-900;
+    }
+
+    .toolbar-shadow {
+        @apply shadow-[0_2px_6px_0_rgba(229,229,229,0.07)]
+    }
+
+    .menu-shadow {
+        @apply shadow-[0_0_12px_0_rgba(229,229,229,0.07)]
+    }
+
+    .gradient-color {
+        @apply from-neutral-700 to-neutral-800;
+    }
+
+    .song-logo-one {
+        @apply bg-gradient-to-tr from-gray-400 to-gray-300 ;
+    }
+
+    .song-logo-two {
+        @apply bg-gradient-to-tr from-slate-400 to-slate-300 ;
+    }
+
+    .song-logo-three {
+        @apply bg-gradient-to-tr from-neutral-400 to-neutral-300 ;
+    }
+
+    .song-logo-four {
+        @apply bg-gradient-to-tr from-stone-400 to-stone-300 ;
+    }
+}
+
+
+.rhap_container {
+    box-shadow: 0 -2px 4px 0 rgba(229, 229, 229, 0.07) !important;
+    color: rgb(229 229 229) !important;
+    background-color: rgb(10 10 10) !important;
+}
+
+.rhap_main-controls-button {
+    color: #d4d4d4 !important;
+}
+
+.rhap_time {
+    color: rgb(229 229 229) !important;
+}
+
+.rhap_progress-filled {
+    background-color: #d4d4d4 !important;
+}
+
+.rhap_volume-bar-filled {
+    background-color: #d4d4d4 !important;
+}

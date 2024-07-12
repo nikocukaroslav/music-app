@@ -6,10 +6,13 @@ import SoundSvg from "@/svg/SoundSvg.jsx";
 import { useEffect, useState } from "react";
 import { randomColor } from "@/helpers.js";
 import PlayListSvg from "@/svg/PlayListSvg.jsx";
+import ConfirmDeletingForm from "@/ui/ConfirmDeletingForm.jsx";
 
 function Album({ album }) {
   const activeAlbum = useSelector((state) => state.album.activeAlbum);
   const dispatch = useDispatch();
+  const [deletingFormActive, setDeletingFormActive] = useState(false);
+
   const [color, setColor] = useState(
     localStorage.getItem(`color[${album.id}]`) || "",
   );
@@ -33,6 +36,16 @@ function Album({ album }) {
 
   async function handleSelect() {
     navigate(`/albums/${album.id}`);
+  }
+
+  function handleDeletingFormActive(e) {
+    e.stopPropagation();
+    setDeletingFormActive(true);
+  }
+
+  function handleCancel(e) {
+    e.stopPropagation();
+    setDeletingFormActive(false);
   }
 
   function handleDelete(e) {
@@ -64,10 +77,16 @@ function Album({ album }) {
       </div>
       <div className="flex items-center gap-2 ">
         <OptionsButton
-          onDelete={handleDelete}
+          onDelete={handleDeletingFormActive}
           isMusic={false}
           className="top-6 left-5"
         />
+        {deletingFormActive && (
+          <ConfirmDeletingForm
+            onCancel={handleCancel}
+            onDelete={handleDelete}
+          />
+        )}
       </div>
     </li>
   );

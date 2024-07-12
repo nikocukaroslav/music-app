@@ -105,11 +105,11 @@ function Song({
       <div className="flex gap-5 items-center">
         <div className={`${color}  ${logoStyles} rounded-l-md`}>
           {!hover && !isActive ? (
-            <NoteSvg h="14" w="14" className="icon-color-darker pr-1" />
+            <NoteSvg h="14" w="14" className="icon-color-darker pr-1 svg-14" />
           ) : isActive && isPlaying ? (
-            <PauseSvg h="14" w="14" className="icon-color-darker" />
+            <PauseSvg h="14" w="14" className="icon-color-darker svg-14" />
           ) : (
-            <PlaySvg h="14" w="14" className="icon-color-darker" />
+            <PlaySvg h="14" w="14" className="icon-color-darker svg-14" />
           )}
         </div>
         <span className={`${songStyles}`}>{song.name}</span>
@@ -119,7 +119,9 @@ function Song({
         {albumCreating || isSelectModeActive ? (
           <CheckBox
             type="checkbox"
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
             onChange={handleSelected}
             className="mr-5"
           />

@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+    .text-color {
+        @apply text-gray-100
+    }
+
+    .background-color {
+        @apply bg-gray-500
+    }
+
+    .background-color-darker {
+        @apply bg-gray-800
+    }
+
+    .main-color {
+        @apply bg-gray-700
+    }
+
+    .hover-color {
+        @apply bg-gray-600
+    }
+
+    .gradient-color {
+        @apply from-gray-500 to-gray-600
+    }
+
+    .border-color {
+        @apply border-gray-500
+    }
+
+    .border-color-darker {
+        @apply border-gray-800
+    }
+
+    .checkbox-border {
+        @apply border-green-600
+    }
+
+    .checkbox-background {
+        @apply bg-green-500
+    }
+
+    .icon-color {
+        @apply fill-green-500
+    }
+
+    .icon-color-darker {
+        @apply fill-gray-700
+    }
+
+    .outline-color {
+        @apply outline-gray-600
+    }
+
+    .divide-color {
+        @apply divide-gray-800
+    }
+
+    .toolbar-shadow {
+        @apply shadow-[0_2px_6px_0_rgba(31,41,55,0.7)]
+    }
+
+    .menu-shadow {
+        @apply shadow-[0_0_12px_0_rgba(31,41,55,0.7)]
+    }
+
+    .song-logo-one {
+        @apply bg-gradient-to-tr from-green-600 to-green-300
+    }
+
+    .song-logo-two {
+        @apply bg-gradient-to-tr from-cyan-600 to-cyan-300
+    }
+
+    .song-logo-three {
+        @apply bg-gradient-to-tr from-teal-600 to-teal-300
+    }
+
+    .song-logo-four {
+        @apply bg-gradient-to-tr from-emerald-600 to-emerald-300
+    }
+
+}
+
+
+.rhap_container {
+    box-shadow: 0 -2px 4px 0 rgba(31, 41, 55, 0.7) !important;
+    color: #f3f4f6 !important;
+    background-color: #374151 !important;
+}
+
+.rhap_main-controls-button {
+    color: #22c55e !important;
+}
+
+.rhap_time {
+    color: #f3f4f6 !important;
+}
+
+.rhap_progress-filled {
+    background-color: #f3f4f6 !important;
+}
+
+.rhap_volume-bar-filled {
+    background-color: #f3f4f6 !important;
+}

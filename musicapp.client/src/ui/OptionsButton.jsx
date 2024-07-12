@@ -39,7 +39,7 @@ function OptionsButton({
   }, [active]);
 
   return (
-    <div className="relative flex" ref={node}>
+    <div className="relative flex mr-2" ref={node}>
       <span className="p-1" onClick={handleActive}>
         <DotsSvg />
       </span>
@@ -52,7 +52,7 @@ function OptionsButton({
             className="p-1 flex gap-2.5 w-full items-center transition hover:hover-color"
             onClick={onDelete}
           >
-            <TrashSvg w="4" h="4" className="icon-color-darker" />
+            <TrashSvg w="4" h="4" className="icon-color" />
             {translation.Delete}
           </button>
           {isAlbumActive && isMusic && (
@@ -60,7 +60,7 @@ function OptionsButton({
               className="p-1 flex gap-2.5 w-full items-center transition hover:hover-color"
               onClick={onRemove}
             >
-              <CrossSvg h="4" w="4" className="icon-color-darker" />
+              <CrossSvg h="4" w="4" className="icon-color" />
               {translation.Remove}
             </button>
           )}
@@ -68,7 +68,7 @@ function OptionsButton({
             className="p-1 flex gap-2.5 w-full items-center transition hover:hover-color"
             onClick={onShare}
           >
-            <ShareSvg h="4" w="5" className="icon-color-darker" />
+            <ShareSvg h="4" w="5" className="icon-color" />
             {translation.Share}
           </button>
         </div>

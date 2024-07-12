@@ -1,16 +1,19 @@
-import {store} from "@/store.js";
-import {fetchAllMusic, fetchMusic, resetSelectMode} from "@/features/music/musicSlice.js";
-import {fetchAlbums, setActiveAlbum} from "@/features/album/albumSlice.js";
+import { store } from "@/store.js";
+import {
+  fetchAllMusic,
+  fetchMusic,
+  resetSelectMode,
+} from "@/features/music/musicSlice.js";
+import { fetchAlbums, setActiveAlbum } from "@/features/album/albumSlice.js";
 
 export async function musicLoader() {
-    store.dispatch(resetSelectMode());
-    await store.dispatch(setActiveAlbum(null));
-    return store.dispatch(fetchMusic());
+  store.dispatch(resetSelectMode());
+  await store.dispatch(setActiveAlbum(null));
+  return store.dispatch(fetchMusic());
 }
 
 export async function albumLoader() {
-    store.dispatch(setActiveAlbum(null));
-    store.dispatch(resetSelectMode());
-    await store.dispatch(fetchAllMusic());
-    return store.dispatch(fetchAlbums());
+  store.dispatch(resetSelectMode());
+  await store.dispatch(fetchAllMusic());
+  return store.dispatch(fetchAlbums());
 }

@@ -17,6 +17,7 @@ import CrossSvg from "@/svg/CrossSvg.jsx";
 import ChevronSvg from "@/svg/ChevronSvg.jsx";
 import UserSvg from "@/svg/UserSvg.jsx";
 import KeySvg from "@/svg/KeySvg.jsx";
+import { translation } from "@/features/settings/language.js";
 
 function AccountSettings() {
   const [loginChanging, setLoginChanging] = useState(false);
@@ -104,13 +105,13 @@ function AccountSettings() {
         <BigButton
           className={`${loginChanging && "rounded-b-none"} py-5 px-3 relative items-center`}
           onClick={handleLoginChangingActive}
-          svg={<UserSvg h="6" w="6" />}
+          svg={<UserSvg h="6" w="6" className="icon-color svg-6" />}
         >
           {" "}
-          <span>Change login</span>{" "}
+          <span>{translation.ChangeLogin}</span>{" "}
           <span className="absolute top-1/2 -translate-y-2/4 end-5">
             {loginChanging ? (
-              <CrossSvg h="6" w="6" className="bg-inherit" />
+              <CrossSvg h="6" w="6" className="bg-inherit svg-6" />
             ) : (
               <ChevronSvg w="8" h="8" className="bg-inherit" />
             )}{" "}
@@ -122,7 +123,7 @@ function AccountSettings() {
             className="flex gap-5 items-center main-color p-4 rounded-b-md"
           >
             <label className="flex gap-5 items-center w-1/2">
-              <span className="w-1/3">New login</span>
+              <span className="w-1/3">{translation.NewLogin}</span>
               <Input
                 value={login}
                 onChange={(e) => setLogin(e.target.value)}
@@ -130,7 +131,7 @@ function AccountSettings() {
               />
             </label>
             <label className="flex gap-5 items-center w-1/2 ">
-              <span className="w-1/3">Confirm password</span>
+              <span className="w-1/3">{translation.ConfirmPassword}</span>
               <Input
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -141,7 +142,7 @@ function AccountSettings() {
               className="w-[10%] border-2 border-color main-color hover:bg-gray-700"
               padding="1"
             >
-              Save
+              {translation.Save}
             </Button>
           </form>
         )}
@@ -150,13 +151,13 @@ function AccountSettings() {
         <BigButton
           className={`${passwordChanging && "rounded-b-none"} py-5 px-3 relative items-center`}
           onClick={handlePasswordChangingActive}
-          svg={<KeySvg h="6" w="6" />}
+          svg={<KeySvg h="6" w="6" className="icon-color svg-6" />}
         >
           {" "}
-          <span>Change password</span>{" "}
+          <span>{translation.ChangePassword}</span>{" "}
           <span className="absolute top-1/2 -translate-y-2/4 end-5">
             {passwordChanging ? (
-              <CrossSvg h="6" w="6" className="bg-inherit" />
+              <CrossSvg h="6" w="6" className="bg-inherit svg-6" />
             ) : (
               <ChevronSvg w="8" h="8" className="bg-inherit" />
             )}{" "}
@@ -168,7 +169,7 @@ function AccountSettings() {
             className="flex gap-5 items-center main-color p-4 rounded-b-md"
           >
             <label className="flex gap-5 items-center w-1/2">
-              <span className="w-1/3">Confirm password</span>
+              <span className="w-1/3">{translation.ConfirmPassword}</span>
               <Input
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -176,7 +177,7 @@ function AccountSettings() {
               />
             </label>
             <label className="flex gap-5 items-center w-1/2">
-              <span className="w-1/3">New password</span>
+              <span className="w-1/3">{translation.NewPassword}</span>
               <Input
                 value={login}
                 onChange={(e) => setLogin(e.target.value)}
@@ -187,17 +188,17 @@ function AccountSettings() {
               className="w-[10%] border-2 border-color main-color hover:bg-gray-700"
               padding="1"
             >
-              Save
+              {translation.Save}
             </Button>
           </form>
         )}
       </li>
       <li className="self-end ">
         <BigButton
-          className="bg-red-600 hover:bg-red-700 w-52"
+          className="bg-red-600 hover:bg-red-700 min-w-52"
           onClick={handleDeletingFormActive}
         >
-          Delete account
+          {translation.DeleteAccount}
         </BigButton>
         {deletingFormActive && (
           <ConfirmDeletingForm

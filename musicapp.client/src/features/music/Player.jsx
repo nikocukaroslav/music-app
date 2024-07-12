@@ -9,6 +9,8 @@ import {
   shuffleMusic,
 } from "@/features/music/musicSlice.js";
 import { useEffect, useState } from "react";
+import VolumeSvg from "@/svg/VolumeSvg.jsx";
+import VolumeMuteSvg from "@/svg/VolumeMuteSvg.jsx";
 
 function Player() {
   const musicUrl = useSelector((state) => state.music.musicUrl);
@@ -74,6 +76,10 @@ function Player() {
       customAdditionalControls={[<p>{currentMusicName}</p>]}
       onListen={() => dispatch(setIsPlaying(true))}
       onPause={() => dispatch(setIsPlaying(false))}
+      customIcons={{
+        volume: <VolumeSvg className="svg-6 icon-color" />,
+        volumeMute: <VolumeMuteSvg className="svg-6 icon-color" />,
+      }}
     />
   );
 }

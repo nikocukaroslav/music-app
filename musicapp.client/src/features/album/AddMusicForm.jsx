@@ -28,7 +28,7 @@ function AddMusicForm() {
 
   return (
     <form
-      className="absolute z-20 backdrop-blur-[6px] top-0 left-0 right-0 bottom-0 flex justify-center items-center w-screen"
+      className="text-color absolute z-20 backdrop-blur-[6px] top-0 left-0 right-0 bottom-0 flex justify-center items-center w-screen"
       onSubmit={handleSubmit}
     >
       <div className="w-1/3 h-2/3 main-color p-5 rounded-xl flex flex-col shadow-xl">
@@ -49,7 +49,10 @@ function AddMusicForm() {
             {translation.Cancel}
           </Button>
           {isMusicInList && (
-            <Button className="border-2 border-color background-color hover:bg-gray-700 w-1/2">
+            <Button
+              className="border-2 border-color background-color hover:main-color w-1/2"
+              hoverColor="main-color"
+            >
               {translation.Add}
             </Button>
           )}

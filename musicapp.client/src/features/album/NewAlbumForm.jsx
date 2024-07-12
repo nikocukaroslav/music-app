@@ -36,7 +36,7 @@ function NewAlbumForm() {
 
   return (
     <form
-      className="absolute z-20 backdrop-blur-[6px] top-0 left-0 right-0 bottom-0 flex justify-center items-center w-screen"
+      className="text-color absolute z-20 backdrop-blur-[6px] top-0 left-0 right-0 bottom-0 flex justify-center items-center w-screen"
       onSubmit={handleAddAlbum}
     >
       <div className="w-1/3 h-2/3 main-color p-5 rounded-xl flex flex-col shadow-xl">
@@ -64,7 +64,7 @@ function NewAlbumForm() {
             {translation.Cancel}
           </Button>
           <Button
-            className="border-2 border-color background-color  w-1/2"
+            className="border-2 border-color background-color  w-1/2 hover:main-color"
             hoverColor="main-color"
           >
             {translation.Add}
