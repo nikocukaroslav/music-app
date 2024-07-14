@@ -60,6 +60,10 @@
         @apply divide-gray-800
     }
 
+    .info-color{
+        @apply text-gray-300
+    }
+
     .toolbar-shadow {
         @apply shadow-[0_2px_6px_0_rgba(31,41,55,0.7)]
     }
@@ -83,7 +87,9 @@
     .song-logo-four {
         @apply bg-gradient-to-tr from-emerald-600 to-emerald-300
     }
-
+    .loader {
+        --c: no-repeat linear-gradient(theme(colors.gray.800) 0 0);
+    }
 }
 
 

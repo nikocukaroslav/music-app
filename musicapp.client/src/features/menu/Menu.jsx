@@ -8,7 +8,7 @@ import { translation } from "@/features/settings/language.js";
 function Menu() {
   return (
     <nav
-      className="h-full w-1/6 py-1 main-color
+      className="h-full w-1/6 min-w-52 py-1 main-color  max-[764px]:min-w-[unset] max-[764px]:w-fit
              flex flex-col menu-shadow "
     >
       <ul className="flex flex-col gap-1 h-full">
@@ -20,8 +20,8 @@ function Menu() {
             }}
             to="/music"
           >
-            <MusicSvg />
-            <span>{translation.Music}</span>
+            <MusicSvg className="max-[764px]:h-8 max-[764px]:w-8 icon-color" />
+            <span className="max-[764px]:hidden">{translation.Music}</span>
           </NavLink>
         </li>
         <li>
@@ -32,8 +32,8 @@ function Menu() {
             }}
             to="/albums"
           >
-            <AlbumSvg />
-            <span>{translation.Albums}</span>
+            <AlbumSvg className="max-[764px]:h-8 max-[764px]:w-8 icon-color" />
+            <span className="max-[764px]:hidden">{translation.Albums}</span>
           </NavLink>
         </li>
         <li className="">
@@ -44,8 +44,8 @@ function Menu() {
             }}
             to="/settings"
           >
-            <SettingsSvg />
-            <span>{translation.Settings}</span>
+            <SettingsSvg className="max-[764px]:h-8 max-[764px]:w-8 icon-color" />
+            <span className="max-[764px]:hidden">{translation.Settings}</span>
           </NavLink>
         </li>
       </ul>

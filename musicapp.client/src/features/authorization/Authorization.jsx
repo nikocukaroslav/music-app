@@ -19,7 +19,7 @@ function Authorization() {
         </NavLink>
       </div>
       <main className="bg-gradient-to-bl gradient-color h-screen flex items-center justify-center">
-        <div className="h-2/3 w-1/3 main-color rounded-xl overflow-hidden relative">
+        <div className="h-2/3 w-1/3 max-[900px]:w-2/3  main-color rounded-xl overflow-hidden relative">
           <nav className="shadow-xl flex divide-x-2 divide-color text-center absolute w-full">
             <NavLink
               className={({ isActive }) => {

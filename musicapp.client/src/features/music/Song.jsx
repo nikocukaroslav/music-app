@@ -23,7 +23,7 @@ import CheckBox from "@/ui/CheckBox.jsx";
 
 function Song({
   song,
-  logoStyles = "p-4",
+  logoStyles = "p-4 max-[764px]:p-3",
   songStyles,
   albumCreating = false,
   shadow = "shadow",
@@ -102,8 +102,8 @@ function Song({
       className={`flex justify-between ${isActive ? "hover-color" : "main-color"}
                  content-center items-center hover:hover-color transition rounded-md ${shadow}`}
     >
-      <div className="flex gap-5 items-center">
-        <div className={`${color}  ${logoStyles} rounded-l-md`}>
+      <div className="flex gap-5 items-center max-[764px]:gap-3">
+        <div className={`${color}  ${logoStyles}  rounded-l-md`}>
           {!hover && !isActive ? (
             <NoteSvg h="14" w="14" className="icon-color-darker pr-1 svg-14" />
           ) : isActive && isPlaying ? (
@@ -112,9 +112,11 @@ function Song({
             <PlaySvg h="14" w="14" className="icon-color-darker svg-14" />
           )}
         </div>
-        <span className={`${songStyles}`}>{song.name}</span>
+        <span className={`text-wrap break-all pr-5 leading-5 ${songStyles}`}>
+          {song.name}
+        </span>
       </div>
-      <div className="flex items-center gap-10">
+      <div className="flex items-center gap-10 max-[764px]:gap-3">
         <span>{toShortTime(song.duration)}</span>
         {albumCreating || isSelectModeActive ? (
           <CheckBox
@@ -123,7 +125,7 @@ function Song({
               e.stopPropagation();
             }}
             onChange={handleSelected}
-            className="mr-5"
+            className="mr-5 max-[764px]:mr-2"
           />
         ) : (
           <OptionsButton

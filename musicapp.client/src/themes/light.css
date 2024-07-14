@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+    .text-color {
+        @apply text-purple-950;
+    }
+
+    .background-color {
+        @apply bg-neutral-100;
+    }
+
+    .background-color-darker {
+        @apply bg-neutral-400;
+    }
+
+    .main-color {
+        @apply bg-neutral-300;
+    }
+
+    .hover-color {
+        @apply bg-purple-400;
+    }
+
+    .border-color {
+        @apply border-purple-400;
+    }
+
+    .border-color-darker {
+        @apply border-purple-500;
+    }
+
+    .checkbox-border {
+        @apply border-purple-400;
+    }
+
+    .checkbox-background {
+        @apply bg-purple-400;
+    }
+
+    .icon-color {
+        @apply fill-purple-950;
+    }
+
+    .icon-color-darker {
+        @apply fill-purple-950;
+    }
+
+    .outline-color {
+        @apply outline-purple-400;
+    }
+
+    .divide-color {
+        @apply divide-purple-500;
+    }
+
+    .gradient-color {
+        @apply from-neutral-100 to-neutral-200;
+    }
+
+    .info-color{
+        @apply text-purple-500
+    }
+
+    .toolbar-shadow {
+        @apply shadow-[0_2px_6px_0_rgba(0,0,0,0.2)];
+    }
+
+    .menu-shadow {
+        @apply shadow-[0_0_12px_0_rgba(0,0,0,0.2)];
+    }
+
+    .song-logo-one {
+        @apply bg-gradient-to-tr from-purple-300 to-indigo-200;
+    }
+
+    .song-logo-two {
+        @apply bg-gradient-to-tr from-purple-300 to-indigo-200;
+    }
+
+    .song-logo-three {
+        @apply bg-gradient-to-tr from-purple-300 to-indigo-200;
+    }
+
+    .song-logo-four {
+        @apply bg-gradient-to-tr from-purple-300 to-indigo-200;
+    }
+
+    .loader {
+        --c: no-repeat linear-gradient(theme(colors.purple.800) 0 0);
+    }
+
+}
+
+
+.rhap_container {
+    box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.2) !important;
+    color: #0a0a0a !important;
+    background-color: rgb(163 163 163) !important;
+}
+
+.rhap_main-controls-button {
+    color: rgb(59 7 100) !important;
+}
+
+.rhap_time {
+    color: rgb(59 7 100) !important;
+}
+
+.rhap_progress-filled {
+    background-color:  rgb(59 7 100) !important;
+}
+

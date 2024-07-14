@@ -31,7 +31,7 @@ function ToolBar() {
       </button>
       <SearchBar />
       <div className="self-center flex gap-3 items-center">
-        <span>{login}</span>
+        <span className="max-[764px]:hidden">{login}</span>
         <NavLink to="/authorization/login">
           <LogoutSvg h="8" w="8" />
         </NavLink>

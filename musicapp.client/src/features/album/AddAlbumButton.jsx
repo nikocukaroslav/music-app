@@ -10,19 +10,19 @@ function AddAlbumButton() {
 
     function handleCreateAlbumForm() {
         dispatch(toggleCreateAlbumForm());
-        dispatch(cleanSelected())
+        dispatch(cleanSelected());
     }
 
     return (
         <BigButton
             onClick={handleCreateAlbumForm}
-            svg={<PlusSvg/>}
-            className="w-full mb-3"
+            svg={<PlusSvg className="max-[764px]:h-8 max-[764px]:w-8 icon-color"/>}
+            className="mb-3 max-[764px]:flex max-[764px]:flex-col max-[764px]:w-20
+            max-[764px]:h-full max-[764px]:max-[764px]:py-1 max-[764px]:justify-end"
         >
             {translation.NewAlbum}
         </BigButton>
     );
 }
-
 
 export default AddAlbumButton;

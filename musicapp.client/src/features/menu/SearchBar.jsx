@@ -54,7 +54,10 @@ function SearchBar() {
   }, [searchMode]);
 
   return (
-    <div className="w-80 flex content-center gap-3 ml-12" ref={node}>
+    <div
+      className="w-80 max-[764px]:w-auto flex content-center gap-3 ml-12 max-[764px]:ml-0"
+      ref={node}
+    >
       <Input
         placeholder={translation.SearchMusic}
         type="text"
@@ -62,19 +65,19 @@ function SearchBar() {
         onClick={activateSearchMode}
       />
       <button onClick={toggleSearchMode}>
-        <SearchSvg />
+        <SearchSvg className="max-[764px]:hidden" />
       </button>
       {searchMode &&
         searchTerm.length > 0 &&
         (filteredMusic.length > 0 ? (
           <ul
-            className="absolute flex flex-col rounded-md main-color shadow-md border-2 border-color-darker
-                     top-16 left-2/4 -translate-x-2/4 z-30 w-1/3
+            className="absolute flex flex-col rounded-xl main-color shadow-md border-2 border-color-darker
+                     top-16 left-2/4 -translate-x-2/4 z-30 w-1/3  max-[1300px]:w-2/3
                          overflow-auto max-h-[50vh]"
           >
             <MusicListForForms
               className="no-scrollbar overflow-auto mt-0 mb-0"
-              songStyles="max-w-96 overflow-hidden"
+              songStyles="max-[764px]:w-52 max-[620px]:w-36 min-w-36 text-wrap max-[764px]:text-nowrap text-ellipsis overflow-hidden"
               logoStyles="p-2"
               filteredMusic={filteredMusic}
             />

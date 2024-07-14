@@ -5,10 +5,9 @@ import RepeatSvg from "@/svg/RepeatSvg.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import {
   cleanSelected,
-  loopMusic,
   removeMusic,
-  setShuffled,
-  shuffleMusic,
+  setLooping,
+  setShuffling,
   toggleSelectMode,
 } from "@/features/music/musicSlice.js";
 import TrashSvg from "@/svg/TrashSvg.jsx";
@@ -25,7 +24,6 @@ function MusicToolbar({ albumToolsActive = false, className }) {
   const activeShuffling = useSelector((state) => state.music.shuffle);
   const activeSelectMode = useSelector((state) => state.music.selectMode);
   const selectedMusic = useSelector((state) => state.music.selectedMusic);
-  const menuIsActive = useSelector((state) => state.menu.menuIsActive);
   const musicIsPlaying = useSelector((state) => state.music.musicUrl);
   const activeAlbum = useSelector((state) => state.album.activeAlbum);
   const [deletingFormActive, setDeletingFormActive] = useState(false);
@@ -35,14 +33,11 @@ function MusicToolbar({ albumToolsActive = false, className }) {
   const dispatch = useDispatch();
 
   function handleShuffling() {
-    dispatch(setShuffled());
-    if (!musicIsPlaying) {
-      dispatch(shuffleMusic());
-    }
+    dispatch(setShuffling());
   }
 
   function handleLooping() {
-    dispatch(loopMusic());
+    dispatch(setLooping(true));
   }
 
   function handleSelectMode() {
@@ -118,7 +113,7 @@ function MusicToolbar({ albumToolsActive = false, className }) {
           {activeSelectMode && (
             <>
               <Button onClick={handleDeleting}>
-                <TrashSvg h={5} w={5} className="icon-color" />
+                <TrashSvg h="5" w="5" className="icon-color" />
               </Button>
               {deletingFormActive && selectedMusic.length > 0 && (
                 <ConfirmDeletingForm
@@ -128,7 +123,7 @@ function MusicToolbar({ albumToolsActive = false, className }) {
               )}
               {albumToolsActive && (
                 <Button onClick={handleRemove}>
-                  <CrossSvg className="icon-color" h={5} w={5} />
+                  <CrossSvg className="icon-color" h="5" w="5" />
                 </Button>
               )}
             </>

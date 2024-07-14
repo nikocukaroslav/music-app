@@ -2,23 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-.svg-14{
+.svg-14 {
     min-height: 3.5rem;
     min-width: 3.5rem;
 }
 
-.svg-6{
+.svg-6 {
     min-height: 1.5rem;
     min-width: 1.5rem;
 }
 
-.svg-8{
+.svg-8 {
     min-height: 2rem;
     min-width: 2rem;
 }
 
 @layer components {
-
     .no-scrollbar::-webkit-scrollbar {
         display: none;
     }
@@ -32,7 +31,6 @@
     .loader {
         width: 45px;
         aspect-ratio: 0.75;
-        --c: no-repeat linear-gradient(theme(colors.neutral.900) 0 0);
         background: var(--c) 0% 50%, var(--c) 50% 50%, var(--c) 100% 50%;
         background-size: 20% 50%;
         animation: loading 1s infinite linear;
@@ -51,6 +49,21 @@
         }
         80% {
             background-position: 0% 50%, 50% 50%, 100% 100%;
+        }
+    }
+
+    .music-name {
+        display: block;
+        animation: scroll 15s linear infinite;
+        white-space: nowrap;
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(-100%);
         }
     }
 }

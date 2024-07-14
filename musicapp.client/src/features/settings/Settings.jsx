@@ -45,15 +45,12 @@ function Settings({ global = false }) {
             <h3 className="text-xl">{translation.Language}</h3>
           </div>
           <select
-            className={`background-color rounded-md p-2.5 ${global ? "w-1/3" : "w-1/6"} outline-none`}
+            className={`background-color rounded-md p-2.5 ${global ? "w-1/3" : "w-1/6"} outline-none max-[764px]:w-1/3`}
             onChange={handleLanguage}
+            value={language}
           >
-            <option value="eng" selected={language === "eng"}>
-              English
-            </option>
-            <option value="uk" selected={language === "uk"}>
-              Українська
-            </option>
+            <option value="eng">English</option>
+            <option value="uk">Українська</option>
           </select>
         </li>
         <li
@@ -64,21 +61,14 @@ function Settings({ global = false }) {
             <h3 className="text-xl">{translation.Theme}</h3>
           </div>
           <select
-            className={`rounded-md background-color p-2.5 ${global ? "w-1/3" : "w-1/6"} outline-none`}
+            className={`rounded-md background-color p-2.5 ${global ? "w-1/3" : "w-1/6"} outline-none max-[764px]:w-1/3`}
             onChange={handleTheme}
+            value={theme}
           >
-            <option value="light" selected={theme === "light"}>
-              {translation.Light}
-            </option>
-            <option value="dark" selected={theme === "dark"}>
-              {translation.Dark}
-            </option>
-            <option value="gray" selected={theme === "gray"}>
-              {translation.Gray}
-            </option>
-            <option value="neon" selected={theme === "neon"}>
-              {translation.Neon}
-            </option>
+            <option value="light">{translation.Light}</option>
+            <option value="dark">{translation.Dark}</option>
+            <option value="gray">{translation.Gray}</option>
+            <option value="neon">{translation.Neon}</option>
           </select>
         </li>
 
@@ -87,7 +77,7 @@ function Settings({ global = false }) {
             <div className="flex gap-3 items-center">
               <SkipEndSvg h="6" w="6" className="-ml-1 icon-color svg-6" />
 
-              <h3 className="text-xl">{translation.ShowJumpControls}</h3>
+              <h3 className="text-xl pr-2">{translation.ShowJumpControls}</h3>
             </div>
             <div className="rounded-md overflow-hidden w-64">
               <Button

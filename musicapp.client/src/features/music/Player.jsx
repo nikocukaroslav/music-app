@@ -4,11 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   playNextSong,
   playPreviousSong,
-  replaySong,
   setIsPlaying,
   shuffleMusic,
 } from "@/features/music/musicSlice.js";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import VolumeSvg from "@/svg/VolumeSvg.jsx";
 import VolumeMuteSvg from "@/svg/VolumeMuteSvg.jsx";
 
@@ -25,11 +24,13 @@ function Player() {
 
   const dispatch = useDispatch();
 
+  const playerRef = useRef();
+
   useEffect(() => {
-    if (isShuffled) {
-      handleShuffled();
+    if (playerRef.current) {
+      playerRef.current.audio.current.loop = isLooping;
     }
-  }, [isShuffled]);
+  }, [isLooping]);
 
   useEffect(() => {
     localStorage.setItem("volume", volume);
@@ -55,7 +56,10 @@ function Player() {
 
   return (
     <AudioPlayer
+      ref={playerRef}
+      loop={isLooping}
       id="player"
+      className="flex justify-center"
       src={musicUrl}
       controls
       autoPlay
@@ -63,17 +67,19 @@ function Player() {
       onClickPrevious={handlePrevious}
       showSkipControls
       showJumpControls={showJumpControls}
-      onEnded={
-        isLooping
-          ? () => dispatch(replaySong())
-          : isShuffled
-            ? handleShuffled
-            : handleNext
-      }
-      loop={isLooping}
+      onEnded={isShuffled ? handleShuffled : handleNext}
       onVolumeChange={handleVolumeChange}
       volume={volume}
-      customAdditionalControls={[<p>{currentMusicName}</p>]}
+      customAdditionalControls={[
+        <div
+          key={musicUrl}
+          className="flex items-center justify-center max-[764px]:w-52 h-52 overflow-hidden"
+        >
+          <p className={"max-[764px]:music-name text-center w-[80vw]"}>
+            {currentMusicName}
+          </p>
+        </div>,
+      ]}
       onListen={() => dispatch(setIsPlaying(true))}
       onPause={() => dispatch(setIsPlaying(false))}
       customIcons={{

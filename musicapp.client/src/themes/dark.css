@@ -8,7 +8,7 @@
     }
 
     .background-color {
-        @apply bg-neutral-800;
+        @apply bg-neutral-700;
     }
 
     .background-color-darker {
@@ -16,15 +16,15 @@
     }
 
     .main-color {
-        @apply bg-neutral-950;
-    }
-
-    .hover-color {
         @apply bg-neutral-900;
     }
 
+    .hover-color {
+        @apply bg-neutral-800
+    }
+
     .border-color {
-        @apply border-neutral-800;
+        @apply border-neutral-700;
     }
 
     .border-color-darker {
@@ -40,15 +40,15 @@
     }
 
     .icon-color {
-        @apply fill-neutral-300;
+        @apply fill-neutral-400;
     }
 
     .icon-color-darker {
-        @apply fill-neutral-950;
+        @apply fill-neutral-900;
     }
 
     .outline-color {
-        @apply outline-neutral-700;
+        @apply outline-neutral-600;
     }
 
     .divide-color {
@@ -64,23 +64,31 @@
     }
 
     .gradient-color {
-        @apply from-neutral-700 to-neutral-800;
+        @apply from-neutral-600 to-neutral-700;
+    }
+
+    .info-color{
+        @apply text-neutral-300
     }
 
     .song-logo-one {
-        @apply bg-gradient-to-tr from-gray-400 to-gray-300 ;
+        @apply bg-gradient-to-tr from-neutral-400 to-neutral-200 ;
     }
 
     .song-logo-two {
-        @apply bg-gradient-to-tr from-slate-400 to-slate-300 ;
+        @apply bg-gradient-to-tr from-neutral-400 to-neutral-200 ;
     }
 
     .song-logo-three {
-        @apply bg-gradient-to-tr from-neutral-400 to-neutral-300 ;
+        @apply bg-gradient-to-tr from-neutral-400 to-neutral-200 ;
     }
 
     .song-logo-four {
-        @apply bg-gradient-to-tr from-stone-400 to-stone-300 ;
+        @apply bg-gradient-to-tr from-neutral-400 to-neutral-200 ;
+    }
+
+    .loader {
+        --c: no-repeat linear-gradient(theme(colors.neutral.900) 0 0);
     }
 }
 
@@ -88,11 +96,11 @@
 .rhap_container {
     box-shadow: 0 -2px 4px 0 rgba(229, 229, 229, 0.07) !important;
     color: rgb(229 229 229) !important;
-    background-color: rgb(10 10 10) !important;
+    background-color: rgb(38 38 38) !important;
 }
 
 .rhap_main-controls-button {
-    color: #d4d4d4 !important;
+    color:  #a3a3a3 !important;
 }
 
 .rhap_time {
@@ -100,9 +108,9 @@
 }
 
 .rhap_progress-filled {
-    background-color: #d4d4d4 !important;
+    background-color:  #a3a3a3!important;
 }
 
 .rhap_volume-bar-filled {
-    background-color: #d4d4d4 !important;
+    background-color:  #a3a3a3 !important;
 }

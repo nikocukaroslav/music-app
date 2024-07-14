@@ -32,7 +32,8 @@ function Playlist() {
                         }
                     </>
                     :
-                    <p className="w-full flex justify-center items-center h-[80dvh] text-2xl">{translation.ChooseAlbum}</p>
+                    <p className="w-full flex justify-center
+                    items-center h-[80dvh] max-[764px]:h-[50dvh] text-2xl">{translation.ChooseAlbum}</p>
             }
         </div>
     );

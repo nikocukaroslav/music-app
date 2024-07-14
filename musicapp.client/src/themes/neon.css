@@ -59,6 +59,10 @@
         @apply divide-stone-900;
     }
 
+    .info-color{
+        @apply text-gray-300
+    }
+
     .toolbar-shadow {
         @apply shadow-[0_2px_6px_0_rgba(29,78,216,0.2)]
     }
@@ -82,13 +86,16 @@
     .song-logo-four {
         @apply bg-gradient-to-tr from-pink-500 to-pink-300;
     }
+    .loader {
+        --c: no-repeat linear-gradient(theme(colors.blue.900) 0 0);
+    }
 }
 
 
 .rhap_container {
     box-shadow: 0 -2px 4px 0 rgba(29, 78, 216, 0.2) !important;
     color: rgb(241 245 249) !important;
-    background-color: rgb(12 10 9) !important;
+    background-color: rgb(15 23 42) !important;
 }
 
 .rhap_main-controls-button {

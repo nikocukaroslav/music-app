@@ -39,7 +39,7 @@ function OptionsButton({
   }, [active]);
 
   return (
-    <div className="relative flex mr-2" ref={node}>
+    <div className="relative flex mr-2 max-[764px]:mr-0" ref={node}>
       <span className="p-1" onClick={handleActive}>
         <DotsSvg />
       </span>

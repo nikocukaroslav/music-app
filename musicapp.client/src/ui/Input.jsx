@@ -10,7 +10,7 @@ function Input({
 }) {
   return (
     <input
-      className={`p-1 background-color outline outline-color text-gray-100 rounded-md w-full ${className}`}
+      className={`p-1 background-color outline outline-color text-color rounded-md w-full ${className}`}
       required={required}
       onChange={onChange}
       onClick={onClick}

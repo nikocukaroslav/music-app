@@ -120,9 +120,9 @@ function AccountSettings() {
         {loginChanging && (
           <form
             onSubmit={handleSubmitChangeLogin}
-            className="flex gap-5 items-center main-color p-4 rounded-b-md"
+            className="flex gap-5 items-center main-color p-4 rounded-b-md max-[764px]:flex-col"
           >
-            <label className="flex gap-5 items-center w-1/2">
+            <label className="flex gap-5 items-center w-1/2 max-[764px]:w-full">
               <span className="w-1/3">{translation.NewLogin}</span>
               <Input
                 value={login}
@@ -130,7 +130,7 @@ function AccountSettings() {
                 type="text"
               />
             </label>
-            <label className="flex gap-5 items-center w-1/2 ">
+            <label className="flex gap-5 items-center w-1/2 max-[764px]:w-full">
               <span className="w-1/3">{translation.ConfirmPassword}</span>
               <Input
                 value={password}
@@ -139,7 +139,7 @@ function AccountSettings() {
               />
             </label>
             <Button
-              className="w-[10%] border-2 border-color main-color hover:bg-gray-700"
+              className="w-[10%] max-[764px]:w-1/4 max-[764px]:self-end border-2 border-color main-color hover:bg-gray-700"
               padding="1"
             >
               {translation.Save}
@@ -153,22 +153,21 @@ function AccountSettings() {
           onClick={handlePasswordChangingActive}
           svg={<KeySvg h="6" w="6" className="icon-color svg-6" />}
         >
-          {" "}
-          <span>{translation.ChangePassword}</span>{" "}
+          <span>{translation.ChangePassword}</span>
           <span className="absolute top-1/2 -translate-y-2/4 end-5">
             {passwordChanging ? (
               <CrossSvg h="6" w="6" className="bg-inherit svg-6" />
             ) : (
               <ChevronSvg w="8" h="8" className="bg-inherit" />
-            )}{" "}
+            )}
           </span>
         </BigButton>
         {passwordChanging && (
           <form
             onSubmit={handleSubmitChangePassword}
-            className="flex gap-5 items-center main-color p-4 rounded-b-md"
+            className="flex gap-5 items-center main-color p-4 rounded-b-md max-[764px]:flex-col"
           >
-            <label className="flex gap-5 items-center w-1/2">
+            <label className="flex gap-5 items-center w-1/2 max-[764px]:w-full">
               <span className="w-1/3">{translation.ConfirmPassword}</span>
               <Input
                 value={password}
@@ -176,7 +175,7 @@ function AccountSettings() {
                 type="password"
               />
             </label>
-            <label className="flex gap-5 items-center w-1/2">
+            <label className="flex gap-5 items-center w-1/2 max-[764px]:w-full">
               <span className="w-1/3">{translation.NewPassword}</span>
               <Input
                 value={login}
@@ -185,7 +184,8 @@ function AccountSettings() {
               />
             </label>
             <Button
-              className="w-[10%] border-2 border-color main-color hover:bg-gray-700"
+              className="w-[10%] border-2 border-color main-color hover:bg-gray-700
+              max-[764px]:w-1/4 max-[764px]:self-end"
               padding="1"
             >
               {translation.Save}
