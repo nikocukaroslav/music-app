@@ -68,12 +68,15 @@
     }
 }
 
+.rhap_main {
+    gap: 12px !important;
+}
+
 .rhap_container {
     padding: 12px 16px !important;
 }
 
 .rhap_main-controls-button {
-    margin-top: 12px !important;
     width: 100% !important;
     height: 100% !important;
     font-size: 44px !important;
@@ -85,4 +88,33 @@
     transform: translateX(-50%);
     font-size: 18px;
     justify-content: flex-end !important;
+}
+
+
+@media screen and (max-width: 764px) {
+    .svg-14 {
+        min-height: 2.75rem;
+        min-width: 2.75rem;
+    }
+
+    .rhap_main-controls-button {
+        font-size: 36px !important;
+    }
+
+    .rhap_main {
+        gap: 6px !important;
+    }
+
+    .rhap_time {
+        font-size: 12px !important;
+    }
+
+    .rhap_controls-section {
+        display: flex !important;
+    }
+
+    .rhap_additional-controls {
+        position: absolute !important;
+        justify-content: center !important;
+    }
 }

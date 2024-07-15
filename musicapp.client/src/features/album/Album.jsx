@@ -58,14 +58,14 @@ function Album({album}) {
         <>
             <li
                 onClick={handleSelect}
-                className={`w-full max-[764px]:w-auto main-color flex hover:hover-color rounded-md shadow
+                className={`w-full max-[1150px]:w-auto main-color flex hover:hover-color rounded-md shadow
                 transition gap-3 items-center justify-between ${isPlaying ? "hover-color" : "main-color"}
                  relative`}
             >
-                <div className="flex gap-3 max-[764px]:gap-1 items-center max-[764px]:flex-col">
+                <div className="flex gap-3 max-[1150px]:gap-1 items-center max-[1150px]:flex-col">
                     <div
                         className={`${color}  
-                        p-4 max-[764px]:rounded-md max-[764px]:p-5 rounded-l-md`}
+                        p-4 max-[1150px]:rounded-md max-[1150px]:p-5 rounded-l-md`}
                     >
                         {isPlaying ? (
                             <SoundSvg className="icon-color-darker" h="8" w="8"/>
@@ -73,17 +73,19 @@ function Album({album}) {
                             <PlayListSvg className="icon-color-darker" h="8" w="8"/>
                         )}
                     </div>
-                    <div className="flex flex-col gap-1 max-[764px]:gap-0 max-[764px]:self-start max-[764px]:p-1">
+                    <div className="flex flex-col gap-1 max-[1150px]:gap-0 max-[1150px]:self-start max-[1150px]:p-1">
                         <span
-                            className="text-xl max-[764px]:text-lg
-                            max-[764px]:max-w-16 max-[764px]:overflow-ellipsis max-[764px]:overflow-hidden ">{album.name}</span>
+                            className="text-xl max-[764px]:text-sm
+                            max-[1150px]:max-w-16 max-[1150px]:overflow-ellipsis max-[1150px]:overflow-hidden">{album.name}
+                        </span>
                         <span className="text-xs info-color">{album.musicList.length}{" "}
                             {translation.Songs}
                         </span>
                     </div>
                 </div>
                 <div
-                    className="flex items-center gap-2 max-[764px]:absolute max-[764px]:top-0  max-[764px]:-right-1">
+                    className="flex items-center gap-2 max-[1150px]:absolute
+                    max-[1150px]:top-1 max-[1150px]:-right-3 max-[764px]:-right-1">
                     <OptionsButton
                         onDelete={handleDeletingFormActive}
                         isMusic={false}

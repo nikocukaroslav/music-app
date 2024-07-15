@@ -16,9 +16,9 @@ function AddAlbumButton() {
     return (
         <BigButton
             onClick={handleCreateAlbumForm}
-            svg={<PlusSvg className="max-[764px]:h-8 max-[764px]:w-8 icon-color"/>}
-            className="mb-3 max-[764px]:flex max-[764px]:flex-col max-[764px]:w-20
-            max-[764px]:h-full max-[764px]:max-[764px]:py-1 max-[764px]:justify-end"
+            svg={<PlusSvg className="max-[1150px]:h-8 max-[1150px]:w-8 icon-color"/>}
+            className="mb-3 max-[1150px]:flex max-[1150px]:flex-col max-[1150px]:w-20
+            max-[1150px]:h-full max-[1150px]:py-1 max-[1150px]:justify-end max-[1150px]:gap-5"
         >
             {translation.NewAlbum}
         </BigButton>

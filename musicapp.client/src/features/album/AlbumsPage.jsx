@@ -25,14 +25,14 @@ function AlbumsPage() {
 
     return (
         <>
-            <section className="flex gap-6 mx-4 my-3  w-full max-[764px]:flex-col">
+            <section className="flex gap-6 mx-4 my-3 w-full max-[1150px]:flex-col">
                 <div
-                    className=" w-1/6 max-[764px]:w-full max-[764px]:flex max-[764px]:gap-3   ">
+                    className="w-1/6 min-w-64 max-[1150px]:w-full max-[1150px]:flex max-[1150px]:gap-3">
                     <AddAlbumButton/>
                     <AlbumList/>
                 </div>
                 {albums.length > 0 && (
-                    <div className="w-5/6 max-[764px]:w-full">
+                    <div className="w-5/6 max-[1150px]:w-full">
                         <Playlist/>
                     </div>
                 )}

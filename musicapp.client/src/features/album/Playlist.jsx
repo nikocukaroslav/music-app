@@ -13,7 +13,7 @@ function Playlist() {
     const music = useSelector(state => state.music.music);
 
     return (
-        <div className=" h-full">
+        <div className="h-full">
             {
                 (albumIsActive && id) ?
                     <>
@@ -33,7 +33,7 @@ function Playlist() {
                     </>
                     :
                     <p className="w-full flex justify-center
-                    items-center h-[80dvh] max-[764px]:h-[50dvh] text-2xl">{translation.ChooseAlbum}</p>
+                    items-center h-[80dvh] max-[1150px]:h-[50dvh] text-2xl">{translation.ChooseAlbum}</p>
             }
         </div>
     );
